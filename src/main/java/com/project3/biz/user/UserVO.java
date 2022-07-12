@@ -8,7 +8,7 @@ public class UserVO {
 	private String auth;			// 권한
 	private String pw;				// 비밀번호
 	private String name;			// 이름
-	private String moblie;			// 휴대폰 번호
+	private String mobile;			// 휴대폰 번호
 	private String email;			// 이메일
 	private String major;			// 전공
 	private String major2;			// 복수전공

@@ -22,7 +22,7 @@
 		<![CDATA[
 		SELECT *
 		FROM users
-		WHERE userId = #{userId};
+		WHERE userId = #{userId} AND pw = #{pw};
 		]]>
 	</select>
 	
