@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserDAO">
+
+	<resultMap id="userResult" type="user">
+		<id property="userId" column="userId" />
+		<result property="auth" column="auth" />
+		<result property="pw" column="pw" />
+		<result property="name" column="name" />
+		<result property="mobile" column="mobile" />
+		<result property="email" column="email" />
+		<result property="major" column="major" />
+		<result property="major2" column="major2" />
+		<result property="subMajor" column="subMajor" />
+		<result property="zipCode" column="zipCode" />
+		<result property="address1" column="address1" />
+		<result property="address2" column="address2" />
+	</resultMap>
+	
+	<select id="getUser" resultType="user">
+		<![CDATA[
+		SELECT *
+		FROM users
+		WHERE userId = #{userId};
+		]]>
+	</select>
+	
+	<update id="updateUser">
+		<![CDATA[
+		UPDATE users SET
+		mobile = #{mobile},
+		email = #{email},
+		zipCode = #{zipCode},
+		address1 = #{address1},
+		address2 = #{address2}
+		WHERE userId = #{userId}
+		]]>
+	</update>
+	
+	<select id="getUserList" resultMap="userResult">
+		<![CDATA[
+		SELECT *
+		FROM users
+		]]>
+	</select>
+</mapper>

@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 	
-	<context:component-scan base-package="com.project3.lms" />
+	<context:component-scan base-package="com.project3.biz" />
 
 	<!-- Spring JDBC 설정 -->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
@@ -32,5 +32,12 @@
 		<property name="password" value="${jdbc.password}"/>
 	</bean>
 	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:sql-map-config.xml"/>
+	</bean>
+	<bean class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSession"></constructor-arg>
+	</bean>
 	
 </beans>
