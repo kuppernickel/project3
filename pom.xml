@@ -22,7 +22,14 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-	
+		
+		<!-- 스프링 tx -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
 	
 		<!-- MySQL -->
 		<dependency>
@@ -124,8 +131,8 @@
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -155,6 +162,20 @@
 			<version>1.18.12</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!--mybatis-->
+        <!--버전호환문제로 3.3.1-->
+        <dependency>
+         <groupId>org.mybatis</groupId>
+         <artifactId>mybatis</artifactId>
+         <version>3.3.1</version>
+      </dependency>
+        
+       <dependency>
+         <groupId>org.mybatis</groupId>
+         <artifactId>mybatis-spring</artifactId>
+         <version>1.2.4</version>
+      </dependency>
 		
 	</dependencies>
     <build>
