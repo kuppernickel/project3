@@ -11,6 +11,6 @@ public class LogoutController {
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "login.jsp"; // index로 돌려야함
+		return "/html/index.jsp"; // index로 돌려야함
 	}
 }
