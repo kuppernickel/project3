@@ -14,11 +14,12 @@
         <result property="updateDate" column="updateDate" />
 	</resultMap>
 
+
+	<!-- Notice테이블 SQL문 -->
 	<insert id="insertNoticeBoard" parameterType="board">
 		<![CDATA[
-		INSERT INTO BOARD(SEQ, TITLE, WRITER, CONTENT)
-		VALUES((SELECT NVL(MAX(SEQ), 0) + 1 FROM BOARD),
-		#{title}, #{writer}, #{content})
+		INSERT INTO Notice(title, writer, content, fileName, fileSize)
+		VALUES(#{title}, #{writer}, #{content}, ${fileName}, #{fileSize})
 		]]>
 	</insert>
 
@@ -47,6 +48,53 @@
 	</select>
 
 	<select id="getNoticeBoardList" resultMap="boardResult">
+		SELECT *
+		FROM BOARD
+		WHERE 1 = 1
+		<if test="searchCondition == 'TITLE'">
+			AND TITLE LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		<if test="searchCondition == 'CONTENT'">
+			AND CONTENT LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		ORDER BY SEQ DESC
+	</select>
+	
+	
+	<!-- Task테이블 관련 SQL문 -->
+	<insert id="insertTaskBoard" parameterType="board">
+		<![CDATA[
+		INSERT INTO BOARD(SEQ, TITLE, WRITER, CONTENT)
+		VALUES((SELECT NVL(MAX(SEQ), 0) + 1 FROM BOARD),
+		#{title}, #{writer}, #{content})
+		]]>
+	</insert>
+	
+	<update id="updateTaskBoard">
+		<![CDATA[
+		UPDATE BOARD SET
+		TITLE = #{title},
+		CONTENT = #{content}
+		WHERE SEQ = #{seq}
+		]]>
+	</update>
+
+	<delete id="deleteTaskBoard">
+		<![CDATA[
+		DELETE BOARD
+		WHERE SEQ = #{seq}
+		]]>
+	</delete>
+
+	<select id="getTaskBoard" resultType="board">
+		<![CDATA[
+		SELECT *
+		FROM BOARD
+		WHERE SEQ = #{seq}
+		]]>
+	</select>
+
+	<select id="getTaskBoardList" resultMap="boardResult">
 		SELECT *
 		FROM BOARD
 		WHERE 1 = 1
