@@ -4,11 +4,14 @@
 <mapper namespace="BoardDAO">
 
 	<resultMap id="boardResult" type="board">
-		<id property="seq" column="SEQ" />
-		<result property="title" column="TITLE" />
-		<result property="writer" column="WRITER" />
-		<result property="content" column="CONTENT" />
-		<result property="regDate" column="REGDATE" />
+        <id property="seq" column="seq" />
+        <result property="title" column="title" />
+        <result property="writer" column="writer" />
+        <result property="content" column="content" />
+        <result property="fileName" column="fileName" />
+        <result property="fileSize" column="fileSize" />
+        <result property="writeDate" column="writeDate" />
+        <result property="updateDate" column="updateDate" />
 	</resultMap>
 
 	<insert id="insertBoard" parameterType="board">

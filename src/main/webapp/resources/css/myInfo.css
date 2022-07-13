@@ -1,0 +1,78 @@
+
+tbody {
+    cursor: default;
+}
+
+container {
+    margin: 5rem 5rem 5rem 5rem;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+.card{
+    width: 18rem;
+}
+
+.card-img-top:hover{
+    transition: 1s;
+    opacity: 0.5;
+}
+
+table{
+    width: 50rem;
+    height: 30rem;
+}
+
+
+tbody{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    height: 50vh;
+}
+
+tr{
+    width: 100%;
+    padding: 20px;
+}
+
+
+tr:first-child{
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    margin-bottom: 30px;
+}
+
+.tableList{
+    width: 10rem;
+}
+
+
+.tableTitle{
+    font-size: 2.5rem;
+    padding: 10px;
+}
+
+input,
+textarea{
+    width: 35rem;
+}
+
+textarea{
+    height: 5rem;
+}
+
+form > div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+@media screen and (max-width: 1024px) {
+    container {
+        margin: 5rem 5rem 5rem 5rem;
+    }
+    .card{
+        width: 13rem;
+    }
+}

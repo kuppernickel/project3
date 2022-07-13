@@ -1,0 +1,54 @@
+.inactive,
+.inactive2{
+    display: none;
+}
+
+
+.modalBackground,
+.modalBackground2{
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 998;
+}
+
+
+.modalContainer,
+.modalContainer2{
+    width: 350px;
+    height: 350px;
+    margin: 150px auto;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.modalTitle,
+.modalTitle2{
+    text-align: center;
+    font-size: 2em;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 16px;
+}
+
+
+.modalText,
+.modalText2{
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+.modalBnt,
+.modalBnt2{
+    text-align: center;
+    margin-top: 40px;
+}

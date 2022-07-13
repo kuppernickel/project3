@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    border-style: none;
+    text-decoration: none;
+}
+/* 시험 페이지 헤더 */
+
+
+header{
+    height: 55px;
+    width: 100%;
+    background: #f8f9fa;
+    color: black;
+    align-items: center;
+}
+
+.headerWrap{
+    display: flex;
+    justify-content: space-around;
+    line-height: 55px;
+}
+
+/* 시험페이지 메인 */
+
+main{
+    width: 100%;
+    height: 100%;
+}
+
+.examMain{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 80vh;
+}
+
+.examBtn{
+    text-align: center;
+    position: relative;
+    margin-top: 40px;
+}
+
+.arrowLeft,
+.arrowRight,
+ion-icon{
+    width: 5vw;
+    height: 8vh;
+    cursor: pointer;
+}
+
+.examBtn{
+
+}
+

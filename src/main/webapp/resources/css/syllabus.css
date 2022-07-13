@@ -1,0 +1,132 @@
+main{
+    width: 90rem;
+    height: 40rem;
+    margin: 50px auto;
+}
+
+.lessonPlan{
+    margin: 2rem 0 0 10rem;
+    font-size: 1.5rem;
+}
+
+.lessonPlan2{
+    margin: 2rem 0 0 10rem;
+    font-size: 1.5rem;
+}
+
+.tableWrap{
+    width: 80rem;
+    padding: 10px;
+}
+
+table,
+table2{
+    margin-left: 100px;
+    height: 100%;
+    table-layout: fixed;
+    word-break: break-all;
+    text-align: center;
+    width: 70rem;
+}
+
+tr{
+    padding: 30px;
+}
+
+th, td{
+    padding: 10px;
+    border: 1px solid lightgray;
+}
+
+.lectureTitle{
+    margin-left: 10rem;
+}
+
+
+/* filter */
+
+.filterWrap {
+    width: 70rem;
+    margin: 0 25px 0 120px;
+}
+.filterWrap .filterList{
+    display: flex;
+    justify-content: end;
+}
+
+.filterWrap .filterList ul li{
+    padding: 0 15px;
+}
+
+.filterWrap .filterList ul li select,
+.filterWrap .filterList input{
+    height: 40px;
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+    padding: 0 14px;
+    letter-spacing: 2px;
+}
+
+.filterWrap .filterList input{
+    width: 30%;
+}
+.filterWrap .filterList ul li select option{
+    letter-spacing: 2px;
+}
+
+.filterWrap .filterList ul li select:focus,
+.filterWrap .filterList input:focus{
+    box-shadow: 0 0 5px #86b7fe;
+    border: 1px solid #86b7fe;
+    border-radius: 1rem;
+}
+
+.filterWrap .filterList ul li select:focus-visible,
+.filterWrap .filterList input:focus-visible{
+    outline: 1px solid #86b7fe;
+    border-radius: 1rem;
+}
+
+@media  screen and (max-width: 1024px) {
+    .loginForm{
+        margin: 20px auto;
+    }
+
+    main{
+        width: 50rem;
+        padding: 20px 0;
+    }
+
+    .lectureTitle{
+        margin-left: 5rem;
+    }
+
+    .filterWrap{
+        width: 50rem;
+        padding: 20px 0;
+        margin: 25px 25px 25px 0px;
+    }
+
+    .tableWrap {
+        width: 50rem;
+        padding: 30px;
+    }
+
+    table{
+        margin-left: 0px;
+        width: 50rem;
+        font-size: 1rem;
+    }
+    table2{
+        margin-left: 0px;
+        width: 50rem;
+        font-size: 0.5rem;
+    }
+    .lessonPlan{
+        margin: 2rem 0 0 2rem;
+    }
+
+    .lessonPlan2{
+        margin: 2rem 0 0 2rem;
+    }
+}

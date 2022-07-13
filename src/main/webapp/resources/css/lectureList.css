@@ -1,0 +1,93 @@
+.mainWrap{
+    width: 80rem;
+    height: 45rem;
+    margin: 25px auto;
+    overflow: hidden;
+}
+
+.search{
+    width: 60rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mainWrap .search input{
+    width: 50%;
+    padding: 0.5rem;
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+}
+
+.mainWrap .search input:focus{
+    box-shadow: 0 0 5px #86b7fe;
+    border: 1px solid #86b7fe;
+    border-radius: 1rem;
+}
+
+.mainWrap .search input:focus-visible{
+    outline: 1px solid #86b7fe;
+    border-radius: 1rem;
+}
+
+.listWrap{
+    width: 80rem;
+    height: 40rem;
+    margin: 25px auto;
+}
+
+.listWrap a{
+    text-decoration: none;
+    color: black;
+}
+
+.list{
+    padding: 5px;
+    height: 7rem;
+    width: 50rem;
+    margin: 0 auto;
+    border-bottom: 1px solid lightgray;
+}
+
+.list img{
+    width: 6rem;
+    height: 6rem;
+    float: left;
+    margin-right: 2rem;
+}
+.list. .textTitle{
+    font-size: 1.5rem;
+}
+.list .badge{
+    margin-right: 2rem;
+}
+
+.list .text{
+    line-height: 2rem;
+}
+@media screen and (max-width: 1024px) {
+    .loginForm{
+        margin: 20px auto;
+    }
+
+    main{
+        width: 50rem;
+        padding: 20px 0;
+        margin: 0 auto;
+    }
+
+    .mainWrap {
+        width: 50rem;
+        height: 45rem;
+        margin: 25px auto;
+        overflow: hidden;
+    }
+    .listWrap {
+        width: 40rem;
+        height: 40rem;
+        margin: 25px auto;
+    }
+    .search {
+        width: 50rem;
+    }
+}
+
