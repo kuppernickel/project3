@@ -1,10 +1,13 @@
 package com.project3.lesson.impl;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project3.lesson.LessonService;
 import com.project3.lesson.LessonVO;
 
-public class LessonServiceImpl {
+public class LessonServiceImpl implements LessonService{
 	
 	@Autowired
 	private LessonDAO lessonDAO;
