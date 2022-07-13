@@ -2,17 +2,30 @@ package com.project3.biz.user.impl;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.project3.biz.user.UserVO;
 
-@Component
-public interface UserDAO {
+import org.mybatis.spring.SqlSessionTemplate;
 
-	public UserVO getUser(UserVO vo);
-	
-	public void updateUser(UserVO vo);
+@Repository
+public class UserDAO {
+	@Autowired
+	private SqlSessionTemplate mybatis;
 
-	public List<UserVO> getUserList(UserVO vo);
+	public UserVO getUser(UserVO vo) {
+		System.out.println("===> Mybatis�� getUser() ��� ó��");
+		return (UserVO) mybatis.selectOne("UserDAO.getUser", vo);
+	}
 	
+	public void updateUser(UserVO vo) {
+		System.out.println("===> Mybatis�� updateUser() ��� ó��");
+		mybatis.update("UserDAO.updateUser", vo);
+	}
+
+	public List<UserVO> getUserList(UserVO vo) {
+		System.out.println("===> Mybatis�� getUserList() ��� ó��");
+		return mybatis.selectList("UserDAO.getUserList", vo);
+	}
 }
