@@ -14,7 +14,7 @@
         <result property="updateDate" column="updateDate" />
 	</resultMap>
 
-	<insert id="insertBoard" parameterType="board">
+	<insert id="insertNoticeBoard" parameterType="board">
 		<![CDATA[
 		INSERT INTO BOARD(SEQ, TITLE, WRITER, CONTENT)
 		VALUES((SELECT NVL(MAX(SEQ), 0) + 1 FROM BOARD),
@@ -22,7 +22,7 @@
 		]]>
 	</insert>
 
-	<update id="updateBoard">
+	<update id="updateNoticeBoard">
 		<![CDATA[
 		UPDATE BOARD SET
 		TITLE = #{title},
@@ -31,14 +31,14 @@
 		]]>
 	</update>
 
-	<delete id="deleteBoard">
+	<delete id="deleteNoticeBoard">
 		<![CDATA[
 		DELETE BOARD
 		WHERE SEQ = #{seq}
 		]]>
 	</delete>
 
-	<select id="getBoard" resultType="board">
+	<select id="getNoticeBoard" resultType="board">
 		<![CDATA[
 		SELECT *
 		FROM BOARD
@@ -46,7 +46,7 @@
 		]]>
 	</select>
 
-	<select id="getBoardList" resultMap="boardResult">
+	<select id="getNoticeBoardList" resultMap="boardResult">
 		SELECT *
 		FROM BOARD
 		WHERE 1 = 1

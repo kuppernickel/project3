@@ -14,33 +14,28 @@ public class BoardServiceImpl implements BoardService{
 	private BoardDAO boardDAO;
 
 	@Override
-	public boolean insertBoard(BoardVO vo, String type) {
-		// TODO Auto-generated method stub
-		return false;
+	public void insertBoard(BoardVO vo) {
+		boardDAO.insertBoard(vo);
 	}
 
 	@Override
-	public BoardVO getBoard(int seq, String type) {
-		// TODO Auto-generated method stub
-		return null;
+	public BoardVO getBoard(BoardVO vo) {
+		return boardDAO.getBoard(vo);
 	}
 
 	@Override
-	public boolean updateBoard(BoardVO vo, String type) {
-		// TODO Auto-generated method stub
-		return false;
+	public void updateBoard(BoardVO vo) {
+		boardDAO.updateBoard(vo);
 	}
 
 	@Override
-	public boolean deleteBoard(BoardVO vo, String type) {
-		// TODO Auto-generated method stub
-		return false;
+	public void deleteBoard(BoardVO vo) {
+		boardDAO.deleteBoard(vo);
 	}
 
 	@Override
-	public List<BoardVO> getBoardList(String type) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BoardVO> getBoardList(BoardVO vo) {
+		return boardDAO.getBoardList(vo);
 	}
 	
 	
