@@ -56,6 +56,7 @@ public class LoginController {
 		//System.out.println(user.getName());
 		if(user!=null) {
 			session.setAttribute("userName", user.getName());
+			System.out.println(session.getAttribute("userName"));
 			return "/WEB-INF/views/home.jsp"; //임시
 		}else return "/WEB-INF/views/login.jsp"; //임시
 	}
