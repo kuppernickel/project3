@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserVO {
-	private int userId;				// 로그인 아이디(학번, 직번)
+	private String userId;				// 로그인 아이디(학번, 직번)
 	private String auth;			// 권한
 	private String pw;				// 비밀번호
 	private String name;			// 이름
@@ -13,7 +13,7 @@ public class UserVO {
 	private String major;			// 전공
 	private String major2;			// 복수전공
 	private String subMajor;		// 부전공
-	private int zipCode;			// 우편번호
+	private String zipCode;			// 우편번호
 	private String address1;		// 주소
 	private String address2;		// 상세주소
 }

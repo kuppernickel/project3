@@ -11,5 +11,7 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+<p>${userName}</p>
+<a href="login.do">login</a>
 </body>
 </html>

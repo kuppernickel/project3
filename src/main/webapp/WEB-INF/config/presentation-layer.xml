@@ -9,6 +9,8 @@
 
 	<!-- Controller관여 (화면) -->
 	<context:component-scan base-package="com.project3.view"></context:component-scan>
+	<!-- annotation exception, xml transfer -->
+	<mvc:annotation-driven></mvc:annotation-driven>
 	
 	<!-- 파일 업로드 설정 -->
 	<bean id="multipartResolver"
