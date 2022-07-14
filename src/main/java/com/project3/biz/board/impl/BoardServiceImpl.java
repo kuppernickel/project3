@@ -14,28 +14,28 @@ public class BoardServiceImpl implements BoardService{
 	private BoardDAO boardDAO;
 
 	@Override
-	public void insertBoard(BoardVO vo) {
-		boardDAO.insertBoard(vo);
+	public void insertNoticeBoard(BoardVO vo) {
+		boardDAO.insertNoticeBoard(vo);
 	}
 
 	@Override
-	public BoardVO getBoard(BoardVO vo) {
-		return boardDAO.getBoard(vo);
+	public BoardVO getNoticeBoard(BoardVO vo) {
+		return boardDAO.getNoticeBoard(vo);
 	}
 
 	@Override
-	public void updateBoard(BoardVO vo) {
-		boardDAO.updateBoard(vo);
+	public void updateNoticeBoard(BoardVO vo) {
+		boardDAO.updateNoticeBoard(vo);
 	}
 
 	@Override
-	public void deleteBoard(BoardVO vo) {
-		boardDAO.deleteBoard(vo);
+	public void deleteNoticeBoard(BoardVO vo) {
+		boardDAO.deleteNoticeBoard(vo);
 	}
 
 	@Override
-	public List<BoardVO> getBoardList(BoardVO vo) {
-		return boardDAO.getBoardList(vo);
+	public List<BoardVO> getNoticeBoardList(BoardVO vo) {
+		return boardDAO.getNoticeBoardList(vo);
 	}
 	
 	
