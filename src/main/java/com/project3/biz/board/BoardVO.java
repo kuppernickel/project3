@@ -1,5 +1,9 @@
 package com.project3.biz.board;
 
+import java.beans.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -12,5 +16,6 @@ public class BoardVO {
 	private int fileSize;
 	private String writeDate;
 	private String updateDate;
+	private MultipartFile uploadFile;
 	
 }

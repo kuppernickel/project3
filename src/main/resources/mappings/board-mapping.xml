@@ -18,93 +18,85 @@
 	<!-- Notice테이블 SQL문 -->
 	<insert id="insertNoticeBoard" parameterType="board">
 		<![CDATA[
-		INSERT INTO Notice(title, writer, content, fileName, fileSize)
+		INSERT INTO notice(title, writer, content, fileName, fileSize)
 		VALUES(#{title}, #{writer}, #{content}, ${fileName}, #{fileSize})
 		]]>
 	</insert>
-
+	
+	<!-- 파일은 수정하지 못하도록 할 예정 
+		수정 날짜는 트리거를 활용할 예정 -->
 	<update id="updateNoticeBoard">
 		<![CDATA[
-		UPDATE BOARD SET
-		TITLE = #{title},
-		CONTENT = #{content}
-		WHERE SEQ = #{seq}
+		UPDATE notice SET
+		title = #{title},
+		content = #{content},
+		WHERE seq = #{seq}
 		]]>
 	</update>
 
 	<delete id="deleteNoticeBoard">
 		<![CDATA[
-		DELETE BOARD
-		WHERE SEQ = #{seq}
+		DELETE notice
+		WHERE seq = #{seq}
 		]]>
 	</delete>
 
 	<select id="getNoticeBoard" resultType="board">
 		<![CDATA[
 		SELECT *
-		FROM BOARD
-		WHERE SEQ = #{seq}
+		FROM notice
+		WHERE seq = #{seq}
 		]]>
 	</select>
 
 	<select id="getNoticeBoardList" resultMap="boardResult">
+		<![CDATA[
 		SELECT *
-		FROM BOARD
-		WHERE 1 = 1
-		<if test="searchCondition == 'TITLE'">
-			AND TITLE LIKE '%'||#{searchKeyword}||'%'
-		</if>
-		<if test="searchCondition == 'CONTENT'">
-			AND CONTENT LIKE '%'||#{searchKeyword}||'%'
-		</if>
+		FROM notice
 		ORDER BY SEQ DESC
+		]]>
 	</select>
 	
 	
-	<!-- Task테이블 관련 SQL문 -->
-	<insert id="insertTaskBoard" parameterType="board">
+	<!-- task테이블 SQL문 -->
+	<insert id="insertNoticeBoard" parameterType="board">
 		<![CDATA[
-		INSERT INTO BOARD(SEQ, TITLE, WRITER, CONTENT)
-		VALUES((SELECT NVL(MAX(SEQ), 0) + 1 FROM BOARD),
-		#{title}, #{writer}, #{content})
+		INSERT INTO task(title, writer, content, fileName, fileSize)
+		VALUES(#{title}, #{writer}, #{content}, ${fileName}, #{fileSize})
 		]]>
 	</insert>
 	
-	<update id="updateTaskBoard">
+	<!-- 파일은 수정하지 못하도록 할 예정 -->
+	<update id="updateNoticeBoard">
 		<![CDATA[
-		UPDATE BOARD SET
-		TITLE = #{title},
-		CONTENT = #{content}
-		WHERE SEQ = #{seq}
+		UPDATE task SET
+		title = #{title},
+		content = #{content},
+		WHERE seq = #{seq}
 		]]>
 	</update>
 
-	<delete id="deleteTaskBoard">
+	<delete id="deleteNoticeBoard">
 		<![CDATA[
-		DELETE BOARD
-		WHERE SEQ = #{seq}
+		DELETE task
+		WHERE seq = #{seq}
 		]]>
 	</delete>
 
-	<select id="getTaskBoard" resultType="board">
+	<select id="getNoticeBoard" resultType="board">
 		<![CDATA[
 		SELECT *
-		FROM BOARD
-		WHERE SEQ = #{seq}
+		FROM task
+		WHERE seq = #{seq}
 		]]>
 	</select>
 
-	<select id="getTaskBoardList" resultMap="boardResult">
+	<select id="getNoticeBoardList" resultMap="boardResult">
+		<![CDATA[
 		SELECT *
-		FROM BOARD
-		WHERE 1 = 1
-		<if test="searchCondition == 'TITLE'">
-			AND TITLE LIKE '%'||#{searchKeyword}||'%'
-		</if>
-		<if test="searchCondition == 'CONTENT'">
-			AND CONTENT LIKE '%'||#{searchKeyword}||'%'
-		</if>
+		FROM Task
 		ORDER BY SEQ DESC
+		]]>
 	</select>
 
 </mapper>
