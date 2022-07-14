@@ -14,6 +14,11 @@ public class UserDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
+	public UserVO loginUser(UserVO vo) {
+		System.out.println("===> Mybatis�� getUser() ��� ó��");
+		return (UserVO) mybatis.selectOne("UserDAO.loginUser", vo);
+	}
+	
 	public UserVO getUser(UserVO vo) {
 		System.out.println("===> Mybatis�� getUser() ��� ó��");
 		return (UserVO) mybatis.selectOne("UserDAO.getUser", vo);

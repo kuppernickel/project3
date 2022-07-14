@@ -18,11 +18,19 @@
 		<result property="address2" column="address2" />
 	</resultMap>
 	
+	<select id="loginUser" resultType="user">
+		<![CDATA[
+		SELECT userId, name
+		FROM users
+		WHERE userId = #{userId} AND pw = #{pw};
+		]]>
+	</select>
+	
 	<select id="getUser" resultType="user">
 		<![CDATA[
 		SELECT *
 		FROM users
-		WHERE userId = #{userId} AND pw = #{pw};
+		WHERE userId = #{userId};
 		]]>
 	</select>
 	

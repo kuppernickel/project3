@@ -1,4 +1,4 @@
-package com.project3.view;
+package com.project3.view.user;
 
 import javax.servlet.http.HttpSession;
 

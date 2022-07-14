@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <!-- 로그인/로그아웃 테스트 -->
-                <div>${userName}<a href="/logout.do">logout</a></div>
+                <div>${user.name}<a href="/logout.do">logout</a></div>
                 <button type="submit" class="btn btn-dark" style="margin:0 2vW">로그인</button>
             </nav>
         </form>
@@ -59,7 +59,7 @@
                     <span class="nav__logo">학사 종합 포털</span>
                 </div>
                     <div class="nav__list">
-                        <a href="/" class="nav__link active">
+                        <a href="/html/home.jsp" class="nav__link active">
                             <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">홈으로</span>
                         </a>
@@ -75,7 +75,7 @@
                             <ion-icon name="book-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">ㅁㄴㅇㄹ</span>
                         </a>
-                        <a href="/html/myInfo.html" class="nav__link">
+                        <a href="/getInfo.do" class="nav__link">
                             <ion-icon name="ellipsis-horizontal-sharp" class="nav__icon"></ion-icon>
                             <span class="nav_name">내 정보</span>
                         </a>

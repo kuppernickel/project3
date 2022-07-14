@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +18,8 @@
     <!-- IONICONS -->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <!--  CSS  -->
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/myInfo.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myInfo.css">
 
 
 </head>
@@ -38,6 +41,8 @@
                     <input type="password" class="form-control" placeholder="비밀번호" aria-label="Last name">
                 </div>
             </div>
+            <!-- 로그인/로그아웃 테스트 -->
+                <div>${user.name}<a href="/logout.do">logout</a></div>
             <button type="button" class="btn btn-dark" style="margin:0 2vW" onclick="">로그인</button>
         </nav>
     </form>
@@ -54,7 +59,7 @@
                 <span class="nav__logo">학사 종합 포털</span>
             </div>
             <div class="nav__list">
-                <a href="index.html" class="nav__link active">
+                <a href="/html/home.jsp" class="nav__link active">
                     <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                     <span class="nav_name">홈으로</span>
                 </a>
@@ -103,7 +108,7 @@
         </ul>
     </div>
 
-    <form action="">
+    <form action="getInfo.do" method="post">
         <table>
             <tbody>
                 <tr>
@@ -112,17 +117,26 @@
                     </th>
                 </tr>
                 <tr>
-                    <th class="tableList">홈페이지(블로그)</th>
-                    <td> <input name="comid" type="text"></td>
+                    <th class="tableList">mobile</th>
+                    <td> <input name="mobile" type="text" value="${userInfo.mobile}"></td>
                 </tr>
                 <tr>
-                    <th class="tableList">트위터</th>
-                    <td> <input name="comid" type="text"></td>
+                    <th class="tableList">email</th>
+                    <td> <input name="email" type="text" value="${userInfo.email}"></td>
                 </tr>
                 <tr>
-                    <th class="tableList">페이스북</th>
-                    <td> <input name="comid" type="text"></td>
+                    <th class="tableList">zipcode</th>
+                    <td> <input name="zipCode" type="text" value="${userInfo.zipCode}"></td>
                 </tr>
+                <tr>
+                    <th class="tableList">address1</th>
+                    <td> <input name="address1" type="text" value="${userInfo.address1}"></td>
+                </tr>
+                <tr>
+                    <th class="tableList">address2</th>
+                    <td> <input name="address2" type="text" value="${userInfo.address2}"></td>
+                </tr>
+                <input type="hidden" name="userId" value="${user.userId}">
                 <tr>
                     <th class="tableList">자기소개</th>
                     <td> <textarea name="comid" type="text"></textarea></td>
@@ -137,9 +151,9 @@
 
 
 <!-- JS -->
-<script src="../js/index.js"></script>
-<script src="../js/toggleBtn.js"></script>
-<script src="../js/changeImg.js"></script>
+<script src="${pageContext.request.contextPath}/js/index.js"></script>
+<script src="${pageContext.request.contextPath}/js/toggleBtn.js"></script>
+<script src="${pageContext.request.contextPath}/js/changeImg.js"></script>
 
 </body>
 </html>

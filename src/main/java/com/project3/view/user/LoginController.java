@@ -1,4 +1,4 @@
-package com.project3.view;
+package com.project3.view.user;
 
 import javax.servlet.http.HttpSession;
 
@@ -29,20 +29,6 @@ public class LoginController {
 		return "/html/index.jsp";
 	}
 	
-//	@RequestMapping(value="/login.do",method=RequestMethod.POST)
-//	public String login(UserVO vo,HttpSession session) { //servlet api
-//		System.out.println("login");
-//		if(vo.getUserId()==null || vo.getUserId().equals("")) {
-//			throw new IllegalArgumentException("아이디 필수");
-//		}
-//		
-//		UserVO user = userService.getUser(vo);
-//		//System.out.println(user.getName());
-//		if(user!=null) {
-//			session.setAttribute("userName", user.getName());
-//			return "/WEB-INF/views/home.jsp"; //임시
-//		}else return "/WEB-INF/views/login.jsp"; //임시
-//	}
 	@RequestMapping(value="/login.do",method=RequestMethod.POST)
 	public String login(@RequestParam String userId,@RequestParam String pw,UserVO vo, HttpSession session) { //servlet api
 		System.out.println(userId);
@@ -52,11 +38,11 @@ public class LoginController {
 		vo.setUserId(userId);
 		System.out.println(vo.getUserId());
 		vo.setPw(pw);
-		UserVO user = userService.getUser(vo);
+		UserVO user = userService.loginUser(vo);
 		//System.out.println(user.getName());
 		if(user!=null) {
-			session.setAttribute("userName", user.getName());
-			System.out.println(session.getAttribute("userName"));
+			session.setAttribute("user", user);
+			//System.out.println(session.getAttribute("userName"));
 			return "/html/home.jsp"; //임시
 		}else return "/html/index.jsp"; //임시
 	}
