@@ -1,11 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>시험</title>
     <!--  CSS  -->
-    <link rel="stylesheet" href="../css/exam.css">
-    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/exam.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/modal.css">
     <!-- IONICONS -->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
@@ -70,6 +73,6 @@
 
 
 
-    <script src="../js/timer.js"></script>
+    <script src="${pageContext.request.contextPath}/js/timer.js"></script>
 </body>
 </html>

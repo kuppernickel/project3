@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +13,8 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/lecture.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lecture.css">
 </head>
 <body>
 
@@ -43,6 +46,6 @@
 </main>
 
 
-<script src="../js/lectureTimer.js"></script>
+<script src="${pageContext.request.contextPath}/js/lectureTimer.js"></script>
 </body>
 </html>
