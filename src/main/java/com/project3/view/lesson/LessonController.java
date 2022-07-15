@@ -1,12 +1,14 @@
-package com.project3.lesson;
+package com.project3.view.lesson;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.project3.lesson.LessonVO;
 import com.project3.lesson.impl.LessonDAO;
 
 
 @Controller
+@RequestMapping("/lesson/")
 public class LessonController {
 	
 	// 강의등록

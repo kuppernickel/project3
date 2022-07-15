@@ -1,1 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//KO"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="org.hello.mapper.LessonMapper">
+
+	<!-- 강의 추가하기 -->
+	<insert id="insertLesson">
+		insert into good_lesson
+		(professor, lessonname, subjectcode, grades, people, location, schedule)
+		values(#{professor}, #{lessonname}, #{subjectcode}, #{grades}, #{people}, #{location}, #{schedule})
+	</insert>
+
+</mapper>
