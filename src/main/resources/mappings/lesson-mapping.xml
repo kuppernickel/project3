@@ -1,16 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!DOCTYPE mapper
-	PUBLIC "-//mybatis.org//DTD Mapper 3.0//KO"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="LessonDAO">
+
+	<resultMap id="lessonResult" type="lesson">
+		<id property="subjectcode" column="subjectcode" />
+		<id property="professor" column="professor" />
+		<id property="lessonname" column="lessonname" />
+		<id property="grades" column="grades" />
+		<id property="people" column="people" />
+		<id property="location" column="location" />
+		<id property="schedule" column="schedule" />
+		<id property="userId" column="userId" />
+		<id property="hour" column="hour" />
+		<id property="attendence" column="attendence" />
+		<id property="etc" column="etc" />
+		<id property="ratetestscore1" column="ratetestscore1" />
+		<id property="ratetestscore2" column="ratetestscore2" />
+		<id property="rateattendence" column="rateattendence" />
+		<id property="rateassignment" column="rateassignment" />
+		<id property="lessoncontent" column="lessoncontent" />
+		<id property="testscore1" column="testscore1" />
+		<id property="testscore2" column="testscore2" />
+		
+	</resultMap>
 	
-<mapper namespace="org.hello.mapper.LessonMapper">
-
 	<!-- 강의 추가하기 -->
-	<insert id="insertLesson">
+	<insert id="insertLesson" parameterType="lesson">
+		<![CDATA[
 		insert into good_lesson
 		(professor, lessonname, subjectcode, grades, people, location, schedule)
 		values(#{professor}, #{lessonname}, #{subjectcode}, #{grades}, #{people}, #{location}, #{schedule})
+		]]>
 	</insert>
+
+	<!-- 강의 리스트보기 -->
+	<select id="listLesson" resultType="org.hello.domain.">
+		
+	</select>
 
 </mapper>
