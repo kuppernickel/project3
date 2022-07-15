@@ -2,13 +2,14 @@ package com.project3.view.lesson;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.project3.lesson.LessonVO;
 import com.project3.lesson.impl.LessonDAO;
 
 
 @Controller
-@RequestMapping("/lesson/")
+@RequestMapping("/lesson/*")
 public class LessonController {
 	
 	// 강의등록
@@ -38,5 +39,12 @@ public class LessonController {
 	}
 	
 	
+	
+	// 페이지 이동 test
+	@RequestMapping(path = "/detail.do", method = RequestMethod.GET)
+	public String moveDetail() {
+		System.out.println("강의 목록 페이지 이동");
+		return "/jsp/detailedLectureList.jsp";
+	}
 	
 }

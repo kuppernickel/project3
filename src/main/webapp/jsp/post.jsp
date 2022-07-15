@@ -115,7 +115,7 @@
 
 
 <div class="editorWrap">
-    <form method="post">
+    <form action="" method="post">
         <input class="inputTitle" type="text" placeholder="제목을 입력하세요">
         <textarea id="summernote" name="editordata"></textarea>
         <div class="btns">

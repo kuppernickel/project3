@@ -52,7 +52,7 @@
                             <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">홈으로</span>
                         </a>
-                        <a href="/html/detailedLectureList.html" class="nav__link">
+                        <a href="/lesson/detail.do" class="nav__link">
                             <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">강의</span>
                         </a>

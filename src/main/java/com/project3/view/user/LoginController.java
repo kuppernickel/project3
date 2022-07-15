@@ -26,7 +26,7 @@ public class LoginController {
 		
 //		vo.setId("test");
 //		vo.setPassword("test123");
-		return "/html/index.jsp";
+		return "/jsp/index.jsp";
 	}
 	
 	@RequestMapping(value="/login.do",method=RequestMethod.POST)
@@ -43,8 +43,8 @@ public class LoginController {
 		if(user!=null) {
 			session.setAttribute("user", user);
 			//System.out.println(session.getAttribute("userName"));
-			return "/html/home.jsp"; //임시
-		}else return "/html/index.jsp"; //임시
+			return "/jsp/home.jsp"; //임시
+		}else return "/jsp/index.jsp"; //임시
 	}
 	
 }

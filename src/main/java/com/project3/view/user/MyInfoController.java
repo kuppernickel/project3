@@ -23,13 +23,13 @@ public class MyInfoController {
 		UserVO user = (UserVO) session.getAttribute("user");
 		vo.setUserId(user.getUserId());
 		model.addAttribute("userInfo",userService.getUser(vo));
-		return "/html/myInfo.jsp";
+		return "/jsp/myInfo.jsp";
 	}
 	
 	@RequestMapping(value="/getInfo.do",method=RequestMethod.POST)
 	public String updateUser(@ModelAttribute("userInfo") UserVO vo) {
 		System.out.println("번호:"+vo.getMobile());
 		userService.updateUser(vo);
-		return "/html/home.jsp";
+		return "/jsp/home.jsp";
 	}
 }
