@@ -26,19 +26,19 @@ public class LessonServiceImpl implements LessonService{
 
 	@Override
 	public boolean updateLesson(LessonVO vo) {
-		return false;
-		// 강의 수정 - 기본값 실패
+		return lessonDAO.updateLesson(vo) == 1;
+		// 강의 수정 - 1이면 성공 0이면 실패
 	}
 
 	@Override
 	public boolean deleteLesson(LessonVO vo) {
-		return false;
-		// 강의 삭제 - 기본값 실패
+		return lessonDAO.deleteLesson(vo) == 1;
+		// 강의 삭제 - 1이면 성공 0이면 실패
 	}
 	
 	@Override
 	public boolean insertLesson(LessonVO vo) {
-		return false;
+		return lessonDAO.insertLesson(vo);
 		// 강의 등록 - 기본값 실패
 	}
 

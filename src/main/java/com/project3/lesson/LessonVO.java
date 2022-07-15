@@ -11,4 +11,15 @@ public class LessonVO {
 	private int people;				// 수강인원
 	private String location;		// 강의실
 	private String schedule;		// 시간표
+	private int userId;				// 학번
+	private int hour;				// 출석시간? 차시?
+	private String attendence;		// 출석유무
+	private String etc;				// 비고
+	private String ratetestscore1;	// 중간고사 성적 반영비율
+	private String ratetestscore2;	// 기말고사 성적 반영비율
+	private String rateattendence;	// 출석 성적 반영비율
+	private String rateassignment;	// 과제제출 성적 반영비율
+	private String lessoncontent;	// 강의내용
+	private int testscore1;			// 중간고사성적
+	private int testscore2;			// 기말고사성적
 }

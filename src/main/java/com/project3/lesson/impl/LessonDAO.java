@@ -17,14 +17,14 @@ public interface LessonDAO {
 	public List<LessonVO> getLessonList(LessonVO vo);
 
 	// 강의 수정
-	public void updateLesson(LessonVO vo);
+	public int updateLesson(LessonVO vo);
 	
 
 	// 강의 등록
-	public void insertLesson(LessonVO vo);
+	public boolean insertLesson(LessonVO vo);
 	
 	
 	// 강의 삭제
-	public void deleteLesson(LessonVO vo);
+	public int deleteLesson(LessonVO vo);
 	
 }
