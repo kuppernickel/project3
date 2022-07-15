@@ -4,8 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.project3.biz.lesson.impl.LessonDAO;
 import com.project3.lesson.LessonVO;
-import com.project3.lesson.impl.LessonDAO;
 
 
 @Controller
@@ -13,27 +13,27 @@ import com.project3.lesson.impl.LessonDAO;
 public class LessonController {
 	
 	// 강의등록
-	@RequestMapping("/insertLesson.do")
+	@RequestMapping(path = "/insertLesson.do", method = RequestMethod.POST)
 	public String insertLesson(LessonVO vo, LessonDAO lessonDAO) {
 		lessonDAO.insertLesson(vo);
 		return "LessonList.do";
 	}
 	
 	// 강의수정
-	@RequestMapping("/updateLesson.do")
+	@RequestMapping(path = "/updateLesson.do", method = RequestMethod.POST)
 	public String updateLesson(LessonVO vo, LessonDAO lessonDAO) {
 		lessonDAO.updateLesson(vo);
-		return "updateList.do";
+		return "updateLesson.do";
 	}
 	
 	// 강의 삭제
-	@RequestMapping("/deleteLesson.do")
+	@RequestMapping(path = "/deleteLesson.do", method = RequestMethod.POST)
 	public String deleteLesson(LessonVO vo, LessonDAO lessonDAO) {
 		return "deleteLesson.do";
 	}
 	
 	// 강의 읽기(강의 하나 불러오기)
-	@RequestMapping("/getLesson.do") 
+	@RequestMapping(path = "/getLesson.do", method = RequestMethod.GET) 
 	public String readLesson(LessonVO vo, LessonDAO lessonDAO) {
 		return "getLesson.do";
 	}

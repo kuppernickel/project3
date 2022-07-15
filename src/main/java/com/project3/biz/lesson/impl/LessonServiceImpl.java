@@ -1,4 +1,4 @@
-package com.project3.lesson.impl;
+package com.project3.biz.lesson.impl;
 
 import java.util.List;
 
@@ -39,7 +39,7 @@ public class LessonServiceImpl implements LessonService{
 	}
 	
 	@Override
-	public boolean insertLesson(LessonVO vo) {
+	public void insertLesson(LessonVO vo) {
 		return lessonDAO.insertLesson(vo);
 		// 강의 등록 - 기본값 실패
 	}

@@ -5,9 +5,9 @@
 <mapper namespace="LessonDAO">
 
 	<resultMap id="lessonResult" type="lesson">
-		<id property="subjectcode" column="subjectcode" />
+		<id property="subjectCode" column="subjectCode" />
 		<id property="professor" column="professor" />
-		<id property="lessonname" column="lessonname" />
+		<id property="lessonName" column="lessonName" />
 		<id property="grades" column="grades" />
 		<id property="people" column="people" />
 		<id property="location" column="location" />
@@ -16,13 +16,13 @@
 		<id property="hour" column="hour" />
 		<id property="attendence" column="attendence" />
 		<id property="etc" column="etc" />
-		<id property="ratetestscore1" column="ratetestscore1" />
-		<id property="ratetestscore2" column="ratetestscore2" />
-		<id property="rateattendence" column="rateattendence" />
-		<id property="rateassignment" column="rateassignment" />
-		<id property="lessoncontent" column="lessoncontent" />
-		<id property="testscore1" column="testscore1" />
-		<id property="testscore2" column="testscore2" />
+		<id property="rateTestScore1" column="rateTestScore1" />
+		<id property="rateTestScore2" column="rateTestScore2" />
+		<id property="rateAttendence" column="rateAttendence" />
+		<id property="rateAssignment" column="rateAssignment" />
+		<id property="lessonContent" column="lessonContent" />
+		<id property="testScore1" column="testScore1" />
+		<id property="testScore2" column="testScore2" />
 		
 	</resultMap>
 	
@@ -30,14 +30,39 @@
 	<insert id="insertLesson" parameterType="lesson">
 		<![CDATA[
 		insert into good_lesson
-		(professor, lessonname, subjectcode, grades, people, location, schedule)
-		values(#{professor}, #{lessonname}, #{subjectcode}, #{grades}, #{people}, #{location}, #{schedule})
+		(professor, lessonName, subjectCode, grades, people, location, schedule)
+		values(#{professor}, #{lessonname}, #{subjectCode}, #{grades}, #{people}, #{location}, #{schedule})
 		]]>
 	</insert>
 
 	<!-- 강의 리스트보기 -->
-	<select id="listLesson" resultType="org.hello.domain.">
-		
+	<select id="listLesson" resultMap="listlesson">
+	<![CDATA[
+		SELECT * FROM subject ORDER BY subjectCode
+		]]>
 	</select>
+
+	<!-- 강의 불러오기 상세페이지 -->
+	<select id="getLesson" resultType="getlesson">
+		<![CDATA[
+			SELECT * FROM subject where subjectCode = #{subjectCode}
+		]]>	
+	</select>
+	
+	<!-- 강의삭제 -->
+	<delete id="deleteLesson" parameterType="lesson">
+	<![CDATA[
+		DELETE subject WHERE subjectCode = #{subjectCode}
+	]]>
+	</delete>
+
+	<update id="updateLesson" parameterType="Lesson">
+		<![CDATA[
+			UPDATE subject SET 
+			lessonname = #{lessonName}
+			lessoncontent = #{lessonContent}
+			lessoncode = #{lessonContent}
+		]]>
+	</update>
 
 </mapper>
