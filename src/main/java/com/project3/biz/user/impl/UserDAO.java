@@ -15,7 +15,7 @@ public class UserDAO {
 	private SqlSessionTemplate mybatis;
 
 	public UserVO loginUser(UserVO vo) {
-		System.out.println("===> Mybatis로 getUser() 기능 처리");
+		System.out.println("===> Mybatis로 loginUser() 기능 처리");
 		return (UserVO) mybatis.selectOne("UserDAO.loginUser", vo);
 	}
 	
