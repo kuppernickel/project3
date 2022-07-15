@@ -4,29 +4,22 @@ main{
     margin: 50px auto;
 }
 
-.lessonPlan{
-    margin: 2rem 0 0 10rem;
-    font-size: 1.5rem;
-}
-
-.lessonPlan2{
-    margin: 2rem 0 0 10rem;
-    font-size: 1.5rem;
-}
-
 .tableWrap{
     width: 80rem;
     padding: 10px;
 }
 
-table,
-table2{
+table{
     margin-left: 100px;
     height: 100%;
     table-layout: fixed;
     word-break: break-all;
     text-align: center;
     width: 70rem;
+}
+
+.tableWrap2{
+    margin-bottom: 5rem;
 }
 
 tr{
@@ -37,10 +30,25 @@ th, td{
     padding: 10px;
     border: 1px solid lightgray;
 }
-
-.lectureTitle{
-    margin-left: 10rem;
+table a:hover{
+    color: red;
 }
+
+
+.inputTitle{
+    padding: 5px;
+    margin: 30px auto;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 1px solid lightgray;
+    width: 100%;
+    letter-spacing: 2px;
+}
+
+.sendBtn,
+.listBtn{
+    margin: 2vh 2vh;
+}
+
 
 
 
@@ -74,16 +82,7 @@ th, td{
         width: 50rem;
         font-size: 1rem;
     }
-    table2{
-        margin-left: 0px;
-        width: 50rem;
-        font-size: 0.5rem;
-    }
-    .lessonPlan{
-        margin: 2rem 0 0 2rem;
-    }
-
-    .lessonPlan2{
-        margin: 2rem 0 0 2rem;
+    .hide{
+        display: none;
     }
 }

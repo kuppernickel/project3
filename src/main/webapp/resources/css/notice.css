@@ -1,0 +1,135 @@
+
+.Title{
+    margin-top: 2rem;
+    margin-left: 25rem;
+}
+
+.filterWrap {
+    width: 70rem;
+    margin: 0 auto;
+}
+
+.searchFilterWrap{
+    display: flex;
+    justify-content: space-between;
+    width: 75rem;
+    margin: 20px auto 0px auto;
+    align-items: center;
+}
+
+.searchFilterList{
+    display: flex;
+    width: 40rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchFilter{
+    margin: 10px;
+}
+
+.searchFilter select{
+    padding: 0.45rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid lightgrey;
+}
+
+.searchFilter input{
+    padding: 0.35rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid lightgrey;
+}
+
+.searchFilter select:hover,
+.searchFilter input:hover{
+    box-shadow: 0 0 5px #86b7fe;
+    border: 1px solid #86b7fe;
+}
+
+.searchFilter select:focus,
+.searchFilter input:focus{
+    box-shadow: 0 0 5px #86b7fe;
+    border: 1px solid #86b7fe;
+}
+
+.searchFilter input:focus-visible{
+    outline: 1px solid #86b7fe;
+}
+
+
+
+.tableWrap {
+    width: 80rem;
+    height: 38rem;
+    padding: 10px;
+    table-layout: fixed;
+    word-break: break-all;
+    text-align: center;
+    margin: 0 auto;
+}
+
+table{
+    table-layout: fixed;
+    word-break: break-all;
+    text-align: center;
+    width: 80rem;
+}
+
+tr td:nth-child(2){
+    text-align: left;
+}
+
+td > a{
+    color: black;
+}
+
+
+tr{
+    padding: 30px;
+}
+
+th, td{
+    padding: 10px;
+    border: 1px solid lightgray;
+}
+
+@media  screen and (max-width: 1024px) {
+    .loginForm{
+        margin: 20px auto;
+    }
+
+    main{
+        width: 50rem;
+        padding: 20px 0;
+    }
+
+    .lectureTitle{
+        margin-left: 5rem;
+    }
+
+    .filterWrap{
+        width: 50rem;
+        padding: 20px 0;
+        margin: 25px 25px 25px 0px;
+    }
+
+    .tableWrap {
+        width: 50rem;
+        margin-left: 50px;
+    }
+
+    table{
+        margin-left: 0px;
+        width: 50rem;
+        font-size: 1rem;
+    }
+    .searchFilterWrap {
+        display: flex;
+        justify-content: center;
+        width: 50rem;
+        margin: 20px auto 0px 125px;
+        align-items: center;
+    }
+}

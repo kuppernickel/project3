@@ -172,6 +172,7 @@ a {
     background: #86b7fe;
     color: white;
 }
+
 #page_control{
     margin-bottom: 25px;
 }
@@ -179,3 +180,48 @@ a {
     color:black;
     margin-bottom: 25px;
 }
+
+/* filter */
+
+.filterWrap {
+    width: 70rem;
+    margin: 0 25px 0 120px;
+}
+.filterWrap .filterList{
+    display: flex;
+    justify-content: end;
+}
+
+.filterWrap .filterList ul li{
+    padding: 0 15px;
+}
+
+.filterWrap .filterList ul li select,
+.filterWrap .filterList input{
+    height: 40px;
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+    padding: 0 14px;
+    letter-spacing: 2px;
+}
+
+.filterWrap .filterList input{
+    width: 30%;
+}
+.filterWrap .filterList ul li select option{
+    letter-spacing: 2px;
+}
+
+.filterWrap .filterList ul li select:focus,
+.filterWrap .filterList input:focus{
+    box-shadow: 0 0 5px #86b7fe;
+    border: 1px solid #86b7fe;
+    border-radius: 1rem;
+}
+
+.filterWrap .filterList ul li select:focus-visible,
+.filterWrap .filterList input:focus-visible{
+    outline: 1px solid #86b7fe;
+    border-radius: 1rem;
+}
+

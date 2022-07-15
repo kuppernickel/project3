@@ -1,0 +1,57 @@
+/* editor */
+
+.editorWrap input:focus{
+    box-shadow: 0 0 5px #86b7fe;
+    border: 1px solid #86b7fe;
+}
+
+
+.editorWrap input:focus-visible{
+    outline: 1px solid #86b7fe;
+}
+
+.editorWrap{
+    width: 1120px;
+    height: 800px;
+    margin: 30px auto;
+}
+.btns{
+    text-align: center;
+}
+
+.inputTitle{
+    padding: 5px;
+    margin: 30px auto;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 1px solid lightgray;
+    width: 100%;
+    letter-spacing: 2px;
+}
+
+.sendBtn,
+.listBtn{
+    margin: 2vh 2vh;
+}
+
+
+@media  screen and (max-width: 1024px) {
+    .loginForm{
+        margin: 20px auto;
+    }
+
+    main{
+        width: 50rem;
+        padding: 20px 0;
+    }
+
+    .editorWrap {
+        width: 50rem;
+        height: 45rem;
+        margin: 30px auto;
+    }
+
+    .inputTitle{
+        width: 50rem;
+    }
+
+}
