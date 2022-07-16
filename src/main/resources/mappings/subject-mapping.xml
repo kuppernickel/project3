@@ -22,7 +22,7 @@
 		<![CDATA[
 		SELECT *
 		FROM subject
-		WHERE subjectCode = #{subjectCode}
+		WHERE subjectCode = #{subjectCode} 
 		]]>
 	</select>
 
