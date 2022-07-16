@@ -83,11 +83,11 @@
                 <span class="nav__logo">학사 종합 포털</span>
             </div>
             <div class="nav__list">
-                <a href="index.html" class="nav__link active">
+                <a href="home.do" class="nav__link active">
                     <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                     <span class="nav_name">홈으로</span>
                 </a>
-                <a href="detailedLectureList.html" class="nav__link">
+                <a href="detail.do" class="nav__link">
                     <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
                     <span class="nav_name">강의</span>
                 </a>

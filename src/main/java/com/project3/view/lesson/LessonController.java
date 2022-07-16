@@ -39,12 +39,4 @@ public class LessonController {
 	}
 	
 	
-	
-	// 페이지 이동 test
-	@RequestMapping(path = "/detail.do", method = RequestMethod.GET)
-	public String moveDetail() {
-		System.out.println("강의 목록 페이지 이동");
-		return "/jsp/detailedLectureList.jsp";
-	}
-	
 }
