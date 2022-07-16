@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>강의 목록</title>
+    <title>과목 목록</title>
     <!--  부트스트랩 CDN  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -115,7 +115,7 @@
 
 
         <div>
-            <h2 class="lectureTitle">선택한 강의</h2>
+            <h2 class="lectureTitle">내 과목들</h2>
         </div>
 
 
@@ -159,7 +159,7 @@
             </form>
         </div><!--  검색필터 끝  -->
 
-
+		
 
 
 
@@ -176,7 +176,7 @@
                 <tbody><tr>
                     <td>1</td>
                     <td>1</td>
-                    <td>스마트웹 콘텐츠 개발자 양성</td>
+                    <td><a href="getSubject.do?subject=math">스마트웹 콘텐츠 개발자 양성</a></td>
                     <td class="hide">22.01.12 ~ 22.07.26</td>
                     <td><span class="badge bg-secondary">없음</span></td>
                 </tr><tr>
