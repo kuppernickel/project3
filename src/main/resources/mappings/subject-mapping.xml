@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SubjectDAO">
+
+	<resultMap id="subjectResult" type="subject">
+        <id property="subjectCode" column="subjectCode" />
+        <result property="professor" column="professor" />
+        <result property="lessonName" column="lessonName" />
+        <result property="grades" column="grades" />
+        <result property="people" column="people" />
+        <result property="location" column="location" />
+        <result property="schedule" column="schedule" />
+        <result property="rateTestScore1" column="rateTestScore1" />
+        <result property="rateTestScore2" column="rateTestScore2" />
+        <result property="rateAttendence" column="rateAttendence" />
+        <result property="rateAssignment" column="rateAssignment" />
+        <result property="lessonContent" column="lessonContent" />
+	</resultMap>
+	
+	<select id="getSubject" resultType="subject">
+		<![CDATA[
+		SELECT *
+		FROM subject
+		WHERE subjectCode = #{subjectCode}
+		]]>
+	</select>
+
+	<select id="getSubjectList" resultMap="subjectResult">
+		<![CDATA[
+		SELECT *
+		FROM subject
+		ORDER BY SEQ DESC
+		]]>
+	</select>
+	
+</mapper>
