@@ -15,86 +15,44 @@
 	</resultMap>
 
 
-	<!-- Notice테이블 SQL문 -->
-	<insert id="insertNoticeBoard" parameterType="board">
+	<!-- commonNotice테이블 SQL문 -->
+	<insert id="insertBoard" parameterType="board">
 		<![CDATA[
-		INSERT INTO notice(title, writer, content, fileName, fileSize)
+		INSERT INTO ${table}(title, writer, content, fileName, fileSize)
 		VALUES(#{title}, #{writer}, #{content}, ${fileName}, #{fileSize})
 		]]>
 	</insert>
 	
 	<!-- 파일은 수정하지 못하도록 할 예정 
 		수정 날짜는 트리거를 활용할 예정 -->
-	<update id="updateNoticeBoard">
+	<update id="updateBoard">
 		<![CDATA[
-		UPDATE notice SET
+		UPDATE ${table} SET
 		title = #{title},
 		content = #{content},
 		WHERE seq = #{seq}
 		]]>
 	</update>
 
-	<delete id="deleteNoticeBoard">
+	<delete id="deleteBoard">
 		<![CDATA[
-		DELETE notice
+		DELETE ${table}
 		WHERE seq = #{seq}
 		]]>
 	</delete>
 
-	<select id="getNoticeBoard" resultType="board">
+	<select id="getBoard" resultType="board">
 		<![CDATA[
 		SELECT *
-		FROM notice
+		FROM ${table}
 		WHERE seq = #{seq}
 		]]>
 	</select>
 
-	<select id="getNoticeBoardList" resultMap="boardResult">
+	<select id="getBoardList" resultMap="boardResult">
 		<![CDATA[
 		SELECT *
-		FROM notice
-		ORDER BY SEQ DESC
-		]]>
-	</select>
-	
-	
-	<!-- task테이블 SQL문 -->
-	<insert id="insertNoticeBoard" parameterType="board">
-		<![CDATA[
-		INSERT INTO task(title, writer, content, fileName, fileSize)
-		VALUES(#{title}, #{writer}, #{content}, ${fileName}, #{fileSize})
-		]]>
-	</insert>
-	
-	<!-- 파일은 수정하지 못하도록 할 예정 -->
-	<update id="updateNoticeBoard">
-		<![CDATA[
-		UPDATE task SET
-		title = #{title},
-		content = #{content},
-		WHERE seq = #{seq}
-		]]>
-	</update>
-
-	<delete id="deleteNoticeBoard">
-		<![CDATA[
-		DELETE task
-		WHERE seq = #{seq}
-		]]>
-	</delete>
-
-	<select id="getNoticeBoard" resultType="board">
-		<![CDATA[
-		SELECT *
-		FROM task
-		WHERE seq = #{seq}
-		]]>
-	</select>
-
-	<select id="getNoticeBoardList" resultMap="boardResult">
-		<![CDATA[
-		SELECT *
-		FROM Task
+		FROM ${table}
 		ORDER BY SEQ DESC
 		]]>
 	</select>

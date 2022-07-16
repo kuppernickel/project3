@@ -17,5 +17,5 @@ public class BoardVO {
 	private String writeDate;
 	private String updateDate;
 	private MultipartFile uploadFile;
-	
+	private String table;
 }

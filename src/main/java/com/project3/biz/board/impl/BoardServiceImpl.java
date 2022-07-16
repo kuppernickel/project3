@@ -8,34 +8,34 @@ import org.springframework.stereotype.Service;
 import com.project3.biz.board.BoardService;
 import com.project3.biz.board.BoardVO;
 
-@Service
+@Service("boardService")
 public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardDAO boardDAO;
 
 	@Override
-	public void insertNoticeBoard(BoardVO vo) {
-		boardDAO.insertNoticeBoard(vo);
+	public void insertBoard(BoardVO vo) {
+		boardDAO.insertBoard(vo);
 	}
 
 	@Override
-	public BoardVO getNoticeBoard(BoardVO vo) {
-		return boardDAO.getNoticeBoard(vo);
+	public BoardVO getBoard(BoardVO vo) {
+		return boardDAO.getBoard(vo);
 	}
 
 	@Override
-	public void updateNoticeBoard(BoardVO vo) {
-		boardDAO.updateNoticeBoard(vo);
+	public void updateBoard(BoardVO vo) {
+		boardDAO.updateBoard(vo);
 	}
 
 	@Override
-	public void deleteNoticeBoard(BoardVO vo) {
-		boardDAO.deleteNoticeBoard(vo);
+	public void deleteBoard(BoardVO vo) {
+		boardDAO.deleteBoard(vo);
 	}
 
 	@Override
-	public List<BoardVO> getNoticeBoardList(BoardVO vo) {
-		return boardDAO.getNoticeBoardList(vo);
+	public List<BoardVO> getBoardList(BoardVO vo) {
+		return boardDAO.getBoardList(vo);
 	}
 	
 	

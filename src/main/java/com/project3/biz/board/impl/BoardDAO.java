@@ -14,28 +14,28 @@ public class BoardDAO{
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
-	public void insertNoticeBoard(BoardVO vo) {
+	public void insertBoard(BoardVO vo) {
 		System.out.println("===> Mybatis로 insertBoard() 기능 처리");
-		mybatis.insert("BoardDAO.insertNoticeBoard", vo);
+		mybatis.insert("BoardDAO.insertBoard", vo);
 	}
 
-	public void updateNoticeBoard(BoardVO vo) {
+	public void updateBoard(BoardVO vo) {
 		System.out.println("===> Mybatis로 updateBoard() 기능 처리");
-		mybatis.update("BoardDAO.updateNoticeBoard", vo);
+		mybatis.update("BoardDAO.updateBoard", vo);
 	}
 
-	public void deleteNoticeBoard(BoardVO vo) {
+	public void deleteBoard(BoardVO vo) {
 		System.out.println("===> Mybatis로 deleteBoard() 기능 처리");
-		mybatis.delete("BoardDAO.deleteNoticeBoard", vo);
+		mybatis.delete("BoardDAO.deleteBoard", vo);
 	}
 
-	public BoardVO getNoticeBoard(BoardVO vo) {
+	public BoardVO getBoard(BoardVO vo) {
 		System.out.println("===> Mybatis로 getBoard() 기능 처리");
-		return (BoardVO) mybatis.selectOne("BoardDAO.getNoticeBoard", vo);
+		return (BoardVO) mybatis.selectOne("BoardDAO.getBoard", vo);
 	}
 
-	public List<BoardVO> getNoticeBoardList(BoardVO vo) {
+	public List<BoardVO> getBoardList(BoardVO vo) {
 		System.out.println("===> Mybatis로 getBoardList() 기능 처리");
-		return mybatis.selectList("BoardDAO.getNoticeBoardList", vo);
+		return mybatis.selectList("BoardDAO.getBoardList", vo);
 	}
 }

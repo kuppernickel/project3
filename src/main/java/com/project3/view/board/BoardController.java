@@ -23,7 +23,7 @@ public class BoardController {
 	private BoardService boardService;
 	
 	// 글 작성
-	@RequestMapping("/insertNoticeBoard.do")
+	@RequestMapping("/insertBoard.do")
 	public String insertBoard(BoardVO vo) throws IOException {
 		
 		String path = (System.getProperty("user.dir")).replace("\\", "/");
@@ -36,34 +36,34 @@ public class BoardController {
 			uploadFile.transferTo(new File(SAVEFOLDER + fileName));
 		}
 
-		boardService.insertNoticeBoard(vo);
-		return "getNoticeBoardList.do";
+		boardService.insertBoard(vo);
+		return "getBoardList.do";
 	}
 	
 	// 글 수정
-	@RequestMapping("/updateNoticeBoard.do")
+	@RequestMapping("/updateBoard.do")
 	public String updateBoard(@ModelAttribute("board") BoardVO vo) {
-		boardService.updateNoticeBoard(vo);
+		boardService.updateBoard(vo);
 		return "getBoardList.do";
 	}
 	
 	// 글 삭제
-	@RequestMapping("/deleteNoticeBoard.do")
+	@RequestMapping("/deleteBoard.do")
 	public String deleteBoard(BoardVO vo) {
-		boardService.deleteNoticeBoard(vo);
+		boardService.deleteBoard(vo);
 		return "getBoardList.do";
 	}
 
 	// 글 상세 조회
-	@RequestMapping("/getNoticeBoard.do")
+	@RequestMapping("/getBoard.do")
 	public String getBoard(BoardVO vo, Model model) {
-		model.addAttribute("board", boardService.getNoticeBoard(vo)); // Model 정보 저장
+		model.addAttribute("board", boardService.getBoard(vo)); // Model 정보 저장
 		return "getBoard.jsp"; // View 이름 리턴
 	}
 	
-	@RequestMapping("/getNoticeBoardList.do")
+	@RequestMapping("/getBoardList.do")
 	public String getBoardList(BoardVO vo, Model model) {
-		model.addAttribute("boardList", boardService.getNoticeBoardList(vo));
+		model.addAttribute("boardList", boardService.getBoardList(vo));
 		return "getBoardList.jsp"; // View 이름 리턴
 	}
 	
