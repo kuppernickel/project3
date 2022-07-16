@@ -17,9 +17,10 @@ public class LessonDAO {
 	private SqlSessionTemplate mybatis;
 	
 	// 강의 상세페이지 불러오기
-	public void getLesson(LessonVO vo) {
+	public LessonVO getLesson(LessonVO vo) {
 		System.out.println("mybatis로 getLesson() 기능처리");
-		mybatis.insert("LessonDAO.insertLesson", vo);
+		mybatis.selectOne("LessonDAO.insertLesson", vo);
+		return null;
 	}
 	
 	// 강의 등록
@@ -31,11 +32,21 @@ public class LessonDAO {
 	// 강의리스트
 	public List<LessonVO> getLessonList(LessonVO vo) {
 		System.out.println("mybatis로 getListLesson() 기능처리");
-		mybatis.list
+		mybatis.selectList("LessonDAO.getLessonList", vo);
+		return null;
 	}
 
-	public void updateLesson(LessonVO vo) {
+	public int updateLesson(LessonVO vo) {
 		// TODO Auto-generated method stub
+		System.out.println("mybatis로 updateLesson() 기능처리");
+		mybatis.update("LessonDAO.updateLesson", vo);
+		return 1;
+	}
+	
+	public void deleteLesson(LessonVO vo) {
+		// TODO Auto-generated method stub
+		System.out.println("mybatis로 deleteLesson() 기능처리");
+		mybatis.delete("LessonDAO.deleteLesson", vo);
 		
 	}
 
