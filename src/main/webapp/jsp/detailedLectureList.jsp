@@ -176,7 +176,7 @@
                 <tbody><tr>
                     <td>1</td>
                     <td>1</td>
-                    <td><a href="getSubject.do?subjectCode=math">스마트웹 콘텐츠 개발자 양성</a></td>
+                    <td><a href="getSubject.do?subjectCode=J1B01">스마트웹 콘텐츠 개발자 양성</a></td>
                     <td class="hide">22.01.12 ~ 22.07.26</td>
                     <td><span class="badge bg-secondary">없음</span></td>
                 </tr><tr>

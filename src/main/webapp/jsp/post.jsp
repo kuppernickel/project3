@@ -24,6 +24,11 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/post.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/syllabus.css">
+    <script>
+    	function moveToList() {
+    		location.href = "/noticeBoard.do";
+    	}
+    </script>
 </head>
 <body  id="body-pd">
 
@@ -115,12 +120,14 @@
 
 
 <div class="editorWrap">
-    <form action="" method="post">
-        <input class="inputTitle" type="text" placeholder="제목을 입력하세요">
-        <textarea id="summernote" name="editordata"></textarea>
+    <form action="/insertBoard.do" method="post">
+        <input class="inputTitle" type="text" placeholder="제목을 입력하세요" name="title">
+        <textarea id="summernote" name="content"></textarea>
+        <!-- 사진 이외의 업로드 파일 -->
+        <input type="file" name="uploadFile">
         <div class="btns">
             <button type="submit" class="btn btn-dark sendBtn">저장</button>
-            <button type="button" class="btn btn-dark listBtn">목록</button>
+            <button type="button" class="btn btn-dark listBtn" onclick="moveToList()">목록</button>
         </div>
     </form>
 </div>
