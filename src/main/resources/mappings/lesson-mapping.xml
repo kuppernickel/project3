@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.project3.biz.lesson.impl.LessonDAO">
+<mapper namespace="LessonDAO">
 
 	<resultMap id="lessonResult" type="lesson">
 		<id property="subjectCode" column="subjectCode" />
@@ -36,14 +36,14 @@
 	</insert>
 
 	<!-- 강의 리스트보기 -->
-	<select id="getLessonList" resultMap="com.project3.lesson.LessonVO">
+	<select id="getLessonList" resultMap="lessonResult">
 	<![CDATA[
 		SELECT * FROM subject ORDER BY subjectCode
 		]]>
 	</select>
 
 	<!-- 강의 불러오기 상세페이지 -->
-	<select id="getLesson" resultType="getlesson">
+	<select id="getLesson" resultType="lesson">
 		<![CDATA[
 			SELECT * FROM subject where subjectCode = #{subjectCode}
 		]]>	

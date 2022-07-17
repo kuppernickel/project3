@@ -19,8 +19,8 @@ public class LessonDAO {
 	// 강의 상세페이지 불러오기
 	public LessonVO getLesson(LessonVO vo) {
 		System.out.println("mybatis로 getLesson() 기능처리");
-		mybatis.selectOne("LessonDAO.insertLesson", vo);
-		return null;
+		return (LessonVO) mybatis.selectOne("LessonDAO.insertLesson", vo);
+		
 	}
 	
 	// 강의 등록
@@ -32,15 +32,14 @@ public class LessonDAO {
 	// 강의리스트
 	public List<LessonVO> getLessonList(LessonVO vo) {
 		System.out.println("mybatis로 getListLesson() 기능처리");
-		mybatis.selectList("LessonDAO.getLessonList", vo);
-		return null;
+		return mybatis.selectList("LessonDAO.getLessonList", vo);
+		
 	}
 
-	public int updateLesson(LessonVO vo) {
+	public void updateLesson(LessonVO vo) {
 		// TODO Auto-generated method stub
 		System.out.println("mybatis로 updateLesson() 기능처리");
 		mybatis.update("LessonDAO.updateLesson", vo);
-		return 1;
 	}
 	
 	public void deleteLesson(LessonVO vo) {
