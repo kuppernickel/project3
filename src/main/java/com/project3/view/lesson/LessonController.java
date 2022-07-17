@@ -1,42 +1,72 @@
 package com.project3.view.lesson;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.project3.biz.board.BoardVO;
+import com.project3.biz.lesson.LessonService;
+import com.project3.biz.lesson.LessonVO;
 import com.project3.biz.lesson.impl.LessonDAO;
-import com.project3.lesson.LessonVO;
+import com.project3.biz.subject.SubjectService;
 
 
 @Controller
 @RequestMapping("/lesson/*")
 public class LessonController {
 	
-	// 강의등록
-	@RequestMapping(path = "/insertLesson.do", method = RequestMethod.POST)
-	public String insertLesson(LessonVO vo, LessonDAO lessonDAO) {
-		lessonDAO.insertLesson(vo);
-		return "LessonList.do";
-	}
+	@Autowired
+	private LessonService lessonService;
 	
-	// 강의수정
-	@RequestMapping(path = "/updateLesson.do", method = RequestMethod.POST)
-	public String updateLesson(LessonVO vo, LessonDAO lessonDAO) {
-		lessonDAO.updateLesson(vo);
-		return "updateLesson.do";
+	// 강의 등록
+	@RequestMapping("/insertLesson.do")
+	public String insertLesson(LessonVO vo) throws IOException {
+		return "lectureList.do";
 	}
+
 	
+	// 강의 수정
+	@RequestMapping("/updateLesson.do")
+	public String updateLesson(@ModelAttribute("lesson") LessonVO vo) {
+		lessonService.updateLesson(vo);
+		return "lectureList.do";
+	}
+
 	// 강의 삭제
-	@RequestMapping(path = "/deleteLesson.do", method = RequestMethod.POST)
-	public String deleteLesson(LessonVO vo, LessonDAO lessonDAO) {
-		return "deleteLesson.do";
+	@RequestMapping("/deleteLesson.do")
+	public String deleteLesson(LessonVO vo) {
+		lessonService.deleteLesson(vo);
+		return "lectureList.do";
 	}
 	
-	// 강의 읽기(강의 하나 불러오기)
-	@RequestMapping(path = "/getLesson.do", method = RequestMethod.GET) 
-	public String readLesson(LessonVO vo, LessonDAO lessonDAO) {
-		return "getLesson.do";
-	}
 	
+	// 강의 불러오기 (상세 조회)
+	@RequestMapping("/getLesson.do")
+	public String getLesson(LessonVO vo, Model model) {
+		model.addAttribute("lesson", lessonService.getLesson(vo)); // Model 정보 저장
+		return "lecture.jsp"; // View 이름 리턴
+	}
+
+	@RequestMapping("/getLessonList.do")
+	public String getLessonList(LessonVO vo, Model model) {
+		model.addAttribute("lessonList", lessonService.getLessonList(vo));
+		return "lectureList.jsp"; // View 이름 리턴
+	}
 	
 }
+
+
+
+
+
+
+
+
+

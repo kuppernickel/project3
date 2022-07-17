@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project3.biz.board.BoardVO;
-import com.project3.lesson.LessonVO;
+import com.project3.biz.lesson.LessonVO;
 
 @Repository
 public class LessonDAO {
@@ -19,7 +19,7 @@ public class LessonDAO {
 	// 강의 상세페이지 불러오기
 	public LessonVO getLesson(LessonVO vo) {
 		System.out.println("mybatis로 getLesson() 기능처리");
-		return (LessonVO) mybatis.selectOne("LessonDAO.insertLesson", vo);
+		return (LessonVO) mybatis.selectOne("LessonDAO.getLesson", vo);
 		
 	}
 	

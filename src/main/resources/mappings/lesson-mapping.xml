@@ -5,63 +5,57 @@
 <mapper namespace="LessonDAO">
 
 	<resultMap id="lessonResult" type="lesson">
-		<id property="subjectCode" column="subjectCode" />
-		<id property="professor" column="professor" />
-		<id property="lessonName" column="lessonName" />
-		<id property="grades" column="grades" />
-		<id property="people" column="people" />
-		<id property="location" column="location" />
-		<id property="schedule" column="schedule" />
-		<id property="userId" column="userId" />
-		<id property="hour" column="hour" />
-		<id property="attendence" column="attendence" />
-		<id property="etc" column="etc" />
-		<id property="rateTestScore1" column="rateTestScore1" />
-		<id property="rateTestScore2" column="rateTestScore2" />
-		<id property="rateAttendence" column="rateAttendence" />
-		<id property="rateAssignment" column="rateAssignment" />
-		<id property="lessonContent" column="lessonContent" />
-		<id property="testScore1" column="testScore1" />
-		<id property="testScore2" column="testScore2" />
+		<id property="lessonSeq" column="lessonSeq" />							<!-- 강의 번호 -->
+		<result property="subjectCode" column="subjectCode" />					<!-- 강의코드 -->
+		<result property="lessonWeek" column="lessonWeek" />					<!-- 강의주차 -->
+		<result property="topicCount" column="topicCount" />					<!-- 강의차시 -->
+		<result property="lessonDeadline" column="lessonDeadline" />			<!-- 강의열람기간 -->
+		<result property="lessonUrl" column="lessonUrl" />						<!-- 강의Url -->
+		<result property="lessonOpen" column="lessonOpen" />					<!-- 강의오픈기간 -->
+		<result property="lessonContent" column="lessonContent" />				<!-- 강의공지사항 -->
+
 		
 	</resultMap>
 	
 	<!-- 강의 추가하기 -->
 	<insert id="insertLesson" parameterType="lesson">
 		<![CDATA[
-		insert into good_lesson
-		(professor, lessonName, subjectCode, grades, people, location, schedule)
-		values(#{professor}, #{lessonname}, #{subjectCode}, #{grades}, #{people}, #{location}, #{schedule})
+		insert into lesson
+		(subjectCode, lessonWeek, topicCount, lessonName, lessonDeadline, lessonUrl, lessonOpen, lessonContent)
+		values(#{subjectCode}, #{lessonWeek}, #{topicCount}, #{lessonName}, #{lessonDeadline}, #{lessonUrl}, #{lessonOpen}, #{lessonContent})
 		]]>
 	</insert>
+
+	
 
 	<!-- 강의 리스트보기 -->
 	<select id="getLessonList" resultMap="lessonResult">
 	<![CDATA[
-		SELECT * FROM subject ORDER BY subjectCode
+		SELECT * FROM lesson ORDER BY lessonWeek, topicCount
 		]]>
 	</select>
 
 	<!-- 강의 불러오기 상세페이지 -->
 	<select id="getLesson" resultType="lesson">
 		<![CDATA[
-			SELECT * FROM subject where subjectCode = #{subjectCode}
+			SELECT * FROM lesson where lessonSeq = #{lessonSeq}
 		]]>	
 	</select>
 	
 	<!-- 강의삭제 -->
 	<delete id="deleteLesson" parameterType="lesson">
 	<![CDATA[
-		DELETE subject WHERE subjectCode = #{subjectCode}
+		DELETE lesson WHERE lessonSeq = #{lessonSeq}
 	]]>
 	</delete>
 
 	<update id="updateLesson" parameterType="Lesson">
 		<![CDATA[
-			UPDATE subject SET 
+			UPDATE lesson SET 
 			lessonname = #{lessonName}
-			lessoncontent = #{lessonContent}
-			lessoncode = #{lessonContent}
+			lessonUrl = #{lessonUrl}
+			lessonContent = #{lessonContent}
+			
 		]]>
 	</update>
 
