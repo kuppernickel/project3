@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -123,6 +124,12 @@
     <form action="/insertBoard.do" method="post">
         <input class="inputTitle" type="text" placeholder="제목을 입력하세요" name="title">
         <textarea id="summernote" name="content"></textarea>
+        
+        <!-- 어느 게시판인지를 알려주기 위한 input. value값은 나중에 유동적으로 바뀌도록 수정 예정 -->
+        <input type="hidden" name="table" value="task">
+        <input type="hidden" name="writer" value="1">
+        <sec:csrfInput />
+        
         <!-- 사진 이외의 업로드 파일 -->
         <input type="file" name="uploadFile">
         <div class="btns">

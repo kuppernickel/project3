@@ -19,7 +19,7 @@
 	<insert id="insertBoard" parameterType="board">
 		<![CDATA[
 		INSERT INTO ${table}(title, writer, content, fileName, fileSize)
-		VALUES(#{title}, #{writer}, #{content}, ${fileName}, #{fileSize})
+		VALUES(#{title}, #{writer}, #{content}, #{fileName}, #{fileSize})
 		]]>
 	</insert>
 	

@@ -3,12 +3,15 @@ package com.project3.view.board;
 import java.io.File;
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,7 +27,7 @@ public class BoardController {
 	private BoardService boardService;
 	
 	// 작성 페이지로 이동
-	@RequestMapping(path = "/insertBoard.do", method = RequestMethod.GET)
+	@RequestMapping(path = "/post.do", method = RequestMethod.GET)
 	public String writeBoard() {
 		System.out.println("글 작성 페이지로 이동");
 		return "/jsp/post.jsp";
@@ -38,11 +41,12 @@ public class BoardController {
 	}
 	
 	// 글 작성
-	@RequestMapping(path = "/insertBoard.do", method = RequestMethod.POST)
-	public String insertBoard(BoardVO vo) throws IOException {
+	@RequestMapping(value = "/insertBoard.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String insertBoard(BoardVO vo, @RequestParam("table") String table) throws IOException {
 		
-		String path = (System.getProperty("user.dir")).replace("\\", "/");
-		final String SAVEFOLDER = path + "/src/main/webapp/upload/";
+//		String path = (System.getProperty("user.dir")).replace("\\", "/");
+//		final String SAVEFOLDER = path + "/src/main/webapp/upload/";
+		final String SAVEFOLDER = "C://upload/";
 		
 		// 파일 업로드 처리
 		MultipartFile uploadFile = vo.getUploadFile();
@@ -50,6 +54,8 @@ public class BoardController {
 			String fileName = uploadFile.getOriginalFilename();
 			uploadFile.transferTo(new File(SAVEFOLDER + fileName));
 		}
+		
+		vo.setTable(table);
 		
 		boardService.insertBoard(vo);
 		return "/noticeBoard.do";
