@@ -7,8 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.project3.biz.subject.SubjectService;
 import com.project3.biz.subject.SubjectVO;
+import com.project3.biz.user.UserVO;
 
-@Service
+@Service("subjectService")
 public class SubjectServiceImpl implements SubjectService{
 	
 	@Autowired
@@ -20,8 +21,8 @@ public class SubjectServiceImpl implements SubjectService{
 	}
 
 	@Override
-	public List<SubjectVO> getSubjectList(SubjectVO vo) {
-		return subjectDAO.getSubjectList(vo);
+	public List<SubjectVO> getSubjectList(UserVO uVO) {
+		return subjectDAO.getSubjectList(uVO);
 	}
 	
 	

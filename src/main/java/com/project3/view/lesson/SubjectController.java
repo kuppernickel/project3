@@ -32,12 +32,12 @@ public class SubjectController {
 	}
 	
 	@RequestMapping(path = "/getSubjectList.do", method = RequestMethod.GET)
-	public String getSubjectList(HttpSession session, SubjectVO vo, Model model) {
-		UserVO user = (UserVO) session.getAttribute("user");
+	public String getSubjectList(HttpSession session, UserVO vo, Model model) {
+		vo = (UserVO) session.getAttribute("user");
 		
 		System.out.println();
 		// 유저의 정보를 받아서 그 유저가 수강한 과목들을 모델에 담아야한다.
-		model.addAttribute("subject", subjectService.getSubject(vo));
+		model.addAttribute("subject", subjectService.getSubjectList(vo));
 		return "/jsp/detailedLectureList.jsp";
 	}
 }

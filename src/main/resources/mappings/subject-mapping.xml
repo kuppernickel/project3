@@ -10,12 +10,29 @@
         <result property="grades" column="grades" />
         <result property="people" column="people" />
         <result property="location" column="location" />
-        <result property="schedule" column="schedule" />
+        <result property="scd" column="scd" />
         <result property="rateTestScore1" column="rateTestScore1" />
         <result property="rateTestScore2" column="rateTestScore2" />
         <result property="rateAttendence" column="rateAttendence" />
         <result property="rateAssignment" column="rateAssignment" />
         <result property="lessonContent" column="lessonContent" />
+	</resultMap>
+	
+	<resultMap id="userResult" type="user">
+		<id property="userId" column="userId" />
+		<!-- <result property="auth" column="auth" />
+		<result property="pw" column="pw" />
+		<result property="name" column="name" />
+		<result property="mobile" column="mobile" />
+		<result property="email" column="email" />
+		<result property="major" column="major" />
+		<result property="major2" column="major2" />
+		<result property="subMajor" column="subMajor" />
+		<result property="zipCode" column="zipCode" />
+		<result property="address1" column="address1" />
+		<result property="address2" column="address2" />
+		<result property="level" column="level" />
+		<result property="enroll" column="enroll" /> -->
 	</resultMap>
 	
 	<select id="getSubject" resultType="subject">
@@ -26,11 +43,12 @@
 		]]>
 	</select>
 
-	<select id="getSubjectList" resultMap="subjectResult">
+	<select id="getSubjectList" parameterType="user" resultMap="subjectResult">
 		<![CDATA[
-		SELECT *
-		FROM subject
-		ORDER BY SEQ DESC
+		SELECT d.subjectCode, d.lessonName, GROUP_CONCAT(CONCAT(SUBSTR(c.day,2,1),c.hour) SEPARATOR ", ") scd, d.professor 
+		FROM schedule c LEFT OUTER JOIN 
+		(SELECT a.* FROM subject a LEFT OUTER JOIN subjectgrade b ON a.subjectCode=b.subjectCode WHERE b.userId=#{userId}) d 
+	    ON d.subjectCode=c.subjectCode GROUP BY d.subjectCode ORDER BY day ASC, hour ASC;
 		]]>
 	</select>
 	
