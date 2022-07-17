@@ -37,7 +37,7 @@ public class SubjectController {
 		
 		System.out.println();
 		// 유저의 정보를 받아서 그 유저가 수강한 과목들을 모델에 담아야한다.
-		model.addAttribute("subject", subjectService.getSubjectList(vo));
+		model.addAttribute("subjectList", subjectService.getSubjectList(vo));
 		return "/jsp/detailedLectureList.jsp";
 	}
 }
