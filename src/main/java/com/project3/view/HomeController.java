@@ -25,4 +25,5 @@ public class HomeController {
 	
 	// 학사 공지 페이지로 이동
 	
+	
 }

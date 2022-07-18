@@ -1,44 +1,44 @@
-<%@page contentType="text/html; charset=EUC-KR"%>
-
+<%@page contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>±Û »ó¼¼</title>
+<title>ê¸€ ìƒì„¸</title>
 </head>
 <body>
 	<center>
-		<h1>±Û »ó¼¼</h1>
-		<a href="logout.do">Log-out</a>
+		<h1>ê¸€ ìƒì„¸</h1>
 		<hr>
 		<form action="updateBoard.do" method="post">
 			<input name="seq" type="hidden" value="${board.seq}" />
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr>
-					<td bgcolor="orange" width="70">Á¦¸ñ</td>
+					<td bgcolor="orange" width="70">ì œëª©</td>
 					<td align="left"><input name="title" type="text"
-						value="${board.title }" /></td>
+						value="${board.title}" /></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">ÀÛ¼ºÀÚ</td>
+					<td bgcolor="orange">ì‘ì„±ì</td>
 					<td align="left">${board.writer }</td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">³»¿ë</td>
+					<td bgcolor="orange">ë‚´ìš©</td>
 					<td align="left">
 					<div name="content">
 						${board.content }</div>
 					</td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">µî·ÏÀÏ</td>
+					<td bgcolor="orange">ë“±ë¡ì¼</td>
 					<td align="left">${board.writeDate }</td>
 				</tr>
 
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
-						value="±Û ¼öÁ¤" /></td>
+						value="ê¸€ ìˆ˜ì •" /></td>
 				</tr>
 			</table>
 		</form>
