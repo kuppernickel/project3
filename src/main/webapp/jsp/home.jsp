@@ -32,7 +32,6 @@
                 
                 <!-- 로그인/로그아웃 테스트 -->
                 <div>${user.name}<a href="/logout.do">logout</a></div>
-                <button type="submit" class="btn btn-dark" style="margin:0 2vW">로그인</button>
             </nav>
         </form>
     </header><!--  헤더 끝  -->

@@ -37,16 +37,16 @@
       <div class="subMenu">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a style="color: black" class="nav-link" href="#">강의실 홈</a>
-          </li>
-          <li class="nav-item">
-            <a style="color: black" class="nav-link" href="#">나의 강의 목록</a>
-          </li>
-          <li class="nav-item">
-            <a style="color: black" class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a style="color: black" class="nav-link" href="#">Disabled</a>
+               <a style="color: black" class="nav-link" href="#">강의리스트</a>
+           </li>
+           <li class="nav-item">
+               <a style="color: black" class="nav-link" href="#">과제</a>
+           </li>
+           <li class="nav-item">
+               <a style="color: black" class="nav-link" href="#">공지사항</a>
+           </li>
+           <li class="nav-item">
+               <a style="color: black" class="nav-link" href="#">수업계획서</a>
           </li>
         </ul>
       </div>
