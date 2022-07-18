@@ -10,20 +10,23 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class HomeController {
 	
 	// 강의 리스트 페이지
-	@RequestMapping(path = "/detail.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/detail.do", method = RequestMethod.GET)
 	public String moveDetail() {
 		System.out.println("강의 목록 페이지 이동");
-		return "/jsp/lectureList.jsp";
+		return "/jsp/subjectList.jsp";
 	}
 	
 	// 메인 페이지
-	@RequestMapping(path = "/home.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/home.do", method = RequestMethod.GET)
 	public String moveHome() {
 		System.out.println("메인 페이지로 이동");
 		return "/jsp/home.jsp";
 	}
 	
 	// 학사 공지 페이지로 이동
-	
-	
+	@RequestMapping(value = "commonNotice.do", method = RequestMethod.GET)
+	public String moveCommonNotice() {
+		System.out.println("학사공지 페이지로 이동");
+		return "/jsp/commonNotice.jsp";
+	}
 }
