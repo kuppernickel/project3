@@ -11,6 +11,11 @@ container {
     justify-content: space-evenly;
 }
 
+.loginInfo {
+    margin-right: 30rem;
+}
+
+
 .card{
     width: 18rem;
 }

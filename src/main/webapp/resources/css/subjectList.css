@@ -54,7 +54,7 @@
     float: left;
     margin-right: 2rem;
 }
-.list. .textTitle{
+.list .textTitle{
     font-size: 1.5rem;
 }
 .list .badge{
@@ -64,6 +64,11 @@
 .list .text{
     line-height: 2rem;
 }
+
+.loginInfo {
+    margin-right: 30rem;
+}
+
 @media screen and (max-width: 1024px) {
     .loginForm{
         margin: 20px auto;

@@ -1,15 +1,15 @@
-let main = document.querySelector('main');
+let container = document.querySelector('container');
 let ring = document.querySelector('.ring');
 
 function pageOn(){
-    if (main.classList.contains('hide')){
-        main.classList.remove('hide');
+    if (container.classList.contains('hide')){
+        container.style.display='block';
         ring.style.display='none';
 	}
 }
 
 setTimeout( () => {
-	console.log('asdf');
+	console.log('로딩중');
 	pageOn();
     }, 2000);
 

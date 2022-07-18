@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>통합 로그인</title>
     <!--  부트스트랩 CDN  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -16,24 +16,21 @@
        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- IONICONS -->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-   	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/signin.css">
+   	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index.css">
 </head>
 <body>
 
-<div class="ring">Loading
-  <span></span>
-</div>
 
-<main class="form-signin hide">
+<main class="form-signin">
   <form action="login.do" method="post">
     <h1 class="h3 mb-3 fw-normal" style="text-align:center;">통합로그인페이지</h1>
 
     <div class="form-floating">
-      <input type="text" name="userId" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="text" name="userId" class="form-control" id="floatingInput">
       <label for="floatingInput">아이디</label>
     </div>
     <div class="form-floating">
-      <input type="password" name="pw" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" name="pw" class="form-control" id="floatingPassword">
       <label for="floatingPassword">비밀번호</label>
     </div>
     <button class="w-100 btn btn-lg btn-dark" value="login" type="submit">로그인</button>
@@ -41,6 +38,5 @@
 </main>
 
 
-<script src="${pageContext.request.contextPath}/js/loading.js"></script>
 </body>
 </html>

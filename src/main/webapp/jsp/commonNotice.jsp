@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Q&A</title>
+  <title>학사 공지</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -27,93 +27,51 @@
 </head>
 <body  id="body-pd">
 
-<!--  헤더  -->
+
+<!--  헤더 -->
 <header>
-  <form>
-    <nav class="navbar sticky-top navbar-dark bg-light">
+    <form>
+        <nav class="navbar sticky-top navbar-dark bg-light">
 
 
-      <!-- 서브메뉴  -->
-      <div class="subMenu">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-               <a style="color: black" class="nav-link" href="#">강의리스트</a>
-           </li>
-           <li class="nav-item">
-               <a style="color: black" class="nav-link" href="#">과제</a>
-           </li>
-           <li class="nav-item">
-               <a style="color: black" class="nav-link" href="#">공지사항</a>
-           </li>
-           <li class="nav-item">
-               <a style="color: black" class="nav-link" href="#">수업계획서</a>
-          </li>
-        </ul>
-      </div>
+            <!-- 서브메뉴  -->
+            <div class="subMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a style="color: black" class="nav-link" href="#">강의리스트</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: black" class="nav-link" href="#">과제</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: black" class="nav-link" href="#">공지사항</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: black" class="nav-link" href="#">수업계획서</a>
+                    </li>
+                    
+					<div class="loginInfo">"${user.name}"님</div>
+	                <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
+                </ul>
+            </div>
 
 
-      <!-- 로그인 -->
-      <div class="loginForm">
-        <div class="btn-group" role="group" aria-label="...">
-          <button type="button" class="btn btn-primary button-class1" onclick="click1()">학생</button>
-          <button type="button" class="btn btn-default button-class2" onclick="click2()">교수</button>
-        </div>
-        <div class="row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="학번" aria-label="First name">
-          </div>
-          <div class="col">
-            <input type="password" class="form-control" placeholder="비밀번호" aria-label="Last name">
-          </div>
-        </div>
-        <button type="submit" class="btn btn-dark" style="margin:0 2vW">로그인</button>
-      </div>
-    </nav>
-  </form>
+        </nav>
+    </form>
 </header> <!--  헤더 끝 -->
 
 
-
 <!-- 사이드바 -->
-    <div class="l-navbar" id="navbar">
-        <nav class="nav">
-            <div>
-                <div class="nav__brand">
-                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                    <span class="nav__logo">학사 종합 포털</span>
-                </div>
-                    <div class="nav__list">
-                        <a href="home.do" class="nav__link active">
-                            <ion-icon name="home-outline" class="nav__icon"></ion-icon>
-                            <span class="nav_name">홈으로</span>
-                        </a>
-                        <a href="detail.do" class="nav__link">
-                            <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
-                            <span class="nav_name">과목</span>
-                        </a>
-                        <a href="/getInfo.do" class="nav__link">
-                            <ion-icon name="ellipsis-horizontal-sharp" class="nav__icon"></ion-icon>
-                            <span class="nav_name">내 정보</span>
-                        </a>
-                        <a href="commonNotice.do" class="nav__link">
-                            <ion-icon name="book-outline" class="nav__icon"></ion-icon>
-                            <span class="nav_name">학사공지</span>
-                        </a>
-                        <a href="/logout.do" class="nav__link">
-                            <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                            <span class="nav_name">로그아웃</span>
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </div> <!-- 사이드바 끝 -->
+<jsp:include page="../commonJSP/sideBar.jsp"/>
+
+
 
 
 
 <main>
 
   <div>
-    <h2 class="Title">Q&A</h2>
+    <h2 class="Title">학사 공지</h2>
   </div>
 
   <!-- 과목 필터  -->

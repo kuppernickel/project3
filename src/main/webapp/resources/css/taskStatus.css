@@ -85,4 +85,8 @@ table a:hover{
     .hide{
         display: none;
     }
+    .loginInfo {
+    margin-right: 0;
+    font-size:0.9rem;
+    }
 }

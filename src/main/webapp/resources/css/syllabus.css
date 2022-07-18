@@ -86,4 +86,8 @@ th, td{
     .lessonPlan2{
         margin: 2rem 0 0 2rem;
     }
+    .loginInfo {
+    margin-right: 0;
+    font-size:0.9rem;
+    }
 }

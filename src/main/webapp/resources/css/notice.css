@@ -129,7 +129,11 @@ th, td{
         display: flex;
         justify-content: center;
         width: 50rem;
-        margin: 20px auto 0px 125px;
+        margin: 20px auto 0px 50px;
         align-items: center;
+    }
+    .loginInfo {
+    margin-right: 0;
+    font-size:0.9rem;
     }
 }
