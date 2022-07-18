@@ -20,7 +20,7 @@
     <!-- IONICONS -->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <!--  CSS  -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
 </head>
 <body id="body-pd">
