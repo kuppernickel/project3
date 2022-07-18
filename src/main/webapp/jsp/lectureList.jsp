@@ -22,50 +22,18 @@
 </head>
 <body  id="body-pd">
 
-<!--  헤더  -->
-<header>
-    <form>
-        <nav class="navbar sticky-top navbar-dark bg-light">
 
-
-            <!-- 서브메뉴  -->
-            <div class="subMenu">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a style="color: black" class="nav-link" href="#">강의리스트</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="color: black" class="nav-link" href="#">과제</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="color: black" class="nav-link" href="#">공지사항</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="color: black" class="nav-link" href="#">수업계획서</a>
-                    </li>
-                </ul>
-            </div>
-
-
-            <!-- 로그인 -->
-            <div class="loginForm">
-                <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-primary button-class1" onclick="click1()">학생</button>
-                    <button type="button" class="btn btn-default button-class2" onclick="click2()">교수</button>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="학번" aria-label="First name">
-                    </div>
-                    <div class="col">
-                        <input type="password" class="form-control" placeholder="비밀번호" aria-label="Last name">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-dark" style="margin:0 2vW">로그인</button>
-            </div>
-        </nav>
-    </form>
-</header> <!--  헤더 끝 -->
+     <!--  헤더  -->
+    <header>
+        <form>
+            <nav class="navbar sticky-top navbar-dark bg-light" style="justify-content: end;">
+                
+                <!-- 로그인/로그아웃 테스트 -->
+                <div class="loginInfo">"${user.name}"님</div>
+                <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
+            </nav>
+        </form>
+    </header><!--  헤더 끝  -->
 
 
 

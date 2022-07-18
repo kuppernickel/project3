@@ -57,17 +57,14 @@
                             <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">강의</span>
                         </a>
-                        <a href="#" class="nav__link">
-                            <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
-                            <span class="nav_name">ㅁㄴㅇㄹ</span>
-                        </a>
-                        <a href="#" class="nav__link">
-                            <ion-icon name="book-outline" class="nav__icon"></ion-icon>
-                            <span class="nav_name">ㅁㄴㅇㄹ</span>
-                        </a>
                         <a href="/getInfo.do" class="nav__link">
                             <ion-icon name="ellipsis-horizontal-sharp" class="nav__icon"></ion-icon>
                             <span class="nav_name">내 정보</span>
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <ion-icon name="book-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">학사공지</span>
                         </a>
                         <a href="/logout.do" class="nav__link">
                             <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>

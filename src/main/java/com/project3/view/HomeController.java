@@ -13,7 +13,7 @@ public class HomeController {
 	@RequestMapping(path = "/detail.do", method = RequestMethod.GET)
 	public String moveDetail() {
 		System.out.println("강의 목록 페이지 이동");
-		return "/jsp/detailedLectureList.jsp";
+		return "/jsp/lectureList.jsp";
 	}
 	
 	// 메인 페이지
@@ -22,5 +22,7 @@ public class HomeController {
 		System.out.println("메인 페이지로 이동");
 		return "/jsp/home.jsp";
 	}
+	
+	// 학사 공지 페이지로 이동
 	
 }
