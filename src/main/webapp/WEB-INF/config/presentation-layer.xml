@@ -17,6 +17,8 @@
 	<!-- 파일 업로드 설정 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 임시 저장 디렉토리 -->
+		<property name="uploadTempDir" value="/temp"></property>
 		<property name="maxUploadSize" value="10485760" /> <!-- 10MB -->
 	</bean>
 	

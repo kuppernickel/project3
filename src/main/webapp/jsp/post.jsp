@@ -121,12 +121,12 @@
 
 
 <div class="editorWrap">
-    <form action="/insertBoard.do" method="post">
+    <form action="/insertBoard.do" method="post" enctype="multipart/form-data">
         <input class="inputTitle" type="text" placeholder="제목을 입력하세요" name="title">
         <textarea id="summernote" name="content"></textarea>
         
         <!-- 어느 게시판인지를 알려주기 위한 input. value값은 나중에 유동적으로 바뀌도록 수정 예정 -->
-        <input type="hidden" name="table" value="task">
+        <input type="hidden" name="table" value="notice">
         <input type="hidden" name="writer" value="1">
         <sec:csrfInput />
         
