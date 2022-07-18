@@ -112,19 +112,19 @@
                     <th style="width:10%; flex-basis: 10%;" >주차</th>
                     <th style="width:10%; flex-basis: 10%;">차시</th>
                     <th style="width:55%; flex-basis: 55%">강의명</th>
-                    <th class="hide" style="width:15%; flex-basis: 15%;">수업기간</th>
-                    <th style="width:10%; flex-basis: 10%;">과제</th>
+                    <th class="hide" style="width:15%; flex-basis: 15%;">출결마감</th>
+                    <th style="width:10%; flex-basis: 10%;">출결</th>
                 </tr></thead>
                 <tbody>
-	                <%-- <c:forEach items="${subjectList}" var="subject"> --%>
+	                <c:forEach items="${lessonList}" var="lesson">
 		                <tr>
-		                    <td>1</td>
-		                    <td>1</td>
-		                    <td><a href="getSubject.do?subjectCode=J1B01">스마트웹 콘텐츠 개발자 양성</a></td>
-		                    <td class="hide">22.01.12 ~ 22.07.26</td>
-		                    <td><span class="badge bg-secondary">없음</span></td>
+		                    <td>${lesson.lessonWeek}</td>
+		                    <td>${lesson.topicCount}</td>
+		                    <td><a href="/getLesson.do?lessonSeq=${lesson.lessonSeq}">${lesson.lessonName}</a></td>
+		                    <td class="hide">${lesson.lessonDeadline}</td>
+		                    <td><span class="badge bg-secondary">미출결</span></td>
 		                </tr>
-		            <%-- </c:forEach> --%>
+		            </c:forEach>
                 <!-- <tr>
                     <td>1</td>
                     <td>Item2</td>

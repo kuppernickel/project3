@@ -8,6 +8,7 @@
 		<typeAlias alias="user" type="com.project3.biz.user.UserVO" />
 		<typeAlias alias="board" type="com.project3.biz.board.BoardVO" />
 		<typeAlias alias="subject" type="com.project3.biz.subject.SubjectVO" />
+		<typeAlias alias="lesson" type="com.project3.biz.lesson.LessonVO" />
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
@@ -15,5 +16,6 @@
 		<mapper resource="mappings/user-mapping.xml" />
 		<mapper resource="mappings/board-mapping.xml" />
 		<mapper resource="mappings/subject-mapping.xml" />
+		<mapper resource="mappings/lesson-mapping.xml" />
 	</mappers>
 </configuration>

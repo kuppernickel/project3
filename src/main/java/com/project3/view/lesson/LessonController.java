@@ -13,7 +13,6 @@ import com.project3.biz.lesson.LessonVO;
 
 
 @Controller
-@RequestMapping("/lesson/*")
 public class LessonController {
 	
 	@Autowired
@@ -46,13 +45,13 @@ public class LessonController {
 	@RequestMapping("/getLesson.do")
 	public String getLesson(LessonVO vo, Model model) {
 		model.addAttribute("lesson", lessonService.getLesson(vo)); // Model 정보 저장
-		return "lecture.jsp"; // View 이름 리턴
+		return "/jsp/lecture.jsp"; // View 이름 리턴
 	}
 
 	@RequestMapping("/getLessonList.do")
 	public String getLessonList(LessonVO vo, Model model) {
 		model.addAttribute("lessonList", lessonService.getLessonList(vo));
-		return "lectureList.jsp"; // View 이름 리턴
+		return "/jsp/subject.jsp"; // View 이름 리턴
 	}
 	
 }

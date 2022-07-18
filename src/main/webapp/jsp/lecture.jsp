@@ -36,8 +36,9 @@
 
 <main>
     <div class="videoWrap">
-         <iframe width="800" height="700" src="https://www.youtube.com/embed/CECTVu1Odl4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         <iframe width="800" height="700" src="${lesson.lessonUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+    <div>${lesson.lessonContent}</div>
 
     <div class="btns">
         <button type="button" class="check btn btn-dark" style="cursor: default;">수강중</button>
