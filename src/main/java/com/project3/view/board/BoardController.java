@@ -34,7 +34,7 @@ public class BoardController {
 	}
 	
 	// 공지사항 페이지로 이동
-	@RequestMapping(value = "/noticeBoard.do", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/notice.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String goToNotice() {
 		System.out.println("공지사항 페이지로 이동");
 		return "/jsp/notice.jsp";
@@ -43,7 +43,7 @@ public class BoardController {
 	// 글 작성
 	@RequestMapping(value = "/insertBoard.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String insertBoard(BoardVO vo, @RequestParam("table") String table,
-			@RequestParam MultipartFile uploadFile ) throws IOException {
+			@RequestParam MultipartFile uploadFile) throws IOException {
 		System.out.println("insertBoard 컨트롤러 진입 성공");
 //		String path = (System.getProperty("user.dir")).replace("\\", "/");
 //		final String SAVEFOLDER = path + "/src/main/webapp/upload/";
@@ -55,7 +55,7 @@ public class BoardController {
 			uploadFile.transferTo(new File(SAVEFOLDER + fileName));
 		}
 		
-		vo.setTable(table);
+//		vo.setTable(table);
 		
 		boardService.insertBoard(vo);
 		
@@ -66,7 +66,7 @@ public class BoardController {
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(@ModelAttribute("board") BoardVO vo) {
 		boardService.updateBoard(vo);
-		return "getBoardList.do";
+		return "getBoard.do";
 	}
 	
 	// 글 삭제
@@ -78,17 +78,18 @@ public class BoardController {
 
 	// 글 상세 조회
 	@RequestMapping("/getBoard.do")
-	public String getBoard(BoardVO vo, Model model, @RequestParam("table") String table,
-			@RequestParam("seq") String seq) {
+	public String getBoard(BoardVO vo, Model model) {
 		model.addAttribute("board", boardService.getBoard(vo)); // Model 정보 저장
 		return "/jsp/getBoard.jsp"; // View 이름 리턴
 	}
 	
+	// 게시글 리스트로 이동
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(BoardVO vo, Model model, @RequestParam("table") String table) {
-		vo.setTable(table);
+		System.out.println(table);
 		model.addAttribute("boardList", boardService.getBoardList(vo));
-		return "/noticeBoard.do";
+		model.addAttribute("table", table);
+		return "/" + table + ".do";
 	}
 	
 	

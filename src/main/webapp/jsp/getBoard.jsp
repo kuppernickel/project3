@@ -43,5 +43,7 @@
 			</table>
 		</form>
 	</center>
+				<a href="deleteBoard.do?seq=${board.seq}&table=notice">글삭제</a>
+	
 </body>
 </html>

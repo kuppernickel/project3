@@ -36,7 +36,7 @@
 
 	<delete id="deleteBoard">
 		<![CDATA[
-		DELETE ${table}
+		DELETE from ${table} 
 		WHERE seq = #{seq}
 		]]>
 	</delete>
