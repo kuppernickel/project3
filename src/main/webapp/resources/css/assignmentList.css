@@ -115,4 +115,9 @@ th, td{
     .hide{
         display: none;
     }
+    
+    .loginInfo {
+    margin-right: 0;
+    font-size:0.75rem;
+    }
 }

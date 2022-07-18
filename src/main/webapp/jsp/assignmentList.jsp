@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>과목 목록</title>
+    <title>과제 목록</title>
     <!--  부트스트랩 CDN  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -19,7 +19,7 @@
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detailedLectureList.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/assignmentList.css">
 </head>
 <body  id="body-pd">
 
@@ -47,22 +47,8 @@
             </div>
 
 
-            <!-- 로그인 -->
-            <div class="loginForm">
-                <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-primary button-class1" onclick="click1()">학생</button>
-                    <button type="button" class="btn btn-default button-class2" onclick="click2()">교수</button>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="학번" aria-label="First name">
-                    </div>
-                    <div class="col">
-                        <input type="password" class="form-control" placeholder="비밀번호" aria-label="Last name">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-dark" style="margin:0 2vW">로그인</button>
-            </div>
+				<div class="loginInfo">"${user.name}"님</div>
+                <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
         </nav>
     </form>
 </header> <!--  헤더 끝 -->
@@ -119,50 +105,6 @@
         </div>
 
 
-        <!--  검색필터  -->
-        <div class="filter">
-            <form>
-                <div class="filterWrap">
-                    <div class="filterList">
-                        <ul>
-                            <li>
-                                <select>
-                                    <option selected>학기 선택</option>
-                                    <option>1학년1학기</option>
-                                    <option>1학년2학기</option>
-                                    <option>2학년1학기</option>
-                                    <option>2학년2학기</option>
-                                    <option>3학년1학기</option>
-                                    <option>3학년2학기</option>
-                                    <option>1학년1학기</option>
-                                </select>
-                            </li>
-                        </ul>
-                        <div class="filterList">
-                            <ul>
-                                <li>
-                                    <select>
-                                        <option selected>과목을 선택하세요</option>
-                                        <option>스마트 웹</option>
-                                        <option>콘텐츠 개발자</option>
-                                        <option></option>
-                                        <option></option>
-                                        <option></option>
-                                        <option></option>
-                                        <option></option>
-                                    </select>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div><!--  검색필터 끝  -->
-
-		
-
-
-
         <!-- 테이블 -->
         <div class="tableWrap">
             <table class="tight">
@@ -182,21 +124,15 @@
                 </tr><tr>
                     <td>1</td>
                     <td>Item2</td>
-                    <td>Item2</td>
+                    <td><a href="#">Item2</a></td>
                     <td class="hide">*</td>
                     <td><span class="badge bg-danger">미제출</span></td>
                 </tr><tr>
                     <td></td>
                     <td>Item1</td>
-                    <td>Item1</td>
+                    <td><a href="#">Item1</a></td>
                     <td class="hide">*</td>
                     <td><span class="badge bg-success">제출</span></td>
-                </tr><tr>
-                    <td></td>
-                    <td>Item1</td>
-                    <td>Item1</td>
-                    <td class="hide">*</td>
-                    <td>Item3</td>
                 </tr></tbody>
             </table>
         </div><!-- 테이블 끝 -->
@@ -213,6 +149,5 @@
 
     <script src="${pageContext.request.contextPath}/js/index.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/toggleBtn.js"></script>
 </body>
 </html>

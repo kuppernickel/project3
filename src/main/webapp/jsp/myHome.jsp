@@ -20,23 +20,41 @@
     <!-- IONICONS -->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <!--  CSS  -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myHome.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
    
 </head>
 <body id="body-pd">
 
-    <!--  헤더  -->
-    <header>
-        <form>
-            <nav class="navbar sticky-top navbar-dark bg-light" style="justify-content: end;">
-                
-                <!-- 로그인/로그아웃 테스트 -->
-                <div class="loginInfo">"${user.name}"님</div>
+<header>
+    <form>
+        <nav class="navbar sticky-top navbar-dark bg-light">
+
+
+            <!-- 서브메뉴  -->
+            <div class="subMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a style="color: black" class="nav-link" href="#">강의리스트</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: black" class="nav-link" href="#">과제</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: black" class="nav-link" href="#">공지사항</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: black" class="nav-link" href="#">수업계획서</a>
+                    </li>
+                </ul>
+            </div>
+
+
+				<div class="loginInfo">"${user.name}"님</div>
                 <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
-            </nav>
-        </form>
-    </header><!--  헤더 끝  -->
+        </nav>
+    </form>
+</header> <!--  헤더 끝 -->
 
 
 
@@ -91,7 +109,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr style='colspan:"4"; background: #f5f5f5'>
-                            <th><a class="aTag" href="#">강의 목록<ion-icon name="add-circle-outline"></ion-icon></a></th>
+                            <th><a class="aTag" href="#">내 강의 목록<ion-icon name="add-circle-outline"></ion-icon></a></th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -152,7 +170,7 @@
                 <table class="table table-hover">
                     <thead>
                     <tr style='colspan:"4"; background: #f5f5f5';>
-                        <th><a class="aTag" href="#">과제 목록<ion-icon name="add-circle-outline"></ion-icon></a></th>
+                        <th><a class="aTag" href="#">내 강의 목록<ion-icon name="add-circle-outline"></ion-icon></a></th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -172,12 +190,12 @@
                 </table>
             </div> <!--   과제리스트 끝 -->
 
-            <!--  학사 공지  -->
+            <!--  공지 사항  -->
             <div class="board_third">
                 <table class="table table-hover">
                     <thead>
                     <tr style='colspan:"4"; background: #f5f5f5'>
-                        <th><a class="aTag" href="#">학사 공지<ion-icon name="add-circle-outline"></ion-icon></a></th>
+                        <th><a class="aTag" href="#">내 강의 공지<ion-icon name="add-circle-outline"></ion-icon></a></th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -211,22 +229,12 @@
 
                     </tbody>
                 </table>
-            </div><!--  학사 공지 끝 -->
-
-
-            <!--   성적 그래프    -->
-            <div class="board_fourth">
-                <div class="graphWrap">
-                    <canvas id="canvas1" ></canvas>
-                </div>
-            </div>
-        </div><!--   성적 그래프 끝    -->
+            </div><!--  공지 사항 끝 -->
 
 
     </main><!--  콘텐츠 끝  -->
 
 <!-- JS -->
-<script src="${pageContext.request.contextPath}/js/chart.js"></script>
 <script src="${pageContext.request.contextPath}/js/index.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
