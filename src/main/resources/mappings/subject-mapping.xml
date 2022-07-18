@@ -5,7 +5,7 @@
 
 	<resultMap id="subjectResult" type="subject">
         <id property="subjectCode" column="subjectCode" />
-        <result property="professor" column="professor" />
+        <result property="profName" column="profName" />
         <result property="lessonName" column="lessonName" />
         <result property="grades" column="grades" />
         <result property="people" column="people" />
@@ -45,10 +45,16 @@
 
 	<select id="getSubjectList" parameterType="user" resultMap="subjectResult">
 		<![CDATA[
-		SELECT d.subjectCode, d.lessonName, GROUP_CONCAT(CONCAT(SUBSTR(c.day,2,1),c.hour) SEPARATOR ", ") scd, d.professor 
+		SELECT 
+		d.subjectCode, d.lessonName, 
+		GROUP_CONCAT(CONCAT(SUBSTR(c.day,2,1),c.hour) SEPARATOR ", ") scd, 
+		d.name profName, d.location
 		FROM schedule c LEFT OUTER JOIN 
-		(SELECT a.* FROM subject a LEFT OUTER JOIN subjectgrade b ON a.subjectCode=b.subjectCode WHERE b.userId=#{userId}) d 
-	    ON d.subjectCode=c.subjectCode GROUP BY d.subjectCode ORDER BY day ASC, hour ASC;
+		(SELECT e.*,prof.name FROM users prof RIGHT OUTER JOIN 
+	    	(SELECT a.* FROM subject a LEFT OUTER JOIN 
+	    	subjectgrade b ON a.subjectCode=b.subjectCode WHERE b.userId=#{userId}) e
+	    ON prof.userId=e.professor) d 
+		ON d.subjectCode=c.subjectCode GROUP BY d.subjectCode ORDER BY day ASC, hour ASC;
 		]]>
 	</select>
 	

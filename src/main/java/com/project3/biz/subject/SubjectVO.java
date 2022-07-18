@@ -6,7 +6,7 @@ import lombok.Data;
 public class SubjectVO {
 	private String subjectCode;			// 과목코드
 	private String lessonName;			// 과목이름
-	private String professor;			// 담당 교수이름
+	private String profName;			// 담당 교수이름
 	private int grades;					// 과목의 이수학점
 	private int people;					// 과목의 정원수
 	private String location;			// 강의실 위치

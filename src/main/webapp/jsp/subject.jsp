@@ -115,13 +115,17 @@
                     <th class="hide" style="width:15%; flex-basis: 15%;">수업기간</th>
                     <th style="width:10%; flex-basis: 10%;">과제</th>
                 </tr></thead>
-                <tbody><tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td><a href="getSubject.do?subjectCode=J1B01">스마트웹 콘텐츠 개발자 양성</a></td>
-                    <td class="hide">22.01.12 ~ 22.07.26</td>
-                    <td><span class="badge bg-secondary">없음</span></td>
-                </tr><tr>
+                <tbody>
+	                <%-- <c:forEach items="${subjectList}" var="subject"> --%>
+		                <tr>
+		                    <td>1</td>
+		                    <td>1</td>
+		                    <td><a href="getSubject.do?subjectCode=J1B01">스마트웹 콘텐츠 개발자 양성</a></td>
+		                    <td class="hide">22.01.12 ~ 22.07.26</td>
+		                    <td><span class="badge bg-secondary">없음</span></td>
+		                </tr>
+		            <%-- </c:forEach> --%>
+                <!-- <tr>
                     <td>1</td>
                     <td>Item2</td>
                     <td><a href="#">Item2</a></td>
@@ -133,7 +137,8 @@
                     <td><a href="#">Item1</a></td>
                     <td class="hide">*</td>
                     <td><span class="badge bg-success">제출</span></td>
-                </tr></tbody>
+                </tr> -->
+                </tbody>
             </table>
         </div><!-- 테이블 끝 -->
     </main>

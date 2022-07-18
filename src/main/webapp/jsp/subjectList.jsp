@@ -84,17 +84,19 @@
 
         <!--  강의 목록   -->
         <div class="listWrap">
-            <a href="">
-                <div class="list">
-                    <img src="../img/KakaoTalk_20220711_152825809.jpg" alt="">
-                    <div class="text">
-                        <span class="badge bg-success">신청가능</span>
-                        <span class="textTitle">2022 온라인 교육 1차</span><br>
-                        <span>신청기간 :  2022-07-12 ~ 2027-07-13</span><br>
-                        <span>신청기간 :  2022-07-12 ~ 2027-07-13</span>
-                    </div>
-                </div>
-            </a>
+        	<c:forEach items="${subjectList}" var="subject">
+	            <a href="/getLessonList.do?subjectCode=${subject.subjectCode}">
+	                <div class="list">
+	                    <img src="../img/KakaoTalk_20220711_152825809.jpg" alt="">
+	                    <div class="text">
+	                        <span class="badge bg-success">${subject.location}</span>
+	                        <span class="textTitle">${subject.lessonName}</span><br>
+	                        <span>담당교수: ${subject.profName}</span><br>
+	                        <span>${subject.scd}</span>
+	                    </div>
+	                </div>
+	            </a>
+	        </c:forEach>
         </div>
     </div>
 </main>
