@@ -1,6 +1,5 @@
 package com.project3.view.lesson;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,14 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.project3.biz.board.BoardVO;
 import com.project3.biz.lesson.LessonService;
 import com.project3.biz.lesson.LessonVO;
-import com.project3.biz.lesson.impl.LessonDAO;
-import com.project3.biz.subject.SubjectService;
 
 
 @Controller
@@ -28,6 +22,7 @@ public class LessonController {
 	// 강의 등록
 	@RequestMapping("/insertLesson.do")
 	public String insertLesson(LessonVO vo) throws IOException {
+		lessonService.insertLesson(vo);
 		return "lectureList.do";
 	}
 

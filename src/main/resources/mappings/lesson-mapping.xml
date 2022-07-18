@@ -12,9 +12,7 @@
 		<result property="lessonDeadline" column="lessonDeadline" />			<!-- 강의열람기간 -->
 		<result property="lessonUrl" column="lessonUrl" />						<!-- 강의Url -->
 		<result property="lessonOpen" column="lessonOpen" />					<!-- 강의오픈기간 -->
-		<result property="lessonContent" column="lessonContent" />				<!-- 강의공지사항 -->
-
-		
+		<result property="lessonContent" column="lessonContent" />				<!-- 강의내용 -->
 	</resultMap>
 	
 	<!-- 강의 추가하기 -->
@@ -31,21 +29,25 @@
 	<!-- 강의 리스트보기 -->
 	<select id="getLessonList" resultMap="lessonResult">
 	<![CDATA[
-		SELECT * FROM lesson ORDER BY lessonWeek, topicCount
+		SELECT * FROM lesson 
+		where subjectCode = #{subjectCode} 
+		ORDER BY lessonWeek, topicCount
 		]]>
 	</select>
 
 	<!-- 강의 불러오기 상세페이지 -->
 	<select id="getLesson" resultType="lesson">
 		<![CDATA[
-			SELECT * FROM lesson where lessonSeq = #{lessonSeq}
+			SELECT * FROM lesson 
+			where lessonSeq = #{lessonSeq}
 		]]>	
 	</select>
 	
 	<!-- 강의삭제 -->
 	<delete id="deleteLesson" parameterType="lesson">
 	<![CDATA[
-		DELETE lesson WHERE lessonSeq = #{lessonSeq}
+		DELETE lesson 
+		WHERE lessonSeq = #{lessonSeq}
 	]]>
 	</delete>
 
@@ -55,7 +57,7 @@
 			lessonname = #{lessonName}
 			lessonUrl = #{lessonUrl}
 			lessonContent = #{lessonContent}
-			
+			WHERE lessonSeq = #{lessonSeq} 
 		]]>
 	</update>
 

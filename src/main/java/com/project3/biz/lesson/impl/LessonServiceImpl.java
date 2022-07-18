@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.project3.biz.lesson.LessonService;
 import com.project3.biz.lesson.LessonVO;
 
-@Service
+@Service("lessonService")
 public class LessonServiceImpl implements LessonService{
 	
 	@Autowired
