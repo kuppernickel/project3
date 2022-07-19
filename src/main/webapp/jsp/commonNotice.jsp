@@ -159,25 +159,18 @@
         <th style="width:15%; flex-basis: 15%;">등록일</th>
         <th style="width:10%; flex-basis: 10%;">조회</th>
       </tr></thead>
-      <tbody><tr>
-        <td>3</td>
-        <td><a href="">Q&A</a></td>
-        <td></td>
-        <td>2022-06-20</td>
+      <tbody>
+      <c:forEach items="${boardList}" var="board">
+      <tr>
+        <td>${board.seq}</td>
+        <td><a href="#">${board.title}</a></td>
+        <td>${board.writer}</td>
+        <td>${board.writeDate}</td>
         <td>14</td>
-      </tr><tr>
-        <td>2</td>
-        <td><a href="">Q&A!!!</a></td>
-        <td></td>
-        <td>2022-05-26</td>
-        <td>20</td>
-      </tr><tr>
-        <td>1</td>
-        <td><a href="">Q&A</a></td>
-        <td></td>
-        <td>2022-03-27</td>
-        <td>15</td>
-      </tr></tbody>
+      </tr>
+      </c:forEach>
+      
+      </tbody>
     </table>
   </div><!-- 테이블 끝 -->
 
