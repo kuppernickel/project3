@@ -44,7 +44,20 @@
 <!-- 메인 리스트 -->
 <main>
     <div class="mainWrap">
-        <div class="search"><input type="text" placeholder="강의명을 입력하세요"> <button type="submit" class="btn btn-dark" style="margin:0 2vW">검색</button></div>
+        <div class="search">
+        	<form method="get" action="/getSubjectList.do">
+		        <input type="text" placeholder="강의명을 입력하세요">
+		        <select name="day">
+		        	<option value="all">요일선택</option>
+		        	<option value="1월">월</option>
+		        	<option value="2화">화</option>
+		        	<option value="3수">수</option>
+		        	<option value="4목">목</option>
+		        	<option value="5금">금</option>
+		        </select>
+		        <button type="submit" class="btn btn-dark" style="margin:0 2vW">검색</button>
+	        </form>
+        </div>
         <!--  검색창 끝  -->
 
         <!--  강의 목록   -->

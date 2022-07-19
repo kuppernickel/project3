@@ -20,6 +20,7 @@
 	
 	<resultMap id="userResult" type="user">
 		<id property="userId" column="userId" />
+		<result property="day" column="day" />
 		<!-- <result property="auth" column="auth" />
 		<result property="pw" column="pw" />
 		<result property="name" column="name" />
@@ -56,7 +57,7 @@
 			ON a.subjectCode=b.subjectCode WHERE b.userId=#{userId}) e
 		ON prof.userId=e.professor) d 
 		ON d.subjectCode=c.subjectCode 
-        WHERE if(#{day} is not null,c.day=#{day},c.day like "%%")
+        WHERE if(#{day}='all' or #{day} is null,c.day like "%%",c.day=#{day})
         GROUP BY d.subjectCode ORDER BY c.day ASC, c.hour ASC;
 		]]>
 	</select>

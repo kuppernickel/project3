@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>과제 목록</title>
+    <title>강의 목록</title>
     <!--  부트스트랩 CDN  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -69,7 +69,7 @@
 
 
         <div>
-            <h2 class="lectureTitle">내 과목 과제리스트</h2>
+            <h2 class="lectureTitle">강의목록</h2>
         </div>
 
 

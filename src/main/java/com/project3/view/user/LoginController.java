@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.project3.biz.subject.impl.SubjectServiceImpl;
 import com.project3.biz.user.UserService;
 import com.project3.biz.user.UserVO;
+import com.project3.util.UtilMgr;
 
 @Controller
 @SessionAttributes("user")
@@ -47,6 +48,7 @@ public class LoginController {
 		
 		//System.out.println(user.getName());
 		if(user!=null) {
+			user.setDay(UtilMgr.calcDay());
 			session.setAttribute("user", user);
 			model.addAttribute("subjectList", subjectserviceimpl.getSubjectList(vo));
 			//System.out.println(session.getAttribute("userName"));
