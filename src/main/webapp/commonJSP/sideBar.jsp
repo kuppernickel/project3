@@ -23,7 +23,7 @@
                             <ion-icon name="ellipsis-horizontal-sharp" class="nav__icon"></ion-icon>
                             <span class="nav_name">내 정보</span>
                         </a>
-                        <a href="commonNotice.do" class="nav__link">
+                        <a href="getBoardList.do?table=commonNotice" class="nav__link">
                             <ion-icon name="book-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">학사공지</span>
                         </a>

@@ -22,4 +22,10 @@
 		<property name="maxUploadSize" value="10485760" /> <!-- 10MB -->
 	</bean>
 	
+	<!-- 파일 다운로드 -->
+<!--     <bean id="fileDownloadView" class="com.kiosk.util.filedownload.FileDownloadView"></bean>
+    <bean id="fileViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+    <property name="order" value="0"></property></bean>
+     -->
+	
 </beans>
