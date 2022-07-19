@@ -19,19 +19,5 @@ $(document).ready(function() {
             ['insert', ['link', 'picture', 'video']],
         ],
         
-       callbacks: {
-          onImageUpload: function(image) {
-             
-                 var file = image[0];
-                 var reader = new FileReader();
-                reader.onloadend = function() {
-                    var image = $('<img>').attr('src',  reader.result);
-                       image.attr('width','40rem');
-                    $('#summernote').summernote("insertNode", image[0]);
-                }
-               reader.readAsDataURL(file);
-            
-          }
-      }
     });
 });
