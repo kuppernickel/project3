@@ -16,4 +16,6 @@ public class SubjectVO {
 	private int rateAttendence;			// 출석 만점	 (성적 반영 비율)
 	private int rateAssignment;			// 과제 만점	 (성적 반영 비율)
 	private String lessonContent;		// 수업내용
+	private String day;					// 수업요일
+	private int hour;					// 수업시간
 }

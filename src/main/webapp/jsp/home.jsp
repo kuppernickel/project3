@@ -130,16 +130,24 @@
                     </tr>
                     </thead>
                     <tbody>
+                    
+                    <c:forEach items="${subjectList}" var="subject">
                     <tr>
-                        <td>265121</td>
-                        <td>국어</td>
+                        <td>${subject.subjectCode}</td>
+                        <td>${subject.lessonName}</td>
                         <td>2020.04.23</td>
                     </tr>
                     <tr>
-                        <td>265120</td>
-                        <td>수학</td>
+                        <td>${subject.subjectCode }</td>
+                        <td>${subject.lessonName }</td>
+                        <td>${subject.day + subject.hour}</td>
+                    </tr>
+                    <tr>
+                        <td>${subject.subjectCode }</td>
+                        <td>${subject.lessonName }</td>
                         <td>2020.04.23</td>
                     </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div> <!--   과제리스트 끝 -->
