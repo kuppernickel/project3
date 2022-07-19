@@ -32,8 +32,10 @@ public class SubjectController {
 //	}
 	
 	@RequestMapping(path = "/getSubjectList.do", method = RequestMethod.GET)
-	public String getSubjectList(HttpSession session, UserVO vo, Model model) {
+	public String getSubjectList(HttpSession session, @RequestParam("day") String day,
+			UserVO vo, Model model) {
 		vo = (UserVO) session.getAttribute("user");
+		vo.setDay(day);
 		
 		System.out.println();
 		// 유저의 정보를 받아서 그 유저가 수강한 과목들을 모델에 담아야한다.

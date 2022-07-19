@@ -18,4 +18,5 @@ public class UserVO {
 	private String address2;		// 상세주소
 	private int level;				// 학년
 	private String enroll;			// 재적
+	private String day;				// 과목검색용 요일
 }

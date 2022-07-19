@@ -45,16 +45,19 @@
 
 	<select id="getSubjectList" parameterType="user" resultMap="subjectResult">
 		<![CDATA[
-		SELECT 
-		d.subjectCode, d.lessonName, 
-		GROUP_CONCAT(CONCAT(SUBSTR(c.day,2,1),c.hour) SEPARATOR ", ") scd, 
-		d.name profName, d.location
-		FROM schedule c LEFT OUTER JOIN 
+		SELECT d.subjectCode, d.lessonName, c.scd, d.name profName, d.location
+		FROM 
+        (SELECT f.subjectCode,f.scd,g.day,g.hour 
+		FROM v_schedule f RIGHT OUTER JOIN schedule g 
+		ON f.subjectCode=g.subjectCode ) c
+        RIGHT OUTER JOIN 
 		(SELECT e.*,prof.name FROM users prof RIGHT OUTER JOIN 
-	    	(SELECT a.* FROM subject a LEFT OUTER JOIN 
-	    	subjectgrade b ON a.subjectCode=b.subjectCode WHERE b.userId=#{userId}) e
-	    ON prof.userId=e.professor) d 
-		ON d.subjectCode=c.subjectCode GROUP BY d.subjectCode ORDER BY day ASC, hour ASC;
+			(SELECT a.* FROM subject a LEFT OUTER JOIN subjectgrade b 
+			ON a.subjectCode=b.subjectCode WHERE b.userId=#{userId}) e
+		ON prof.userId=e.professor) d 
+		ON d.subjectCode=c.subjectCode 
+        WHERE if(#{day} is not null,c.day=#{day},c.day like "%%")
+        GROUP BY d.subjectCode ORDER BY c.day ASC, c.hour ASC;
 		]]>
 	</select>
 	
