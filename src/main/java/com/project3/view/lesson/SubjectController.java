@@ -32,12 +32,13 @@ public class SubjectController {
 //	}
 	
 	@RequestMapping(path = "/getSubjectList.do", method = RequestMethod.GET)
-	public String getSubjectList(HttpSession session, @RequestParam("day") String day,
+	public String getSubjectList(HttpSession session, 
+			@RequestParam(value="day", required=false) String day,
 			UserVO vo, Model model) {
 		vo = (UserVO) session.getAttribute("user");
-		vo.setDay(day);
+		if(day!=null) vo.setDay(day);
 		
-		System.out.println();
+		//System.out.println("day:"+day);
 		// 유저의 정보를 받아서 그 유저가 수강한 과목들을 모델에 담아야한다.
 		model.addAttribute("subjectList", subjectService.getSubjectList(vo));
 		return "/jsp/subjectList.jsp";
