@@ -12,14 +12,15 @@
         <result property="fileSize" column="fileSize" />
         <result property="writeDate" column="writeDate" />
         <result property="updateDate" column="updateDate" />
+        <result property="originalFileName" column="originalFileName" />
 	</resultMap>
 
 
 	<!-- commonNotice테이블 SQL문 -->
 	<insert id="insertBoard" parameterType="board">
 		<![CDATA[
-		INSERT INTO ${table}(title, writer, content, fileName, fileSize)
-		VALUES(#{title}, #{writer}, #{content}, #{fileName}, #{fileSize})
+		INSERT INTO ${table}(title, writer, content, fileName, fileSize, originalFileName)
+		VALUES(#{title}, #{writer}, #{content}, #{fileName}, #{fileSize}, #{originalFileName})
 		]]>
 	</insert>
 	
@@ -30,6 +31,9 @@
 		UPDATE ${table} SET
 		title = #{title},
 		content = #{content},
+		fileName = #{fileName},
+		fileSize = #{fileSize},
+		originalFileName = #{originalFileName}
 		WHERE seq = #{seq}
 		]]>
 	</update>

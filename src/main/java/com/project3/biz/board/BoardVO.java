@@ -18,4 +18,5 @@ public class BoardVO {
 	private String updateDate;
 	private MultipartFile uploadFile;
 	private String table;
+	private String originalFileName;
 }

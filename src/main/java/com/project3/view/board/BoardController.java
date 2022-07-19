@@ -2,6 +2,7 @@ package com.project3.view.board;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,7 +29,8 @@ public class BoardController {
 	
 	// 작성 페이지로 이동
 	@RequestMapping(value = "/post.do", method = RequestMethod.GET)
-	public String writeBoard() {
+	public String writeBoard(Model model, @RequestParam("table") String table) {
+		model.addAttribute("table", table);
 		System.out.println("글 작성 페이지로 이동");
 		return "/jsp/post.jsp";
 	}
@@ -52,11 +54,27 @@ public class BoardController {
 		// 파일 업로드 처리
 		if (!uploadFile.isEmpty()) {
 			String fileName = uploadFile.getOriginalFilename();
-			uploadFile.transferTo(new File(SAVEFOLDER + fileName));
+			// 파일 이름 중복 처리 (UUID 활용)
+			String extension = fileName.substring(fileName.lastIndexOf("."), fileName.length());
+
+			UUID uuid = UUID.randomUUID();
+			String newFileName = uuid.toString() + extension;
+			
+			// DB에 넣을 파일 정보를 VO에 담는 과정
+			vo.setOriginalFileName(fileName);
+			vo.setFileName(SAVEFOLDER + newFileName);
+			vo.setFileSize((int)(uploadFile.getSize()));
+			
+			// 폴더 생성
+			// 나중에는 많은 파일들이 한곳에 모일 것이며, 그것을 관리하기 쉽도록
+			// 날짜별로 새로운 폴더를 만들어서 거기에 파일을 따로따로 저장해두면 좋을 것 같음
+			File file = new File(SAVEFOLDER);
+			if(!file.exists()) file.mkdirs();
+			
+			uploadFile.transferTo(new File(SAVEFOLDER + newFileName));
 		}
 		
 //		vo.setTable(table);
-		
 		boardService.insertBoard(vo);
 		
 		return "/getBoardList.do?table=" + table;

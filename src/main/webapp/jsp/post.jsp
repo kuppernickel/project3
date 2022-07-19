@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/syllabus.css">
     <script>
     	function moveToList() {
-    		location.href = "/noticeBoard.do";
+    		location.href = "/" + ${table} + ".do";
     	}
     </script>
 </head>

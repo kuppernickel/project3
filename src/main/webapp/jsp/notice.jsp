@@ -133,7 +133,7 @@
         <a href="">이전</a>
         <a href="">1</a>
         <a href="">다음</a>
-        <a href="/insertBoard.do">글 작성</a>
+        <a href="/post.do?table=${table}">글 작성</a>
     </div>
 
 
