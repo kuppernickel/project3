@@ -78,7 +78,9 @@
 					<span class='textBar'>|</span>
 					<a href="" value="글 수정">수정</a>
 					<span class='textBar'>|</span>
-					<a href="deleteBoard.do?seq=${board.seq}&table=notice">삭제</a>
+					<a href="deleteBoard.do?seq=${board.seq}&table=${table}">삭제</a>
+					<span class='textBar'>|</span>
+					<a href="getBoardList.do?table=${table}">목록</a>
 				</span>
 			</div>
 				

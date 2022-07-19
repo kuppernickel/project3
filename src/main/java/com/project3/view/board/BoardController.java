@@ -96,8 +96,9 @@ public class BoardController {
 
 	// 글 상세 조회
 	@RequestMapping("/getBoard.do")
-	public String getBoard(BoardVO vo, Model model) {
+	public String getBoard(BoardVO vo, Model model, @RequestParam("table") String table) {
 		model.addAttribute("board", boardService.getBoard(vo)); // Model 정보 저장
+		model.addAttribute("table", table);
 		return "/jsp/getBoard.jsp"; // View 이름 리턴
 	}
 	
