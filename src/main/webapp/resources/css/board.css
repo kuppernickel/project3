@@ -1,0 +1,44 @@
+center{
+	width: 50rem;
+    margin: 3rem auto;
+}
+
+.title{
+    padding-bottom: 1rem;
+    overflow: hidden;
+    text-align: left;
+}
+
+.postInfo{
+    text-align: left;
+    padding-bottom: 1rem;
+    margin-bottom:3rem;
+    border-bottom: 1px solid lightgray;
+}
+
+img{
+	max-width: 40rem;
+	}
+
+
+.text,
+.text a{
+	color: #bdbdbd;
+}
+
+.textBar{
+	margin: 0 9px 0 5px;
+	display: inline-block;
+    width: 1px;
+    height: 9px;
+    margin: 0 9px;
+}
+
+@media screen and (max-width: 1024px){
+	center{
+	width: 40rem
+	}
+	img{
+	max-width: 30rem;
+	}
+}

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>글 상세</title>
+<title>${board.title}</title>
 <!--  부트스트랩 CDN  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -66,37 +66,27 @@
 
 
 	<center>
-		<h1>글 상세</h1>
 		<form action="updateBoard.do" method="post">
 			<input name="seq" type="hidden" value="${board.seq}" />
-			<table border="1" cellpadding="0" cellspacing="0">
-				<tr>
-					<td bgcolor="orange" width="70">제목</td>
-					<td align="left"><input name="title" type="text"
-						value="${board.title}" /></td>
-				</tr>
-				<tr>
-					<td bgcolor="orange">작성자</td>
-					<td align="left">${board.writer }</td>
-				</tr>
-				<tr>
-					<td bgcolor="orange">내용</td>
-					<td align="left">
-					<div name="content">
-						${board.content }</div>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="orange">등록일</td>
-					<td align="left">${board.writeDate }</td>
-				</tr>
+			<div class='title' name="title"><h1>${board.title}</h1></div>
 
-				<tr>
-					<td colspan="2" align="center">
-					<button type="submit" value="글 수정" class="btn btn-dark" >수정</button></td>
-						<td><a href="deleteBoard.do?seq=${board.seq}&table=notice"><button type="submit"class="btn btn-dark">삭제</button></a></td>
-				</tr>
-			</table>
+			<div class='postInfo'>
+				<span class='text'>
+					${board.writer }
+					<span class='textBar'>|</span>
+					${board.writeDate }
+					<span class='textBar'>|</span>
+					<a href="" value="글 수정">수정</a>
+					<span class='textBar'>|</span>
+					<a href="deleteBoard.do?seq=${board.seq}&table=notice">삭제</a>
+				</span>
+			</div>
+				
+			<div class='content' name="content">
+				${board.content }
+			</div>
+			
+
 		</form>
 	</center>
 				
