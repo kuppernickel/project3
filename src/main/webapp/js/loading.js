@@ -1,17 +1,21 @@
-let container = document.querySelector('container');
+let main = document.querySelector('main');
 let ring = document.querySelector('.ring');
 
 function pageOn(){
-    if (container.classList.contains('hide')){
-        container.style.display='block';
-        ring.style.display='none';
-	}
+  	main.style.display='none';
+  	ring.style.display='block';
+  	
+  	loading();
+		
+    }
+
+function loading(){
+	
+	  	setTimeout( () => {
+		console.log('로딩완료');
+		document.loginForm.submit();
+		}, 2000);
+		
+		clearTimeout();
 }
-
-setTimeout( () => {
-	console.log('로딩중');
-	pageOn();
-    }, 2000);
-
-
 

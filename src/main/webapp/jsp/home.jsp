@@ -26,11 +26,8 @@
 </head>
 <body id="body-pd">
 
-<div class='ring'>loading
-<span id='ring'></span>
-</div>
 
-<container style='display:none;' class='hide'>
+<container>
     <!--  헤더  -->
     <header>
         <form>

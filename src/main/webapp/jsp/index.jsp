@@ -22,7 +22,7 @@
 
 
 <main class="form-signin">
-  <form action="login.do" method="post">
+  <form action="login.do" method="post" name='loginForm'>
     <h1 class="h3 mb-3 fw-normal" style="text-align:center;">통합로그인페이지</h1>
 
     <div class="form-floating">
@@ -33,10 +33,15 @@
       <input type="password" name="pw" class="form-control" id="floatingPassword">
       <label for="floatingPassword">비밀번호</label>
     </div>
-    <button class="w-100 btn btn-lg btn-dark" value="login" type="submit">로그인</button>
+    <button class="w-100 btn btn-lg btn-dark" value="login" type='button' onClick='pageOn()'>로그인</button>
   </form>
 </main>
 
+<div class='ring' style='display:none;'>loading
+<span id='ring'></span>
+</div>
 
+
+  <script src="${pageContext.request.contextPath}/js/loading.js"></script>
 </body>
 </html>
