@@ -91,10 +91,10 @@
                     </tr>
                     </thead>
                     <tbody>
-	                    <c:forEach items="${subjectList}" var="subject">
+	                    <c:forEach items="${assignmentList}" var="assignment">
 		                    <tr>
-		                        <td>${subject.subjectCode}</td>
-		                        <td>${subject.lessonName}</td>
+		                        <td>${assignment.subjectCode}</td>
+		                        <td>${assignment.lessonName}</td>
 		                        <td>2020.04.23</td>
 		                    </tr>
 	                    </c:forEach>

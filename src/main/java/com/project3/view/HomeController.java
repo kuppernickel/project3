@@ -33,7 +33,7 @@ public class HomeController {
 	// 메인 페이지
 	@RequestMapping(value = "/home.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String moveHome(HttpSession session,Model model, UserVO vo, LessonVO lvo) {
-		model.addAttribute("assignmentList", LessonServiceImpl.class);
+		model.addAttribute("assignmentList", LessonServiceImpl.getAssignmentList());
 		session.setAttribute("subjectCode", lvo.getSubjectCode());
 		System.out.println("메인 페이지로 이동");
 		
