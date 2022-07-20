@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,8 +30,10 @@ public class BoardController {
 	
 	// 작성 페이지로 이동
 	@RequestMapping(value = "/post.do", method = RequestMethod.GET)
-	public String writeBoard(Model model, @RequestParam("table") String table) {
+	public String writeBoard(Model model, @RequestParam("table") String table,
+			HttpSession session) {
 		model.addAttribute("table", table);
+		model.addAttribute("subjectCode", session.getAttribute("subjectCode"));
 		System.out.println("글 작성 페이지로 이동");
 		return "/jsp/post.jsp";
 	}

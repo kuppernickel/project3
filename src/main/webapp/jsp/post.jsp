@@ -93,6 +93,8 @@
         <!-- 어느 게시판인지를 알려주기 위한 input. value값은 나중에 유동적으로 바뀌도록 수정 예정 -->
         <input type="hidden" name="table" value="${table}">
         <input type="hidden" name="writer" value="1">
+        <input type="hidden" name="subjectCode" value="${subjectCode}">
+        
         <sec:csrfInput />
         
         <!-- 사진 이외의 업로드 파일 -->
