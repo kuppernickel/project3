@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.project3.biz.board.BoardService;
+import com.project3.biz.board.BoardVO;
+import com.project3.biz.board.impl.BoardServiceImpl;
 import com.project3.biz.lesson.LessonService;
 import com.project3.biz.lesson.LessonVO;
 import com.project3.biz.lesson.impl.LessonServiceImpl;
@@ -22,6 +25,8 @@ public class HomeController {
 	@Autowired
 	private SubjectServiceImpl subjectserviceimpl;
 	
+	@Autowired
+	private BoardService boardservice;
 	
 	// 강의 리스트 페이지
 	@RequestMapping(value = "/detail.do", method = RequestMethod.GET)
@@ -32,8 +37,7 @@ public class HomeController {
 	
 	// 메인 페이지
 	@RequestMapping(value = "/home.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String moveHome(HttpSession session,Model model, UserVO vo, LessonVO lvo) {
-		model.addAttribute("assignmentList", LessonServiceImpl.getAssignmentList());
+	public String moveHome(HttpSession session,Model model, UserVO vo, LessonVO lvo, BoardVO bvo ) {
 		session.setAttribute("subjectCode", lvo.getSubjectCode());
 		System.out.println("메인 페이지로 이동");
 		
@@ -48,7 +52,9 @@ public class HomeController {
 		
 		
 		// 학사 공지
-		
+		bvo.setSubjectCode("common");
+		bvo.setTable("commonNotice");
+		model.addAttribute("noticeList", boardservice.getBoardList(bvo));
 		return "/jsp/home.jsp";
 	}
 	

@@ -155,9 +155,8 @@
       <thead><tr>
         <th style="width:5%; flex-basis: 5%;" >번호</th>
         <th style="width:55%; flex-basis: 55%;">제목</th>
-        <th style="width:15%; flex-basis: 15%">작성자</th>
-        <th style="width:15%; flex-basis: 15%;">등록일</th>
-        <th style="width:10%; flex-basis: 10%;">조회</th>
+        <th style="width:15%; flex-basis: 20%">작성자</th>
+        <th style="width:15%; flex-basis: 20%;">등록일</th>
       </tr></thead>
       <tbody>
       <c:forEach items="${boardList}" var="board">
@@ -166,7 +165,7 @@
         <td><a href="#">${board.title}</a></td>
         <td>${board.writer}</td>
         <td>${board.writeDate}</td>
-        <td>14</td>
+        
       </tr>
       </c:forEach>
       

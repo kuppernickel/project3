@@ -110,11 +110,11 @@
                     </tr>
                     </thead>
                     <tbody>
-	                   	<c:forEach items="${subjectList}" var="subject">
+	                   	<c:forEach items="${noticeList}" var="notice">
 		                    <tr>
-		                        <td>${subject.subjectCode}</td>
-		                        <td>${subject.lessonName}</td>
-		                        <td>2020.04.23</td>
+		                     <td>${notice.title }</td>
+		                     <td>${notice.writer }</td>
+		                     <td>${notice.writeDate }</td>
 		                    </tr>
 	                    </c:forEach>
                     </tbody>
