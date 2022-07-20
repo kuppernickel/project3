@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.project3.biz.board.BoardService;
 import com.project3.biz.board.BoardVO;
+import com.project3.biz.user.UserVO;
 
 
 @Controller
@@ -114,6 +115,5 @@ public class BoardController {
 		model.addAttribute("table", table);
 		return "/" + table + ".do";
 	}
-	
 	
 }

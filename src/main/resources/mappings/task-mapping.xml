@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TaskDAO">
+
+	<resultMap id="subjectResult" type="subject">
+		<id property="subjectCode" column="subjectCode" />
+		<result property="lessonName" column="lessonName" />
+	</resultMap>
+	
+	<resultMap id="taskResult" type="board">
+        <id property="seq" column="seq" />
+        <result property="title" column="title" />
+        <result property="writer" column="writer" />
+        <result property="content" column="content" />
+        <result property="fileName" column="fileName" />
+        <result property="fileSize" column="fileSize" />
+        <result property="writeDate" column="writeDate" />
+        <result property="updateDate" column="updateDate" />
+        <result property="originalFileName" column="originalFileName" />
+        <result property="subjectCode" column="subjectCode" />
+        <result property="taskDeadline" column="taskDeadline" />
+        <collection property="lessonName" resultMap="subjectResult"/>
+	</resultMap>
+	
+	<resultMap id="userResult" type="user">
+		<id property="userId" column="userId" />
+	</resultMap>
+
+
+	<!-- 게시판 글 작성 sql문 -->
+	<insert id="insertTask" parameterType="board">
+		<![CDATA[
+		INSERT INTO task
+		(title, writer, content, fileName, fileSize, originalFileName,subjectCode,taskDeadline)
+		VALUES
+		(#{title}, #{writer}, #{content}, #{fileName}, #{fileSize}, 
+		#{originalFileName},#{subjectCode},#{taskDeadline})
+		]]>
+	</insert>
+	
+	<!-- 파일은 수정하지 못하도록 할 예정 
+		수정 날짜는 트리거를 활용할 예정 -->
+	<update id="updateTask">
+		<![CDATA[
+		UPDATE task SET
+		title = #{title},
+		content = #{content},
+		fileName = #{fileName},
+		fileSize = #{fileSize},
+		originalFileName = #{originalFileName},
+		taskDeadline = #{taskDeadline} 
+		WHERE seq = #{seq}
+		]]>
+	</update>
+
+	<delete id="deleteTask">
+		<![CDATA[
+		DELETE from task 
+		WHERE seq = #{seq}
+		]]>
+	</delete>
+
+	<select id="getTask" resultType="board">
+		<![CDATA[
+		SELECT *
+		FROM task
+		WHERE seq = #{seq}
+		]]>
+	</select>
+
+	<select id="getTaskList" parameterType="user" resultMap="taskResult">
+		<![CDATA[
+		SELECT c.seq,d.lessonName,c.title,c.taskDeadline FROM 
+		(SELECT b.seq,b.title,b.subjectCode,b.taskDeadline FROM 
+		    (SELECT subjectCode FROM subjectgrade WHERE userId=#{userId}) a
+		LEFT OUTER JOIN task b ON a.subjectCode=b.subjectCode) c 
+	    LEFT OUTER JOIN subject d ON c.subjectCode=d.subjectCode
+	    ORDER BY c.taskDeadline;
+		]]>
+	</select>
+
+</mapper>

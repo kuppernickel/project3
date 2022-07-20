@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.project3.biz.board.BoardService;
 import com.project3.biz.board.BoardVO;
+import com.project3.biz.user.UserVO;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService{
@@ -39,4 +40,30 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	
+	
+	//task 관련
+	@Override
+	public void insertTask(BoardVO vo) {
+		boardDAO.insertTask(vo);
+	}
+
+	@Override
+	public BoardVO getTask(BoardVO vo) {
+		return boardDAO.getTask(vo);
+	}
+
+	@Override
+	public void updateTask(BoardVO vo) {
+		boardDAO.updateTask(vo);
+	}
+
+	@Override
+	public void deleteTask(BoardVO vo) {
+		boardDAO.deleteTask(vo);
+	}
+
+	@Override
+	public List<BoardVO> getTaskList(UserVO uVO) {
+		return boardDAO.getTaskList(uVO);
+	}
 }

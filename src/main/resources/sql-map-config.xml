@@ -17,5 +17,6 @@
 		<mapper resource="mappings/board-mapping.xml" />
 		<mapper resource="mappings/subject-mapping.xml" />
 		<mapper resource="mappings/lesson-mapping.xml" />
+		<mapper resource="mappings/task-mapping.xml" />
 	</mappers>
 </configuration>

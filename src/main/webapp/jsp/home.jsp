@@ -88,11 +88,17 @@
                     </tr>
                     </thead>
                     <tbody>
-	                    <c:forEach items="${assignmentList}" var="assignment">
+	                    <c:forEach items="${taskList}" var="task">
 		                    <tr>
-		                        <td>${assignment.subjectCode}</td>
-		                        <td>${assignment.lessonName}</td>
-		                        <td>2020.04.23</td>
+		                        <td>${task.lessonName.lessonName}</td>
+		                        <td>${task.title}</td>
+		                        <td>
+		                        	<c:set var="deadline" value="${task.taskDeadline}"/>
+			                        <c:choose>
+			                        	<c:when test="${empty deadline}">기한없음</c:when>
+			                        	<c:otherwise>${task.taskDeadline}</c:otherwise>
+			                        </c:choose>
+		                        </td>
 		                    </tr>
 	                    </c:forEach>
                     </tbody>

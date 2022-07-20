@@ -15,7 +15,7 @@ import com.project3.biz.board.impl.BoardServiceImpl;
 import com.project3.biz.lesson.LessonService;
 import com.project3.biz.lesson.LessonVO;
 import com.project3.biz.lesson.impl.LessonServiceImpl;
-import com.project3.biz.subject.impl.SubjectServiceImpl;
+import com.project3.biz.subject.SubjectService;
 import com.project3.biz.user.UserVO;
 
 @Controller
@@ -23,10 +23,10 @@ import com.project3.biz.user.UserVO;
 public class HomeController {
 	
 	@Autowired
-	private SubjectServiceImpl subjectserviceimpl;
+	private SubjectService subjectService;
 	
 	@Autowired
-	private BoardService boardservice;
+	private BoardService boardService;
 	
 	// 강의 리스트 페이지
 	@RequestMapping(value = "/detail.do", method = RequestMethod.GET)
@@ -43,18 +43,16 @@ public class HomeController {
 		
 		// 강의 목록
 		vo = (UserVO)session.getAttribute("user");
-		model.addAttribute("subjectList", subjectserviceimpl.getSubjectList(vo));
+		model.addAttribute("subjectList", subjectService.getSubjectList(vo));
 		
 		// 과제 목록
-		vo = (UserVO)session.getAttribute("lesson");
-		model.addAttribute("assignmentList", LessonServiceImpl.getAssignmentList());
-
+		model.addAttribute("taskList",boardService.getTaskList(vo));
 		
 		
 		// 학사 공지
 		bvo.setSubjectCode("common");
 		bvo.setTable("commonNotice");
-		model.addAttribute("noticeList", boardservice.getBoardList(bvo));
+		model.addAttribute("noticeList", boardService.getBoardList(bvo));
 		return "/jsp/home.jsp";
 	}
 	
