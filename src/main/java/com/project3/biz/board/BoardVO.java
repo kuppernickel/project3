@@ -19,4 +19,5 @@ public class BoardVO {
 	private MultipartFile uploadFile;
 	private String table;
 	private String originalFileName;
+	private String subjectCode;
 }

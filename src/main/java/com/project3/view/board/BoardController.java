@@ -107,7 +107,8 @@ public class BoardController {
 	
 	// 게시글 리스트로 이동
 	@RequestMapping("/getBoardList.do")
-	public String getBoardList(BoardVO vo, Model model, @RequestParam("table") String table) {
+	public String getBoardList(BoardVO vo, Model model, @RequestParam("table") String table,
+			@RequestParam(value="subjectCode",required=false) String subjectCode ) {
 		System.out.println(table);
 		model.addAttribute("boardList", boardService.getBoardList(vo));
 		model.addAttribute("table", table);

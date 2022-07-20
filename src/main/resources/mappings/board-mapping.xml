@@ -13,14 +13,15 @@
         <result property="writeDate" column="writeDate" />
         <result property="updateDate" column="updateDate" />
         <result property="originalFileName" column="originalFileName" />
+        <result property="subjectCode" column="subjectCode" />
 	</resultMap>
 
 
 	<!-- 게시판 글 작성 sql문 -->
 	<insert id="insertBoard" parameterType="board">
 		<![CDATA[
-		INSERT INTO ${table}(title, writer, content, fileName, fileSize, originalFileName)
-		VALUES(#{title}, #{writer}, #{content}, #{fileName}, #{fileSize}, #{originalFileName})
+		INSERT INTO ${table}(title, writer, content, fileName, fileSize, originalFileName, subjectCode)
+		VALUES(#{title}, #{writer}, #{content}, #{fileName}, #{fileSize}, #{originalFileName}, #{subjectCode})
 		]]>
 	</insert>
 	
@@ -33,7 +34,8 @@
 		content = #{content},
 		fileName = #{fileName},
 		fileSize = #{fileSize},
-		originalFileName = #{originalFileName}
+		originalFileName = #{originalFileName},
+		subjectCode = #{subjectCode}
 		WHERE seq = #{seq}
 		]]>
 	</update>
@@ -57,8 +59,7 @@
 		<![CDATA[
 		SELECT *
 		FROM ${table}
-		where subjectCode = ${subjectCode} ORDER BY SEQ DESC
-		
+		where subjectCode = #{subjectCode} ORDER BY SEQ DESC
 		]]>
 	</select>
 
