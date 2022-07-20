@@ -49,7 +49,14 @@ ion-icon{
     cursor: pointer;
 }
 
-.examBtn{
-
+.timer{
+	font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 1.3rem;
 }
 
+.examWrap{
+	width: 60rem;
+    height: 40rem;
+    border: 1px solid;
+}

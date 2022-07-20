@@ -1,6 +1,6 @@
-let time = 1800; // 제한시간
-let min = "";    // 분
-let sec = "";    // 초
+let time = 305; // 제한시간
+let minutes = "";    // 분
+let seconds = "";    // 초
 let timer = document.querySelector('.timer');
 let modal = document.querySelector('.modalBackground');
 let checkModal = document.querySelector('.modalBackground2');
@@ -8,7 +8,7 @@ let checkModal = document.querySelector('.modalBackground2');
 
 function submitForm() { // 폼 전송
     document.getElementById("examForm").submit();
-    location.replace('index.html');
+    location.replace('home.do');
 }
 
 function check(){ // 확인 모달
@@ -17,9 +17,12 @@ function check(){ // 확인 모달
 
 
 let t = setInterval( () => {  //주기적으로 실행 하도록 함
-    min = parseInt(time / 60);
-    sec = time % 60;
-
+    minutes = parseInt(time / 60);
+    seconds = time % 60;
+    
+    min = minutes < 10 ? `0` + minutes : minutes;
+    sec = seconds < 10 ? `0` + seconds : seconds;
+    
     timer.innerHTML = min + '분' + sec + '초';
     time --;
 
@@ -33,7 +36,7 @@ let t = setInterval( () => {  //주기적으로 실행 하도록 함
 
         setTimeout( () => {
                 submitForm();
-                location.replace('index.html');
+                location.replace('home.do');
             }, 5000);
 
     }

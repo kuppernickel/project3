@@ -18,6 +18,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
+    <!-- 제이쿼리 cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
+    <!--  -->      
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/jquery.bxslider.css">
+    <script src="${pageContext.request.contextPath}/js/jquery.bxslider.js"></script>
+
 </head>
 <body>
     <!-- 시험페이지 헤더 -->
@@ -32,7 +38,14 @@
         <form id="examForm" action="">
             <div class="examMain">
                 <div class="arrowLeft"><ion-icon name="caret-back-circle-sharp"></ion-icon></div>
-                <div>메인 시험 페이지</div>
+                <div class='examWrap'>
+		            	<ul class='examSlide'>
+		            		<li>1</li>
+		            		<li>2</li>
+		            		<li>3</li>
+		            		<li>4</li>
+		            	</ul>
+		            </div>
                 <div class="arrowRight"><ion-icon name="caret-forward-circle-sharp"></ion-icon></div>
             </div>
             <div class="examBtn">
@@ -72,7 +85,7 @@
     </modal>
 
 
-
+	<script src="${pageContext.request.contextPath}/js/slide.js"></script>
     <script src="${pageContext.request.contextPath}/js/timer.js"></script>
 </body>
 </html>
