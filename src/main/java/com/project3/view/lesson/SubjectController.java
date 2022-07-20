@@ -36,9 +36,11 @@ public class SubjectController {
 			@RequestParam(value="day", required=false) String day,
 			UserVO vo, Model model) {
 		vo = (UserVO) session.getAttribute("user");
-		if(day!=null) vo.setDay(day); //user가 담고있는 현재 요일(한국표준시 기준)을 디폴트로 설정
+		//user가 담고있는 현재 요일(한국표준시 기준)을 디폴트로 설정,
+		//파라미터로 받을 시 해당 요일을 설정하여 요일별 과목 검색
+		if(day!=null) vo.setDay(day); 
 		
-		System.out.println("day:"+vo.getDay()); //요일별 과목 검색
+		System.out.println("day:"+vo.getDay()); 
 		// 유저의 정보를 받아서 그 유저가 수강한 과목들을 모델에 담아야한다.
 		model.addAttribute("subjectList", subjectService.getSubjectList(vo));
 		return "/jsp/subjectList.jsp";
