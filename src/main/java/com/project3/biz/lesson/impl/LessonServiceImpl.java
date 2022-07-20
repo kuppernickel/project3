@@ -43,6 +43,17 @@ public class LessonServiceImpl implements LessonService{
 		lessonDAO.insertLesson(vo);
 		// 강의 등록 - 기본값 실패
 	}
+	
+	@Override
+	public List<LessonVO> getAssignmentList(LessonVO lvo) {
+		return lessonDAO.getAssignmentList(lvo);
+		 
+	}
+
+	public static Object getAssignmentList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	
 	

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.project3.biz.board.BoardVO;
 import com.project3.biz.lesson.LessonVO;
+import com.project3.biz.subject.SubjectVO;
+import com.project3.biz.user.UserVO;
 
 @Repository
 public class LessonDAO {
@@ -49,6 +51,10 @@ public class LessonDAO {
 		
 	}
 
+	public List<LessonVO> getAssignmentList(LessonVO lvo) {
+		System.out.println("mybatis로 getAssignmentList() 기능처리");
+		return mybatis.selectList("LessonDAO.getAssignmentList", lvo);
+	}
 	// 강의 수정
 	
 	

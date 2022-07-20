@@ -15,5 +15,6 @@ public class LessonVO {
 	private String lessonUrl;		// 강의 Url
 	private String lessonOpen;		// 강의수강가능 기간(가능한 기간보다 일찍 올라온 강의 시청불가)
 	private String lessonContent;	// 강의공지사항
+	private String assignmentList;	//
 	
 }

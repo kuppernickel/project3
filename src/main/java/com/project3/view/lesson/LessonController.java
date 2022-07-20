@@ -57,6 +57,13 @@ public class LessonController {
 		return "/jsp/subject.jsp"; // View 이름 리턴
 	}
 	
+	@RequestMapping("/getAssignmentList.do")
+	public String getAssignmentList(LessonVO lvo, Model model, HttpSession session) {
+		model.addAttribute("assignmentList", lessonService.getAssignmentList(lvo));
+		session.setAttribute("subjectCode", lvo.getSubjectCode());
+		return "/jsp/home.jsp";
+	}
+	
 }
 
 
