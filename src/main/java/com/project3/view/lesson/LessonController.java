@@ -2,6 +2,8 @@ package com.project3.view.lesson;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,8 +51,9 @@ public class LessonController {
 	}
 
 	@RequestMapping("/getLessonList.do")
-	public String getLessonList(LessonVO vo, Model model) {
+	public String getLessonList(LessonVO vo, Model model, HttpSession session) {
 		model.addAttribute("lessonList", lessonService.getLessonList(vo));
+		session.setAttribute("subjectCode", vo.getSubjectCode());
 		return "/jsp/subject.jsp"; // View 이름 리턴
 	}
 	

@@ -16,7 +16,7 @@
 	</resultMap>
 
 
-	<!-- commonNotice테이블 SQL문 -->
+	<!-- 게시판 글 작성 sql문 -->
 	<insert id="insertBoard" parameterType="board">
 		<![CDATA[
 		INSERT INTO ${table}(title, writer, content, fileName, fileSize, originalFileName)
@@ -57,7 +57,8 @@
 		<![CDATA[
 		SELECT *
 		FROM ${table}
-		ORDER BY SEQ DESC
+		where subjectCode = ${subjectCode} ORDER BY SEQ DESC
+		
 		]]>
 	</select>
 

@@ -52,7 +52,6 @@ public class LoginController {
 		if(user!=null) {
 			user.setDay(UtilMgr.calcDay()); //현재 요일을 디폴트로 설정하여 현재 요일에 해당하는 과목,과제들 불러오기 위함
 			session.setAttribute("user", user);
-			model.addAttribute("subjectList", subjectserviceimpl.getSubjectList(vo));
 			//System.out.println(session.getAttribute("userName"));
 			return "/home.do";
 		}else {
