@@ -76,7 +76,7 @@
 		    (SELECT subjectCode FROM subjectgrade WHERE userId=#{userId}) a
 		LEFT OUTER JOIN task b ON a.subjectCode=b.subjectCode) c 
 	    LEFT OUTER JOIN subject d ON c.subjectCode=d.subjectCode
-	    ORDER BY c.taskDeadline;
+	    ORDER BY c.taskDeadline IS NULL ASC;
 		]]>
 	</select>
 
