@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.project3.biz.common.UtilMgr;
 import com.project3.biz.subject.impl.SubjectServiceImpl;
 import com.project3.biz.user.UserService;
 import com.project3.biz.user.UserVO;
-import com.project3.util.UtilMgr;
 
 @Controller
 @SessionAttributes("user")
@@ -36,7 +37,8 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login.do",method=RequestMethod.POST)
-	public String login(@RequestParam String userId,@RequestParam String pw,UserVO vo, HttpSession session, Model model) { //servlet api
+	public String login(@RequestParam String userId,@RequestParam String pw,UserVO vo, 
+			HttpSession session, Model model) { //servlet api
 		System.out.println(userId);
 		if(userId==null || userId.equals("")) {
 			throw new IllegalArgumentException("아이디 필수");
@@ -48,12 +50,14 @@ public class LoginController {
 		
 		//System.out.println(user.getName());
 		if(user!=null) {
-			user.setDay(UtilMgr.calcDay());
+			user.setDay(UtilMgr.calcDay()); //현재 요일을 디폴트로 설정하여 현재 요일에 해당하는 과목,과제들 불러오기 위함
 			session.setAttribute("user", user);
 			model.addAttribute("subjectList", subjectserviceimpl.getSubjectList(vo));
 			//System.out.println(session.getAttribute("userName"));
-			return "/jsp/home.jsp"; //임시
-		}else return "/jsp/index.jsp"; //임시
+			return "/home.do";
+		}else {
+			throw new IllegalArgumentException("로그인 실패");
+		}
 	}
 	
 	
