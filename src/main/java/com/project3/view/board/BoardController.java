@@ -82,9 +82,9 @@ public class BoardController {
 	
 	// 글 수정
 	@RequestMapping("/updateBoard.do")
-	public String updateBoard(@ModelAttribute("board") BoardVO vo) {
+	public String updateBoard(@ModelAttribute("board") BoardVO vo, @RequestParam("table") String table) {
 		boardService.updateBoard(vo);
-		return "getBoard.do";
+		return "getBoard.do?seq=" + vo.getSeq() + "&table=" + table;
 	}
 	
 	// 글 삭제

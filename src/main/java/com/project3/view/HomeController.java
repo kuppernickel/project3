@@ -17,9 +17,13 @@ public class HomeController {
 	}
 	
 	// 메인 페이지
-	@RequestMapping(value = "/home.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/home.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String moveHome() {
 		System.out.println("메인 페이지로 이동");
+		
+		
+		
+		
 		return "/jsp/home.jsp";
 	}
 	
