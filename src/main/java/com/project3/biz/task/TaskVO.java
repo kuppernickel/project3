@@ -17,7 +17,6 @@ public class TaskVO {
 	private String writeDate;
 	private String updateDate;
 	private MultipartFile uploadFile;
-	private String table;
 	private String originalFileName;
 	private String subjectCode;
 	private String taskDeadline;

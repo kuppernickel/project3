@@ -72,120 +72,101 @@
                     <ul>
                         <li>
                             <select>
-                                <option selected>학기 선택</option>
-                                <option>1학년1학기</option>
-                                <option>1학년2학기</option>
-                                <option>2학년1학기</option>
-                                <option>2학년2학기</option>
-                                <option>3학년1학기</option>
-                                <option>3학년2학기</option>
-                                <option>1학년1학기</option>
+				            	<c:set var="userAuth" value="${user.auth}"/>
+				            	<c:choose>
+				            	<c:when test="${userAuth eq '교수'}">
+				            		<c:out escapeXml="false" value="
+		                                <option selected>평가현황</option>
+		                                <option>평가완료</option>
+		                                <option>미평가</option>
+	                                "/>
+					            </c:when>
+					            <c:otherwise>
+					            	<c:out escapeXml="false" value="
+						            	<option selected>제출현황</option>
+					                    <option>제출완료</option>
+					                    <option>미제출</option>
+				                    "/>
+					            </c:otherwise>
+				                </c:choose>
+	                        </select>
+                        </li>
+                    </ul>
+                </div>
+               <!--  <div class="filterList">
+                    <ul>
+                        <li>
+                            <select>
+                                <option selected>제출현황</option>
+                                <option>제출완료</option>
+                                <option>미제출</option>
                             </select>
                         </li>
                     </ul>
-                    <div class="filterList">
-                        <ul>
-                            <li>
-                                <select>
-                                    <option selected>과목을 선택하세요</option>
-                                    <option>스마트 웹</option>
-                                    <option>콘텐츠 개발자</option>
-                                    <option></option>
-                                    <option></option>
-                                    <option></option>
-                                    <option></option>
-                                    <option></option>
-                                </select>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                </div> -->
             </div>
         </form>
     </div><!--  검색필터 끝  -->
-
-
-
-
-
-    <!-- 현황 테이블 -->
-    <div class="tableWrap">
-        <table class="tight">
-            <thead><tr>
-                <th style="width:15%;">현황</th>
-                <th style="width:85%;">
-                    <span>진행예정 : 0개 / </span>
-                    <span>종료 : 1개 / </span>
-                    <span>평가완료 : 0개</span>
-                </th>
-            </tr></thead>
-        </table>
-    </div><!-- 테이블 끝 -->
 
     <!-- 과제 유형 테이블 -->
 
     <div class="tableWrap2">
         <table class="tight">
             <thead><tr>
-                <th style="width:5%;">주차 차시</th>
-                <th style="width:5%;">과제 유형</th>
                 <th style="width:35%;">과제 제목</th>
-                <th class="hide" style="width:10%;">제출 방법</th>
-                <th style="width:30%;">제출 기간</th>
-                <th class="hide" style="width:5%;">공개 여부</th>
-                <th class="hide" style="width:5%;">제출 인원</th>
-                <th class="hide" style="width:5%;">평가 인원</th>
+                <th style="width:30%;">제출 기한</th>
+                <c:choose>
+	            	<c:when test="${userAuth eq '교수'}">
+	            		<c:out escapeXml="false" value="
+	                        <th class='hide' style='width:5%;'>제출 인원</th>
+	          				<th class='hide' style='width:5%;'>평가 인원</th>
+                        "/>
+		            </c:when>
+		            <c:otherwise>
+		            	<c:out escapeXml="false" value="
+			            	<th class='hide' style='width:5%;'>제출 여부</th>
+	                    "/>
+		            </c:otherwise>
+                </c:choose>
+                <th class="hide" style="width:5%;">마감 여부</th>
             </tr></thead>
-            <tbody><tr>
-                <td>11-1</td>
-                <td>개인과제</td>
-                <td><a class="lectureLink" href="./post.html">창업아이디어 개발 계획서 제출</a></td>
-                <td class="hide">온라인</td>
-                <td>2022-05-26 00:00 ~ 2022-06-26 23:59</td>
-                <td class="hide">공개</td>
-                <td class="hide">7</td>
-                <td class="hide">0/8</td>
-            </tr>
-            <tr>
-                <td>11-1</td>
-                <td>개인과제</td>
-                <td><a class="lectureLink" href="./post.html">창업아이디어 개발 계획서 제출</a></td>
-                <td class="hide">온라인</td>
-                <td>2022-05-26 00:00 ~ 2022-06-26 23:59</td>
-                <td class="hide">공개</td>
-                <td class="hide">7</td>
-                <td class="hide">0/8</td>
-            </tr>
-            <tr>
-                <td>11-1</td>
-                <td>개인과제</td>
-                <td><a class="lectureLink" href="./post.html">창업아이디어 개발 계획서 제출</a></td>
-                <td class="hide">온라인</td>
-                <td>2022-05-26 00:00 ~ 2022-06-26 23:59</td>
-                <td class="hide">공개</td>
-                <td class="hide">7</td>
-                <td class="hide">0/8</td>
-            </tr>
-            <tr>
-                <td>11-1</td>
-                <td>개인과제</td>
-                <td><a class="lectureLink" href="./post.html">창업아이디어 개발 계획서 제출</a></td>
-                <td class="hide">온라인</td>
-                <td>2022-05-26 00:00 ~ 2022-06-26 23:59</td>
-                <td class="hide">공개</td>
-                <td class="hide">7</td>
-                <td class="hide">0/8</td>
-            </tr>
-            <tbody><tr>
-                <td>11-1</td>
-                <td>개인과제</td>
-                <td><a class="lectureLink" href="./post.html">창업아이디어 개발 계획서 제출</a></td>
-                <td class="hide">온라인</td>
-                <td>2022-05-26 00:00 ~ 2022-06-26 23:59</td>
-                <td class="hide">공개</td>
-                <td class="hide">7</td>
-                <td class="hide">0/8</td>
-            </tr></tbody>
+            <tbody>
+	            <c:forEach items="${taskList}" var="task">
+		            <tr>
+		                <td><a class="lectureLink" href="/getTask.do?seq=${task.seq}">${task.title}</a></td>
+		                <td>${task.taskDeadline}</td>
+		                <c:choose>
+			            	<c:when test="${userAuth eq '교수'}">
+			            		<c:out escapeXml="false" value="
+			                        <td class='hide'>7</td>
+		                			<td class='hide'>0/8</td>
+		                        "/>
+				            </c:when>
+				            <c:otherwise>
+				            	<c:out escapeXml="false" value="
+					            	<td class='hide'>미제출</td>
+			                    "/>
+				            </c:otherwise>
+		                </c:choose>
+		                <td class="hide">
+			                <%-- <c:set var="deadline" value="${task.taskDeadline}"/>
+			                <c:choose>
+				            	<c:when test="${deadline eq '교수'}">
+				            		<c:out escapeXml="false" value="
+				                        <td class='hide'>7</td>
+			                			<td class='hide'>0/8</td>
+			                        "/>
+					            </c:when>
+					            <c:otherwise>
+					            	<c:out escapeXml="false" value="
+						            	<td class='hide'>미제출</td>
+				                    "/>
+					            </c:otherwise>
+			                </c:choose> --%>
+		                </td>
+		            </tr>
+	            </c:forEach>
+            </tbody>
         </table>
     </div><!-- 두번째 테이블 끝 -->
 

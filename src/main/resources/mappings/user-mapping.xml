@@ -22,7 +22,7 @@
 	
 	<select id="loginUser" resultType="user">
 		<![CDATA[
-		SELECT userId, name
+		SELECT userId, name, auth
 		FROM users
 		WHERE userId = #{userId} AND pw = #{pw};
 		]]>

@@ -36,7 +36,7 @@
                         <a style="color: black" class="nav-link" href="#">강의리스트</a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: black" class="nav-link" href="#">과제</a>
+                        <a style="color: black" class="nav-link" href="/getTaskList.do?subjectCode=${subjectCode}">과제</a>
                     </li>
                     <li class="nav-item">
                         <a style="color: black" class="nav-link" href="getBoardList.do?table=notice&subjectCode=${subjectCode}">공지사항</a>
