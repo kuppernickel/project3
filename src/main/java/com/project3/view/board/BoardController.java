@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.project3.biz.board.BoardService;
 import com.project3.biz.board.BoardVO;
-import com.project3.biz.user.UserVO;
 
 
 @Controller
@@ -32,9 +30,13 @@ public class BoardController {
 	// 작성 페이지로 이동
 	@RequestMapping(value = "/post.do", method = RequestMethod.GET)
 	public String writeBoard(Model model, @RequestParam("table") String table,
-			HttpSession session) {
+			HttpSession session, @RequestParam(value="type",required=false) String type,
+			@ModelAttribute("board") BoardVO vo) {
+		// 타입을 받아서 모델에 저장시켜두고 이 post가 수정을 위한것인지 작성을 위한것인지 jsp에서 판단함 
+		model.addAttribute("type", type);
 		model.addAttribute("table", table);
 		model.addAttribute("subjectCode", session.getAttribute("subjectCode"));
+		model.addAttribute("board", vo);
 		System.out.println("글 작성 페이지로 이동");
 		return "/jsp/post.jsp";
 	}
@@ -45,6 +47,9 @@ public class BoardController {
 		System.out.println("공지사항 페이지로 이동");
 		return "/jsp/notice.jsp";
 	}
+	
+	
+	
 	
 	// 글 작성
 	@RequestMapping(value = "/insertBoard.do", method = {RequestMethod.GET, RequestMethod.POST})
@@ -86,7 +91,8 @@ public class BoardController {
 	
 	// 글 수정
 	@RequestMapping("/updateBoard.do")
-	public String updateBoard(@ModelAttribute("board") BoardVO vo, @RequestParam("table") String table) {
+	public String updateBoard(BoardVO vo, @RequestParam("table") String table) {
+		System.out.println("update 진입 성공");
 		boardService.updateBoard(vo);
 		return "getBoard.do?seq=" + vo.getSeq() + "&table=" + table;
 	}
@@ -108,7 +114,7 @@ public class BoardController {
 	
 	// 게시글 리스트로 이동
 	@RequestMapping("/getBoardList.do")
-	public String getBoardList(BoardVO vo, Model model, @RequestParam("table") String table,
+	public String getBoardList(BoardVO vo, Model model, @RequestParam(value="table",required=false) String table,
 			@RequestParam(value="subjectCode",required=false) String subjectCode ) {
 		System.out.println(table);
 		model.addAttribute("boardList", boardService.getBoardList(vo));

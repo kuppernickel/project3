@@ -39,7 +39,7 @@
         <nav class="navbar sticky-top navbar-dark bg-light">
 
 
-            <!-- 서브메뉴  -->
+             <!-- 서브메뉴  -->
             <div class="subMenu">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -49,30 +49,15 @@
                         <a style="color: black" class="nav-link" href="#">과제</a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: black" class="nav-link" href="#">공지사항</a>
+                        <a style="color: black" class="nav-link" href="getBoardList.do?table=notice&subjectCode=${subjectCode}">공지사항</a>
                     </li>
                     <li class="nav-item">
                         <a style="color: black" class="nav-link" href="#">수업계획서</a>
                     </li>
+                    
+					<div class="loginInfo">"${user.name}"님</div>
+	                <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
                 </ul>
-            </div>
-
-
-            <!-- 로그인 -->
-            <div class="loginForm">
-                <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-primary button-class1" onclick="click1()">학생</button>
-                    <button type="button" class="btn btn-default button-class2" onclick="click2()">교수</button>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="학번" aria-label="First name">
-                    </div>
-                    <div class="col">
-                        <input type="password" class="form-control" placeholder="비밀번호" aria-label="Last name">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-dark" style="margin:0 2vW">로그인</button>
             </div>
         </nav>
     </form>
@@ -86,15 +71,34 @@
 
 
 <div class="editorWrap">
-    <form action="/insertBoard.do" method="post" enctype="multipart/form-data">
-        <input class="inputTitle" type="text" placeholder="제목을 입력하세요" name="title">
-        <textarea id="summernote" name="content"></textarea>
+    <form action=
+     <c:set var="type" value="${type}"/>
+    	<c:choose>
+			<c:when test="${type eq 'insert'}">
+	    		"/insertBoard.do" 
+    		</c:when>
+    		<c:otherwise>
+    			"/updateBoard.do"
+    		</c:otherwise>
+    	</c:choose>
+    	method="post" enctype="multipart/form-data">
+        <input class="inputTitle" type="text" placeholder="제목을 입력하세요" name="title"
+        	<c:if test="${type eq 'update'}">
+        		value="<c:out value="${board.title}" />"
+        	</c:if>
+        > <!-- // 제목 input -->
+        <textarea id="summernote" name="content">
+        	<c:if test="${type eq 'update'}">
+        		<c:out value="${board.content}" />
+        	</c:if>
+        </textarea>
         
-        <!-- 어느 게시판인지를 알려주기 위한 input. value값은 나중에 유동적으로 바뀌도록 수정 예정 -->
+        <!-- 게시물 작성 및 수정에 필요한 추가 정보들 -->
         <input type="hidden" name="table" value="${table}">
-        <input type="hidden" name="writer" value="1">
+        <input type="hidden" name="writer" value="${user.userId}">
         <input type="hidden" name="subjectCode" value="${subjectCode}">
         
+        <!-- 스프링 시큐리티 -->
         <sec:csrfInput />
         
         <!-- 사진 이외의 업로드 파일 -->

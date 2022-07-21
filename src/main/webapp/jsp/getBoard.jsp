@@ -76,7 +76,7 @@
 					<span class='textBar'>|</span>
 					${board.writeDate }
 					<span class='textBar'>|</span>
-					<a href="" value="글 수정">수정</a>
+					<a href="/post.do?table=${table}&subjectCode=${subjectCode}&type=update" value="글 수정">수정</a>
 					<span class='textBar'>|</span>
 					<a href="deleteBoard.do?seq=${board.seq}&table=${table}">삭제</a>
 					<span class='textBar'>|</span>
