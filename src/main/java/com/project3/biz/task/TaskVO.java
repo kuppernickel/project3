@@ -1,6 +1,4 @@
-package com.project3.biz.board;
-
-import java.beans.Transient;
+package com.project3.biz.task;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -9,7 +7,7 @@ import com.project3.biz.subject.SubjectVO;
 import lombok.Data;
 
 @Data
-public class BoardVO {
+public class TaskVO {
 	private int seq;
 	private String title;
 	private String writer;
@@ -22,4 +20,6 @@ public class BoardVO {
 	private String table;
 	private String originalFileName;
 	private String subjectCode;
+	private String taskDeadline;
+	private SubjectVO lessonName;
 }

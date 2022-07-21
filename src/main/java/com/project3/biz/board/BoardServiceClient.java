@@ -23,10 +23,10 @@ public class BoardServiceClient {
 //		BoardVO board = boardService.getBoard(vo);
 //		System.out.println("--->"+board.toString());
 		
-		List<BoardVO> boardList = boardService.getTaskList(Uvo);
-		for(BoardVO board:boardList) {
-			System.out.println("--->"+board.toString());
-		}
+//		List<BoardVO> boardList = boardService.getTaskList(Uvo);
+//		for(BoardVO board:boardList) {
+//			System.out.println("--->"+board.toString());
+//		}
 		
 		container.close();
 	} 

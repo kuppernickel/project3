@@ -10,10 +10,4 @@ public interface BoardService {
 	void updateBoard(BoardVO vo);
 	void deleteBoard(BoardVO vo);
 	List<BoardVO> getBoardList(BoardVO vo);
-	
-	void insertTask(BoardVO vo);
-	BoardVO getTask(BoardVO vo);
-	void updateTask(BoardVO vo);
-	void deleteTask(BoardVO vo);
-	List<BoardVO> getTaskList(UserVO uVO);
 }

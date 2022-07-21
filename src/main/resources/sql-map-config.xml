@@ -9,6 +9,7 @@
 		<typeAlias alias="board" type="com.project3.biz.board.BoardVO" />
 		<typeAlias alias="subject" type="com.project3.biz.subject.SubjectVO" />
 		<typeAlias alias="lesson" type="com.project3.biz.lesson.LessonVO" />
+		<typeAlias alias="task" type="com.project3.biz.task.TaskVO" />
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->

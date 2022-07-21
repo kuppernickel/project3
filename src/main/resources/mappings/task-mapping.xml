@@ -8,7 +8,7 @@
 		<result property="lessonName" column="lessonName" />
 	</resultMap>
 	
-	<resultMap id="taskResult" type="board">
+	<resultMap id="taskResult" type="task">
         <id property="seq" column="seq" />
         <result property="title" column="title" />
         <result property="writer" column="writer" />
@@ -29,7 +29,7 @@
 
 
 	<!-- 게시판 글 작성 sql문 -->
-	<insert id="insertTask" parameterType="board">
+	<insert id="insertTask" parameterType="task">
 		<![CDATA[
 		INSERT INTO task
 		(title, writer, content, fileName, fileSize, originalFileName,subjectCode,taskDeadline)
@@ -61,7 +61,7 @@
 		]]>
 	</delete>
 
-	<select id="getTask" resultType="board">
+	<select id="getTask" resultType="task">
 		<![CDATA[
 		SELECT *
 		FROM task
@@ -69,6 +69,7 @@
 		]]>
 	</select>
 
+	<!-- 모든 과목의 과제 리스트 -->
 	<select id="getTaskList" parameterType="user" resultMap="taskResult">
 		<![CDATA[
 		SELECT c.seq,d.lessonName,c.title,c.taskDeadline FROM 
@@ -77,6 +78,12 @@
 		LEFT OUTER JOIN task b ON a.subjectCode=b.subjectCode) c 
 	    LEFT OUTER JOIN subject d ON c.subjectCode=d.subjectCode
 	    ORDER BY c.taskDeadline IS NULL ASC;
+		]]>
+	</select>
+	<!-- 특정 과목의 과제 리스트 -->
+	<select id="getSubjectTaskList" parameterType="task" resultMap="taskResult">
+		<![CDATA[
+		SELECT * FROM task WHERE subjectCode=#{subjectCode}
 		]]>
 	</select>
 

@@ -38,32 +38,4 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		return boardDAO.getBoardList(vo);
 	}
-	
-	
-	
-	//task 관련
-	@Override
-	public void insertTask(BoardVO vo) {
-		boardDAO.insertTask(vo);
-	}
-
-	@Override
-	public BoardVO getTask(BoardVO vo) {
-		return boardDAO.getTask(vo);
-	}
-
-	@Override
-	public void updateTask(BoardVO vo) {
-		boardDAO.updateTask(vo);
-	}
-
-	@Override
-	public void deleteTask(BoardVO vo) {
-		boardDAO.deleteTask(vo);
-	}
-
-	@Override
-	public List<BoardVO> getTaskList(UserVO uVO) {
-		return boardDAO.getTaskList(uVO);
-	}
 }
