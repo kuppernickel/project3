@@ -1,4 +1,4 @@
-package com.project3.view.board;
+package com.project3.view;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class DownloadController {
 	@RequestMapping(value = "/fileDownload.do")
-    public void fileDownload4(HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
+    public void fileDownload(HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
         String path =  request.getSession().getServletContext().getRealPath("저장경로");
         
         String filename = request.getParameter("fileName");
