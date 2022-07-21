@@ -16,24 +16,15 @@ const showMenu = (toggleId, navbarId, bodyId) => {
 showMenu('nav-toggle', 'navbar', 'body-pd')
 
 /* LINK ACTIVE */
-const linkColor = document.querySelectorAll('.nav__link')
+
 
 function colorLink() {
-    linkColor.forEach(l => l.classList.remove('active'))
-    this.classList.add('active')
+	const linkColor = document.querySelectorAll('.nav__link')
+	let i
+    for(i = 0; i < linkColor.length; i++){
+	linkColor[i].addEventListener('click', function(){
+		linkColor[i].classList.toggle('active');
+	})
+}
 }
 
-linkColor.forEach(l => l.addEventListener('click', colorLink))
-
-/* COLLAPSE MENU */
-const linkCollapse = document.getElementsByClassName('collapse__link')
-
-for (var i = 0; i < linkCollapse.length; i++) {
-    linkCollapse[i].addEventListener('click', function () {
-        const collapseMenu = this.nextElementSibling
-        collapseMenu.classList.toggle('showCollapse')
-
-        const rotate = collapseMenu.previousElementSibling
-        rotate.classList.toggle('rotate')
-    });
-}
