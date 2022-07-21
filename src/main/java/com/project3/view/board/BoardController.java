@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -114,8 +115,15 @@ public class BoardController {
 	
 	// 게시글 리스트로 이동
 	@RequestMapping("/getBoardList.do")
-	public String getBoardList(BoardVO vo, Model model, @RequestParam(value="table",required=false) String table,
+	public String getBoardList(HttpServletRequest request ,BoardVO vo, Model model, @RequestParam(value="table",required=false) String table,
 			@RequestParam(value="subjectCode",required=false) String subjectCode ) {
+		
+		BoardVO boardVO = new BoardVO();
+		
+		boardVO.setContent(request.getParameter("content"));
+		
+		model.addAttribute("boardVO", boardVO);
+		
 		System.out.println(table);
 		model.addAttribute("boardList", boardService.getBoardList(vo));
 		model.addAttribute("table", table);

@@ -68,7 +68,7 @@
 		                    <tr>
 		                        <td>${subject.subjectCode}</td>
 		                        <td>${subject.lessonName}</td>
-		                        <td>2020.04.23</td>
+		       					
 		                    </tr>
 	                    </c:forEach>
 					</tbody>
@@ -110,7 +110,7 @@
                 <table class="table table-hover">
                     <thead>
                     <tr style='colspan:"4"; background: #f5f5f5'>
-                        <th><a class="aTag" href="#">학사 공지<ion-icon name="add-circle-outline"></ion-icon></a></th>
+                        <th><a class="aTag" href="getBoard.do?title=${notice.title }&table=notice">학사 공지<ion-icon name="add-circle-outline"></ion-icon></a></th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -118,8 +118,8 @@
                     <tbody>
 	                   	<c:forEach items="${noticeList}" var="notice">
 		                    <tr>
-		                     <td>${notice.title }</td>
-		                     <td>${notice.writer }</td>
+		                     <td><a href="getBoard.do?title=${notice.writer }&table=notice">${notice.title }</a></td>
+		                     <td>${notice.content }</td>
 		                     <td>${notice.writeDate }</td>
 		                    </tr>
 	                    </c:forEach>
