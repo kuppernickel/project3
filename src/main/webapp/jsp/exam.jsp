@@ -29,7 +29,7 @@
     <!-- 시험페이지 헤더 -->
     <header>
         <div class="headerWrap">
-            <div>현재 시험 페이지 자리</div>
+            <div class='lectureName'>과목명</div>
             <div class="timer"></div>
         </div>
     </header>
@@ -40,10 +40,62 @@
                 <div class="arrowLeft"><ion-icon name="caret-back-circle-sharp"></ion-icon></div>
                 <div class='examWrap'>
 		            	<ul class='examSlide'>
-		            		<li>1</li>
-		            		<li>2</li>
-		            		<li>3</li>
-		            		<li>4</li>
+		            		<li class='examQuestions'>
+		            			<h2 class='examTitle'>1. 서울 시민 모두가 동시에 외치면 무슨 말이 될까?</h2>
+		            			    <div class='btns'>
+			            			    <label for='a' class='Item'>
+									    	<input id='a' type="radio" name="1_answer" value="천만의소리">천만의소리
+								        </label>
+								        <label for='b' class='Item'>
+								      		<input id='b' type="radio" name="1_answer" value="만만의콩떡">만만의콩떡
+							      		</label>
+								      	<label for='c' class='Item'>
+								      		<input id='c' type="radio" name="1_answer" value="개소리">개소리
+								      	</label>
+								    </div>
+		            		</li>
+		            		<li class='examQuestions'>
+		            			<h2 class='examTitle'>2. 서울 시민 모두가 동시에 외치면 무슨 말이 될까?</h2>
+		            			   		            			    <div class='btns'>
+			            			    <label class='Item'>
+									    	<input type="radio" name="2_answer" value="천만의소리">천만의소리
+								        </label>
+								        <label class='Item'>
+								      		<input type="radio" name="2_answer" value="만만의콩떡">만만의콩떡
+							      		</label>
+								      	<label class='Item'>
+								      		<input type="radio" name="2_answer" value="개소리">개소리
+								      	</label>
+								    </div>
+		            		</li>
+		            		<li class='examQuestions'>
+		            			<h2 class='examTitle'>3. 서울 시민 모두가 동시에 외치면 무슨 말이 될까?</h2>
+		            			 		            			    <div class='btns'>
+			            			    <label class='Item'>
+									    	<input type="radio" name="1_answer" value="천만의소리">천만의소리
+								        </label>
+								        <label class='Item'>
+								      		<input type="radio" name="1_answer" value="만만의콩떡">만만의콩떡
+							      		</label>
+								      	<label class='Item'>
+								      		<input type="radio" name="1_answer" value="개소리">개소리
+								      	</label>
+								    </div>
+		            		</li>
+		            		<li class='examQuestions'>
+		            			<h2 class='examTitle'>4. 서울 시민 모두가 동시에 외치면 무슨 말이 될까?</h2>
+		            			 		            			    <div class='btns'>
+			            			    <label class='Item'>
+									    	<input type="radio" name="1_answer" value="천만의소리">천만의소리
+								        </label>
+								        <label class='Item'>
+								      		<input type="radio" name="1_answer" value="만만의콩떡">만만의콩떡
+							      		</label>
+								      	<label class='Item'>
+								      		<input type="radio" name="1_answer" value="개소리">개소리
+								      	</label>
+								    </div>
+		            		</li>
 		            	</ul>
 		            </div>
                 <div class="arrowRight"><ion-icon name="caret-forward-circle-sharp"></ion-icon></div>

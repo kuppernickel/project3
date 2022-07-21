@@ -17,8 +17,14 @@ header{
 
 .headerWrap{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     line-height: 55px;
+}
+
+.lectureName{
+	font-size: xx-large;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
 
 /* 시험페이지 메인 */
@@ -55,8 +61,31 @@ ion-icon{
     font-size: 1.3rem;
 }
 
-.examWrap{
+.examWrap,
+.examQuestions{
 	width: 60rem;
     height: 40rem;
-    border: 1px solid;
+}
+
+.examTitle{
+	width: 30rem;
+    margin: 5rem auto;
+}
+.btns{
+	font-size: 1.5rem;
+    letter-spacing: 2px;
+    align-items: baseline;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+input[type="radio"]{
+	width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.8rem;
+}
+
+.Item{
+	margin-right:2rem;
 }
