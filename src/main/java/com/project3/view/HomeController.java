@@ -16,6 +16,7 @@ import com.project3.biz.lesson.LessonService;
 import com.project3.biz.lesson.LessonVO;
 import com.project3.biz.lesson.impl.LessonServiceImpl;
 import com.project3.biz.subject.SubjectService;
+import com.project3.biz.task.TaskService;
 import com.project3.biz.user.UserVO;
 
 @Controller
@@ -27,6 +28,9 @@ public class HomeController {
 	
 	@Autowired
 	private BoardService boardService;
+	
+	@Autowired
+	private TaskService taskService;
 	
 	// 강의 리스트 페이지
 	@RequestMapping(value = "/detail.do", method = RequestMethod.GET)
@@ -46,7 +50,7 @@ public class HomeController {
 		model.addAttribute("subjectList", subjectService.getSubjectList(vo));
 		
 		// 과제 목록
-		model.addAttribute("taskList",boardService.getTaskList(vo));
+		model.addAttribute("taskList",taskService.getTaskList(vo));
 		
 		
 		// 학사 공지

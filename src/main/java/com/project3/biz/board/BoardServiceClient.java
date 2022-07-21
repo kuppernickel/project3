@@ -16,17 +16,18 @@ public class BoardServiceClient {
 		BoardVO vo = new BoardVO();
 		UserVO Uvo = new UserVO();
 		
-		Uvo.setUserId("1");
+		vo.setSubjectCode("common");
+		vo.setTable("commonnotice");
 		
 //		System.out.println("--->"+vo.getBoardId());
 //		vo.setPw("0000");
 //		BoardVO board = boardService.getBoard(vo);
 //		System.out.println("--->"+board.toString());
 		
-//		List<BoardVO> boardList = boardService.getTaskList(Uvo);
-//		for(BoardVO board:boardList) {
-//			System.out.println("--->"+board.toString());
-//		}
+		List<BoardVO> boardList = boardService.getBoardList(vo);
+		for(BoardVO board:boardList) {
+			System.out.println("--->"+board.toString());
+		}
 		
 		container.close();
 	} 

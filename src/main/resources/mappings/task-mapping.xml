@@ -83,7 +83,7 @@
 	<!-- 특정 과목의 과제 리스트 -->
 	<select id="getSubjectTaskList" parameterType="task" resultMap="taskResult">
 		<![CDATA[
-		SELECT * FROM task WHERE subjectCode=#{subjectCode}
+		SELECT * FROM task WHERE subjectCode=#{subjectCode} ORDER BY seq DESC
 		]]>
 	</select>
 
