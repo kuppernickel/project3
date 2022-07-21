@@ -60,7 +60,6 @@
                         <tr style='colspan:"4"; background: #f5f5f5'>
                             <th><a class="aTag" href="#">강의 목록<ion-icon name="add-circle-outline"></ion-icon></a></th>
                             <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -101,6 +100,19 @@
 		                        </td>
 		                    </tr>
 	                    </c:forEach>
+	                      <c:forEach items="${taskList}" var="task">
+		                    <tr>
+		                        <td>${task.lessonName.lessonName}</td>
+		                        <td>${task.title}</td>
+		                        <td>
+		                        	<c:set var="deadline" value="${task.taskDeadline}"/>
+			                        <c:choose>
+			                        	<c:when test="${empty deadline}">기한없음</c:when>
+			                        	<c:otherwise>${task.taskDeadline}</c:otherwise>
+			                        </c:choose>
+		                        </td>
+		                    </tr>
+	                    </c:forEach>
                     </tbody>
                 </table>
             </div> <!--   과제리스트 끝 -->
@@ -110,7 +122,7 @@
                 <table class="table table-hover">
                     <thead>
                     <tr style='colspan:"4"; background: #f5f5f5'>
-                        <th><a class="aTag" href="getBoard.do?title=${notice.title }&table=notice">학사 공지<ion-icon name="add-circle-outline"></ion-icon></a></th>
+                        <th>학사 공지</th>
                         <th></th>
                         <th></th>
                     </tr>
