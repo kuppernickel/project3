@@ -35,7 +35,7 @@
 		fileName = #{fileName},
 		fileSize = #{fileSize},
 		originalFileName = #{originalFileName},
-		subjectCode = #{subjectCode}
+		updateDate = current_timestamp
 		WHERE seq = #{seq}
 		]]>
 	</update>

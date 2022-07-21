@@ -95,8 +95,12 @@
         
         <!-- 게시물 작성 및 수정에 필요한 추가 정보들 -->
         <input type="hidden" name="table" value="${table}">
-        <input type="hidden" name="writer" value="${user.userId}">
+        <input type="hidden" name="writer" value="${user.name}">
         <input type="hidden" name="subjectCode" value="${subjectCode}">
+        <c:if test="${type eq 'update'}">
+       		<input type="hidden" name="seq" value="${board.seq}">
+       	</c:if>
+        
         
         <!-- 스프링 시큐리티 -->
         <sec:csrfInput />

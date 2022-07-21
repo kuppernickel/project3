@@ -92,8 +92,30 @@ public class BoardController {
 	
 	// 글 수정
 	@RequestMapping("/updateBoard.do")
-	public String updateBoard(BoardVO vo, @RequestParam("table") String table) {
+	public String updateBoard(BoardVO vo, @RequestParam("table") String table,
+			@RequestParam MultipartFile uploadFile) throws IOException{
 		System.out.println("update 진입 성공");
+		final String SAVEFOLDER = "C://upload/";
+		
+		// 파일 업로드 처리
+		if (!uploadFile.isEmpty()) {
+			String fileName = uploadFile.getOriginalFilename();
+			// 파일 이름 중복 처리 (UUID 활용)
+			String extension = fileName.substring(fileName.lastIndexOf("."), fileName.length());
+
+			UUID uuid = UUID.randomUUID();
+			String newFileName = uuid.toString() + extension;
+			
+			// DB에 넣을 파일 정보를 VO에 담는 과정
+			vo.setOriginalFileName(fileName);
+			vo.setFileName(SAVEFOLDER + newFileName);
+			vo.setFileSize((int)(uploadFile.getSize()));
+			
+			File file = new File(SAVEFOLDER);
+			if(!file.exists()) file.mkdirs();
+			
+			uploadFile.transferTo(new File(SAVEFOLDER + newFileName));
+		}
 		boardService.updateBoard(vo);
 		return "getBoard.do?seq=" + vo.getSeq() + "&table=" + table;
 	}
