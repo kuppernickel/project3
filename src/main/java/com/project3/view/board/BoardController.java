@@ -113,6 +113,8 @@ public class BoardController {
 		return "/jsp/getBoard.jsp"; // View 이름 리턴
 	}
 	
+	//table = commonnotice	
+	
 	// 게시글 리스트로 이동
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(HttpServletRequest request ,BoardVO vo, Model model, @RequestParam(value="table",required=false) String table,

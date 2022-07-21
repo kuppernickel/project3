@@ -118,7 +118,7 @@
                     <tbody>
 	                   	<c:forEach items="${noticeList}" var="notice">
 		                    <tr>
-		                     <td><a href="getBoard.do?title=${notice.writer }&table=notice">${notice.title }</a></td>
+		                     <td><a href="getBoard.do?seq=${notice.seq }&table=commonNotice">${notice.title }</a></td>
 		                     <td>${notice.content }</td>
 		                     <td>${notice.writeDate }</td>
 		                    </tr>
