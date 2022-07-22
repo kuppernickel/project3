@@ -23,5 +23,6 @@ public class TaskVO {
 	private String submit;
 	private String totalSubmit;
 	private String totalStudent;
+	private String scored;
 	private SubjectVO lessonName;
 }
