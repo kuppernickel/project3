@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.project3.biz.board.BoardService;
 import com.project3.biz.board.BoardVO;
+import com.project3.view.FileController;
 
 
 @Controller
@@ -37,7 +37,9 @@ public class BoardController {
 		model.addAttribute("type", type);
 		model.addAttribute("table", table);
 		model.addAttribute("subjectCode", session.getAttribute("subjectCode"));
-		model.addAttribute("board", vo);
+		if(type.equals("update")) {
+			model.addAttribute("board", vo);			
+		}
 		System.out.println("글 작성 페이지로 이동");
 		return "/jsp/post.jsp";
 	}
@@ -93,12 +95,14 @@ public class BoardController {
 	// 글 수정
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(BoardVO vo, @RequestParam("table") String table,
-			@RequestParam MultipartFile uploadFile) throws IOException{
+			@RequestParam MultipartFile uploadFile, @RequestParam("file") String beforefile) throws IOException{
 		System.out.println("update 진입 성공");
 		final String SAVEFOLDER = "C://upload/";
 		
 		// 파일 업로드 처리
 		if (!uploadFile.isEmpty()) {
+			
+			// 새로운 파일 업로드 시작
 			String fileName = uploadFile.getOriginalFilename();
 			// 파일 이름 중복 처리 (UUID 활용)
 			String extension = fileName.substring(fileName.lastIndexOf("."), fileName.length());
@@ -116,6 +120,12 @@ public class BoardController {
 			
 			uploadFile.transferTo(new File(SAVEFOLDER + newFileName));
 		}
+		
+		// 기존에 업로드 됐었던 파일 삭제
+		// 새로운 파일이 업로드 되던, 파일 없이 수정을 하던 결국 이전에 있던 파일은 삭제되는게 맞음
+		FileController filecon = new FileController();
+		filecon.removeFile(beforefile);
+		
 		boardService.updateBoard(vo);
 		return "getBoard.do?seq=" + vo.getSeq() + "&table=" + table;
 	}
@@ -139,15 +149,8 @@ public class BoardController {
 	
 	// 게시글 리스트로 이동
 	@RequestMapping("/getBoardList.do")
-	public String getBoardList(HttpServletRequest request ,BoardVO vo, Model model, @RequestParam(value="table",required=false) String table,
-			@RequestParam(value="subjectCode",required=false) String subjectCode ) {
-		
-		BoardVO boardVO = new BoardVO();
-		
-		boardVO.setContent(request.getParameter("content"));
-		
-		model.addAttribute("boardVO", boardVO);
-		
+	public String getBoardList(BoardVO vo, Model model, 
+			@RequestParam(value="table",required=false) String table) {
 		System.out.println(table);
 		model.addAttribute("boardList", boardService.getBoardList(vo));
 		model.addAttribute("table", table);

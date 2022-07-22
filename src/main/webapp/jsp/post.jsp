@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%-- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,14 +97,17 @@
         <input type="hidden" name="table" value="${table}">
         <input type="hidden" name="writer" value="${user.name}">
         <input type="hidden" name="subjectCode" value="${subjectCode}">
+        
+        <!-- 수정인 경우에만 들어가는 추가 정보들 -->
         <c:if test="${type eq 'update'}">
        		<input type="hidden" name="seq" value="${board.seq}">
+       		<input type="hidden" name="file" value="${board.fileName}">
        	</c:if>
         
-        
+      <%--   
         <!-- 스프링 시큐리티 -->
         <sec:csrfInput />
-        
+       --%>  
         <!-- 사진 이외의 업로드 파일 -->
         <input type="file" name="uploadFile">
         <div class="btns">

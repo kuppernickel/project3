@@ -89,20 +89,25 @@ public class FileController {
 		
 		// 파일명을 Path 클래스로 담아둔다.
 		Path filePath = Paths.get(fileName);
+		
 		// getFileName()으로 갖고온 이름을 String 형으로 뽑아낸다.
 		String onlyName = filePath.getFileName().toString();
 		
-		// 실제 파일 이름을
-        String srcFileName = null;
-
+//		// 실제 파일 이름을 저장할 변수
+//        String srcFileName = null;
         try{
-            srcFileName = URLDecoder.decode(onlyName,"UTF-8");
-            //UUID가 포함된 파일이름을 디코딩해줍니다.
-			File file = new File(/* uploadPath  + */srcFileName);
+//            srcFileName = URLDecoder.decode(onlyName,"UTF-8");
+//            //UUID가 포함된 파일이름을 디코딩해줍니다.
+//			File file = new File(/* uploadPath  + */srcFileName);
+        	
+        	
+			File file = new File(fileName);
+			
+			
             boolean result = file.delete();
 
             return new ResponseEntity<>(result,HttpStatus.OK);
-        }catch (UnsupportedEncodingException e){
+        }catch (Exception e){
             e.printStackTrace();
             return new ResponseEntity<>(false,HttpStatus.INTERNAL_SERVER_ERROR);
         }
