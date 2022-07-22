@@ -1,5 +1,6 @@
 package com.project3.biz.task;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.project3.biz.user.UserVO;
@@ -11,4 +12,5 @@ public interface TaskService {
 	void deleteTask(TaskVO vo);
 	List<TaskVO> getTaskList(UserVO uVO);
 	List<TaskVO> getSubjectTaskList(TaskVO vo);
+	List<TaskVO> getSubjectTaskList(HashMap<String, Object> map);
 }

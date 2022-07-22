@@ -100,19 +100,6 @@
 		                        </td>
 		                    </tr>
 	                    </c:forEach>
-	                      <c:forEach items="${taskList}" var="task">
-		                    <tr>
-		                        <td>${task.lessonName.lessonName}</td>
-		                        <td>${task.title}</td>
-		                        <td>
-		                        	<c:set var="deadline" value="${task.taskDeadline}"/>
-			                        <c:choose>
-			                        	<c:when test="${empty deadline}">기한없음</c:when>
-			                        	<c:otherwise>${task.taskDeadline}</c:otherwise>
-			                        </c:choose>
-		                        </td>
-		                    </tr>
-	                    </c:forEach>
                     </tbody>
                 </table>
             </div> <!--   과제리스트 끝 -->

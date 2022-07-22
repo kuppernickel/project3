@@ -1,5 +1,6 @@
 package com.project3.biz.task.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,9 @@ public class TaskServiceImpl implements TaskService{
 	@Override
 	public List<TaskVO> getSubjectTaskList(TaskVO vo) {
 		return taskDAO.getSubjectTaskList(vo);
+	}
+	@Override
+	public List<TaskVO> getSubjectTaskList(HashMap<String, Object> map) {
+		return taskDAO.getSubjectTaskList(map);
 	}
 }

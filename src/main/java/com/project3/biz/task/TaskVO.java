@@ -20,5 +20,8 @@ public class TaskVO {
 	private String originalFileName;
 	private String subjectCode;
 	private String taskDeadline;
+	private String submit;
+	private String totalSubmit;
+	private String totalStudent;
 	private SubjectVO lessonName;
 }

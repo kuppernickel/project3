@@ -20,11 +20,15 @@
         <result property="originalFileName" column="originalFileName" />
         <result property="subjectCode" column="subjectCode" />
         <result property="taskDeadline" column="taskDeadline" />
+        <result property="submit" column="submit" />
+        <result property="totalSubmit" column="totalSubmit" />
+        <result property="totalStudent" column="totalStudent" />
         <collection property="lessonName" resultMap="subjectResult"/>
 	</resultMap>
 	
 	<resultMap id="userResult" type="user">
 		<id property="userId" column="userId" />
+		<result property="auth" column="auth" />
 	</resultMap>
 
 
@@ -69,21 +73,42 @@
 		]]>
 	</select>
 
-	<!-- 모든 과목의 과제 리스트 -->
+	<!-- 모든 과목의 과제 리스트(미제출) -->
 	<select id="getTaskList" parameterType="user" resultMap="taskResult">
 		<![CDATA[
-		SELECT c.seq,d.lessonName,c.title,c.taskDeadline FROM 
-		(SELECT b.seq,b.title,b.subjectCode,b.taskDeadline FROM 
-		    (SELECT subjectCode FROM subjectgrade WHERE userId=#{userId}) a
-		LEFT OUTER JOIN task b ON a.subjectCode=b.subjectCode) c 
-	    LEFT OUTER JOIN subject d ON c.subjectCode=d.subjectCode
-	    ORDER BY c.taskDeadline IS NULL ASC;
+		SELECT e.seq,e.lessonName,e.title,e.taskDeadline,COUNT(f.parent) submit FROM 
+		(SELECT c.seq,d.lessonName,c.title,c.taskDeadline,c.subjectCode FROM 
+			(SELECT b.seq,b.title,b.subjectCode,b.taskDeadline FROM 
+				(SELECT subjectCode FROM subjectgrade WHERE userId=#{userId}) a
+			LEFT OUTER JOIN task b ON a.subjectCode=b.subjectCode) c 
+		LEFT OUTER JOIN subject d ON c.subjectCode=d.subjectCode) e 
+		LEFT OUTER JOIN
+		(SELECT parent FROM task_submit WHERE writer=#{userId}) f 
+		ON e.seq=f.parent
+	    GROUP BY e.seq HAVING submit=0 ORDER BY submit,e.taskDeadline IS NULL ASC;
 		]]>
 	</select>
-	<!-- 특정 과목의 과제 리스트 -->
-	<select id="getSubjectTaskList" parameterType="task" resultMap="taskResult">
+	<!-- 특정 과목의 과제 리스트(학생) -->
+	<select id="getSubjectTaskList_s" parameterType="hashmap" resultMap="taskResult">
 		<![CDATA[
-		SELECT * FROM task WHERE subjectCode=#{subjectCode} ORDER BY seq DESC
+		SELECT a.seq,a.title,a.taskDeadline,IF(COUNT(b.parent)=1,'제출','미제출') submit FROM 
+		(SELECT * FROM task WHERE subjectCode=#{task.subjectCode}) a 
+		LEFT OUTER JOIN 
+		(SELECT parent FROM task_submit WHERE writer=#{user.userId}) b 
+		ON a.seq=b.parent
+		GROUP BY a.seq ORDER BY a.seq DESC
+		]]>
+	</select>
+	<!-- 특정 과목의 과제 리스트(교수) -->
+	<select id="getSubjectTaskList_p" parameterType="task" resultMap="taskResult">
+		<![CDATA[
+		SELECT c.seq,c.title,c.taskDeadline,c.totalSubmit,d.totalStudent FROM
+		(SELECT b.seq,b.title,b.taskDeadline,IFNULL(a.totalSubmit,0) totalSubmit, b.subjectCode FROM 
+		v_totalSubmit a RIGHT OUTER JOIN task b ON a.seq=b.seq) c 
+		LEFT OUTER JOIN 
+		v_totalStudent d 
+		ON c.subjectCode=d.subjectCode 
+		WHERE c.subjectCode=#{subjectCode} ORDER BY seq DESC
 		]]>
 	</select>
 

@@ -1,5 +1,6 @@
 package com.project3.biz.task.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -40,9 +41,14 @@ public class TaskDAO{
 		System.out.println("===> Mybatis로 getTaskList() 기능 처리");
 		return mybatis.selectList("TaskDAO.getTaskList", uVO);
 	}
-	//특정 과목의 과제 리스트
+	//특정 과목의 과제 리스트(학생)
+	public List<TaskVO> getSubjectTaskList(HashMap<String, Object> map) {
+		System.out.println("===> Mybatis로 getSubjectTaskList() 기능 처리");
+		return mybatis.selectList("TaskDAO.getSubjectTaskList_s", map);
+	}
+	//특정 과목의 과제 리스트(교수)
 	public List<TaskVO> getSubjectTaskList(TaskVO vo) {
 		System.out.println("===> Mybatis로 getSubjectTaskList() 기능 처리");
-		return mybatis.selectList("TaskDAO.getSubjectTaskList", vo);
+		return mybatis.selectList("TaskDAO.getSubjectTaskList_p", vo);
 	}
 }

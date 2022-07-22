@@ -135,17 +135,23 @@
 	            <c:forEach items="${taskList}" var="task">
 		            <tr>
 		                <td><a class="lectureLink" href="/getTask.do?seq=${task.seq}">${task.title}</a></td>
-		                <td>${task.taskDeadline}</td>
+		                <td>
+			                <c:set var="deadline" value="${task.taskDeadline}"/>
+	                        <c:choose>
+	                        	<c:when test="${empty deadline}">기한없음</c:when>
+	                        	<c:otherwise>${task.taskDeadline}</c:otherwise>
+	                        </c:choose>
+		                </td>
 		                <c:choose>
 			            	<c:when test="${userAuth eq '교수'}">
 			            		<c:out escapeXml="false" value="
-			                        <td class='hide'>7</td>
-		                			<td class='hide'>0/8</td>
+			                        <td class='hide'>${task.totalSubmit}/${task.totalStudent}</td>
+		                			<td class='hide'>0/${task.totalSubmit}</td>
 		                        "/>
 				            </c:when>
 				            <c:otherwise>
 				            	<c:out escapeXml="false" value="
-					            	<td class='hide'>미제출</td>
+					            	<td class='hide'>${task.submit}</td>
 			                    "/>
 				            </c:otherwise>
 		                </c:choose>

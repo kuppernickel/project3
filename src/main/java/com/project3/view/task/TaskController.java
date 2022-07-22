@@ -2,6 +2,7 @@ package com.project3.view.task;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.project3.biz.task.TaskService;
 import com.project3.biz.task.TaskVO;
+import com.project3.biz.user.UserVO;
 
 
 @Controller
@@ -105,8 +107,16 @@ public class TaskController {
 	
 	// 게시글 리스트로 이동
 	@RequestMapping("/getTaskList.do")
-	public String getTaskList(TaskVO vo, Model model) {
-		model.addAttribute("taskList", taskService.getSubjectTaskList(vo));
+	public String getTaskList(TaskVO vo, Model model, HttpSession session) {
+		UserVO user = (UserVO)session.getAttribute("user");
+		if(user.getAuth().equals("교수")) {
+			model.addAttribute("taskList", taskService.getSubjectTaskList(vo));
+		}else {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("user", user);
+			map.put("task", vo);
+			model.addAttribute("taskList", taskService.getSubjectTaskList(map));
+		}
 		return "/jsp/taskStatus.jsp";
 	}
 	
