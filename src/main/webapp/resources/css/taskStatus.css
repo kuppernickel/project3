@@ -4,6 +4,10 @@ main{
     margin: 50px auto;
 }
 
+.filter{
+   margin-bottom: 1rem;
+}
+
 .tableWrap{
     width: 80rem;
     padding: 10px;
@@ -20,6 +24,7 @@ table{
 
 .tableWrap2{
     margin-bottom: 5rem;
+    height: 40rem;
 }
 
 tr{

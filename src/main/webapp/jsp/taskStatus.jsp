@@ -113,8 +113,8 @@
     <div class="tableWrap2">
         <table class="tight">
             <thead><tr>
-                <th style="width:35%;">과제 제목</th>
-                <th style="width:30%;">제출 기한</th>
+                <th style="width:30%;">과제 제목</th>
+                <th style="width:20%;">제출 기한</th>
                 <c:choose>
 	            	<c:when test="${userAuth eq '교수'}">
 	            		<c:out escapeXml="false" value="
@@ -124,11 +124,11 @@
 		            </c:when>
 		            <c:otherwise>
 		            	<c:out escapeXml="false" value="
-			            	<th class='hide' style='width:5%;'>제출 여부</th>
+			            	<th class='hide' style='width:15%;'>제출 여부</th>
 	                    "/>
 		            </c:otherwise>
                 </c:choose>
-                <th class="hide" style="width:5%;">마감 여부</th>
+                <th class="hide" style="width:15%;">마감 여부</th>
             </tr></thead>
             <tbody>
 	            <c:forEach items="${taskList}" var="task">
