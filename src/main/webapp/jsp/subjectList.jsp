@@ -54,6 +54,7 @@
 		        	<option value="4목">목</option>
 		        	<option value="5금">금</option>
 		        </select>
+		        <button type="submit" class="btn btn-dark" style="margin:0 2vW">검색</button>
 	        </form>
         </div>
         <!--  검색창 끝  -->
