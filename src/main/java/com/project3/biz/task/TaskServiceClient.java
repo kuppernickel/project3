@@ -18,8 +18,9 @@ public class TaskServiceClient {
 		TaskVO vo = new TaskVO();
 		UserVO user = new UserVO();
 		user.setUserId("1");
-		user.setAuth("학생");
+		user.setAuth("교수");
 		vo.setSubjectCode("BU1A01");
+		vo.setSubmit("not");
 		List<TaskVO> taskList = new ArrayList<TaskVO>();
 		if(user.getAuth().equals("교수")) {
 			taskList = taskService.getSubjectTaskList(vo);

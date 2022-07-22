@@ -66,26 +66,27 @@
 
     <!--  검색필터  -->
     <div class="filter">
-        <form>
+        <form method=get action="/getTaskList.do">
+        	<input type="hidden" name="subjectCode" value="${subjectCode}">
             <div class="filterWrap">
                 <div class="filterList">
                     <ul>
                         <li>
-                            <select>
+                            <select name="submit">
 				            	<c:set var="userAuth" value="${user.auth}"/>
 				            	<c:choose>
 				            	<c:when test="${userAuth eq '교수'}">
 				            		<c:out escapeXml="false" value="
-		                                <option selected>평가현황</option>
-		                                <option>평가완료</option>
-		                                <option>미평가</option>
+		                                <option value='all' selected>평가현황</option>
+		                                <option value='scored'>평가완료</option>
+		                                <option value='not'>미평가</option>
 	                                "/>
 					            </c:when>
 					            <c:otherwise>
 					            	<c:out escapeXml="false" value="
-						            	<option selected>제출현황</option>
-					                    <option>제출완료</option>
-					                    <option>미제출</option>
+						            	<option value='all' selected>제출현황</option>
+					                    <option value='제출'>제출완료</option>
+					                    <option value='미제출'>미제출</option>
 				                    "/>
 					            </c:otherwise>
 				                </c:choose>
@@ -146,7 +147,7 @@
 			            	<c:when test="${userAuth eq '교수'}">
 			            		<c:out escapeXml="false" value="
 			                        <td class='hide'>${task.totalSubmit}/${task.totalStudent}</td>
-		                			<td class='hide'>0/${task.totalSubmit}</td>
+		                			<td class='hide'>${task.scored}/${task.totalSubmit}</td>
 		                        "/>
 				            </c:when>
 				            <c:otherwise>
