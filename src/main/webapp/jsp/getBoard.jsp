@@ -69,7 +69,6 @@
 		<form action="updateBoard.do" method="post">
 			<input name="seq" type="hidden" value="${board.seq}" />
 			<div class='title' name="title"><h1>${board.title}</h1></div>
-
 			<div class='postInfo'>
 				<span class='text'>
 					${board.writer }
@@ -83,9 +82,19 @@
 					<a href="getBoardList.do?table=${table}">목록</a>
 				</span>
 			</div>
+
+			<!-- 업로드 파일 다운링크 -->
+			<div>
+				<h2>
+					<a href="fileDownload.do?file=${board.fileName}&beforeName=${board.originalFileName}">
+						${board.originalFileName}
+					</a>
+				</h2>
+			</div>
 				
+			<!-- 게시글 내용 -->
 			<div class='content' name="content">
-				${board.content }
+				${board.content}
 			</div>
 			
 

@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,59 +25,56 @@ public class FileController {
 	// 파일 다운로드
 	@RequestMapping(value = "/fileDownload.do")
     public void fileDownload(HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
-        String path =  request.getSession().getServletContext().getRealPath("저장경로");
+//        String path =  request.getSession().getServletContext().getRealPath("저장경로");
+        request.setCharacterEncoding("UTF-8");
+        String filename = request.getParameter("file");			// 업로드 폴더에 저장된 파일 이름(경로 포함됨)
+        String filename_utf = new String(request.getParameter("file").getBytes("UTF-8"));
+        String downname = request.getParameter("beforeName");	// UUID로 인코딩되기 전 파일 이름
+
+        // default로 크롬용 인코딩
+        String downname_utf = new String(downname.getBytes("UTF-8"), "ISO-8859-1");
         
-        String filename = request.getParameter("fileName");
-        String downname = request.getParameter("downName");
-        String realPath = "";
-        System.out.println("downname: "+downname);
+        // 브라우저가 엣지인 경우 재인코딩
+        String header = request.getHeader("User-Agent");
+        if(header.contains("Edge")) {
+        	downname_utf = URLEncoder.encode(downname, "UTF-8").replaceAll("\\+","%20");
+        }
+        
         if (filename == null || "".equals(filename)) {
             filename = downname;
         }
-         
-        try {
-            String browser = request.getHeader("User-Agent"); 
-            //파일 인코딩 
-            if (browser.contains("MSIE") || browser.contains("Trident")
-                    || browser.contains("Chrome")) {
-                filename = URLEncoder.encode(filename, "UTF-8").replaceAll("\\+",
-                        "%20");
-            } else {
-                filename = new String(filename.getBytes("UTF-8"), "ISO-8859-1");
-            }
-        } catch (UnsupportedEncodingException ex) {
-            System.out.println("UnsupportedEncodingException");
-        }
-        realPath = path +"/" +downname.substring(0,4) + "/"+downname;
-        System.out.println(realPath);
-        File file1 = new File(realPath);
+        
+        File file1 = new File(filename);
         if (!file1.exists()) {
             return ;
         }
-         
+        
         // 파일명 지정        
-        response.setContentType("application/octer-stream");
-        response.setHeader("Content-Transfer-Encoding", "binary;");
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
+        response.setContentType("application/octet-stream");
+        response.setHeader("Content-Disposition", "attachment;filename=\""+downname_utf+"\";");
+//        response.setHeader("Content-Transfer-Encoding", "binary");
+
+        // 파일 복사 시작
         try {
             OutputStream os = response.getOutputStream();
-            FileInputStream fis = new FileInputStream(realPath);
+            FileInputStream fis = new FileInputStream(filename);
  
             int ncount = 0;
-            byte[] bytes = new byte[512];
- 
+            byte[] bytes = new byte[1024];
+            
+            // 1024 바이트씩 읽으면서 OutputStream에 저장,  -1이 나오면 더이상 읽을 파일이 없다는 뜻
             while ((ncount = fis.read(bytes)) != -1 ) {
                 os.write(bytes, 0, ncount);
             }
             fis.close();
             os.close();
+            System.out.println("파일 다운 완료");
         } catch (FileNotFoundException ex) {
             System.out.println("FileNotFoundException");
         } catch (IOException ex) {
             System.out.println("IOException");
         }
 	}
-	
 	
 	// 업로드된 파일 삭제
 	@PostMapping("/removeFile")

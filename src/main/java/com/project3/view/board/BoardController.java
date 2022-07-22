@@ -31,15 +31,28 @@ public class BoardController {
 	// 작성 페이지로 이동
 	@RequestMapping(value = "/post.do", method = RequestMethod.GET)
 	public String writeBoard(Model model, @RequestParam("table") String table,
-			HttpSession session, @RequestParam(value="type",required=false) String type,
-			@ModelAttribute("board") BoardVO vo) {
+			@RequestParam(value="type",required=false) String type,
+			@RequestParam(value="seq",required=false) int seq, HttpSession session) {
+		System.out.println("post.do 진입 성공");
+		
 		// 타입을 받아서 모델에 저장시켜두고 이 post가 수정을 위한것인지 작성을 위한것인지 jsp에서 판단함 
 		model.addAttribute("type", type);
+		System.out.println("모델에 type 정보 담기 성공");
 		model.addAttribute("table", table);
+		System.out.println("모델에 table 정보 담기 성공");
 		model.addAttribute("subjectCode", session.getAttribute("subjectCode"));
+		System.out.println("모델에 subjectCode 정보 담기 성공");
+		
+		
+		
 		if(type.equals("update")) {
-			model.addAttribute("board", vo);			
+			BoardVO vo = new BoardVO();
+			vo.setSeq(seq);
+			vo.setTable(table);
+			vo = boardService.getBoard(vo);
+			model.addAttribute("board", vo);		
 		}
+		
 		System.out.println("글 작성 페이지로 이동");
 		return "/jsp/post.jsp";
 	}
