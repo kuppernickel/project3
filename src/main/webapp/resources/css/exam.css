@@ -55,6 +55,12 @@ ion-icon{
     cursor: pointer;
 }
 
+.arrowLeft:active,
+.arrowRight:active{
+  position: relative;
+  top:4px;
+}
+
 .timer{
 	font-weight: bold;
     letter-spacing: 3px;

@@ -17,22 +17,16 @@ $(document).ready(function() {
         return false;
     });// 슬라이드 및 좌,우 클릭 버튼
     
-    
-    var mql = window.matchMedia("screen and (max-width: 1024px)");
-	mql.addListener(function(e) {
-	if(!e.matches) {
-		slide.reloadSlider();
-		}
-	}); 
+   
 });
 
 
-$("input:radio[name=1_answer]:checked").change(function(){
-	if($("input:radio[name=1_answer]:checked")){
-		console.log(this.value);
-		
-		}
+$(".Item").click(function(){
+	var value = $("input:radio:checked").val();
+	
+	if(value == undefined){
+		alert('화이팅!' + '인생은 실전이야');
 	}
-);
-
-
+	console.log(value);
+}
+)
