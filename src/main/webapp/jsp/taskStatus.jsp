@@ -90,6 +90,7 @@
 					            </c:otherwise>
 				                </c:choose>
 	                        </select>
+	                        <button type="submit" class="btn btn-dark" style="margin:0 2vW">검색</button>
                         </li>
                     </ul>
                 </div>
