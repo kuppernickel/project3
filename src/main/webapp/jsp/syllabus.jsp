@@ -40,7 +40,7 @@
                         <a style="color: black" class="nav-link" href="#">공지사항</a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: black" class="nav-link" href="#">수업계획서</a>
+                        <a style="color: black" class="nav-link" href="syllabus.jsp">수업계획서</a>
                     </li>
                     
 					<div class="loginInfo">"${user.name}"님</div>
@@ -77,52 +77,45 @@
         <table class="tight">
             <thead><tr>
                 <th style="width:15%;">교과목명</th>
-                <td style="width:35%;"></td>
-                <th style="width:15%;">주관학과</th>
-                <td style="width:35%;"></td>
+                <td style="width:35%;">${subject.lessonName }</td>
+             
             </tr></thead>
             <tbody><tr>
+            
+          
+ 
                 <th>학점/시간</th>
-                <td></td>
-                <th>이수구분</th>
-                <td></td>
+               	<td>${sylla.grades}</td>
+               
+                
             </tr><tr>
                 <th>대상학년</th>
-                <td></td>
-                <th>개설년도/학기</th>
-                <td></td>
+                <td>${sylla.level }</td>
+                
             </tr><tr>
                 <th>교수명</th>
-                <td></td>
+                <td>${sylla.professor}</td>
                 <th>연락처/이메일</th>
-                <td></td>
-            </tr><tr>
-                <th>교과목개요</th>
-                <td colspan="3"></td>
-                <th></th>
-                <td></td>
-            </tr><tr>
-                <th>교육목표</th>
-                <td colspan="3"></td>
-                <th></th>
-                <td></td>
-            </tr><tr>
+                <td>${sylla.mobile }</td>
+            </tr>
+            <tr>
                 <th>교수명</th>
                 <td colspan="3"></td>
-                <th></th>
+                <th>${sylla.professor}</th>
                 <td></td>
             </tr><tr>
-                <th>강의실(시간)</th>
+                <th>강의실</th>
                 <td colspan="3"></td>
-                <th></th>
+                <th>${sylla.location }</th>
                 <td></td>
-            </tr><tr>
-                <th>주교재</th>
-                <td colspan="3"></td>
-                <th></th>
-                <td></td>
+            
+              
+            
+        
+            
             </tr></tbody>
         </table>
+        
     </div><!-- 테이블 끝 -->
 
     <!-- 두번째 테이블 -->
@@ -135,46 +128,23 @@
                 <th>평가항목</th>
                 <th>중간고사</th>
                 <th>기말고사</th>
-                <th>퀴즈</th>
                 <th>과제</th>
-                <th>팀PJ</th>
                 <th>출석</th>
-                <th>기타1</th>
-                <th>기타2</th>
-                <th>기타3</th>
-                <th>발표</th>
-                <th>참여도</th>
+            
             </tr></thead>
             <tbody><tr>
                 <th>비율</th>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr><tr>
-                <th>참여도<br>세부비율</th>
-                <th colspan="6">강의 Q&A</th>
-                <th colspan="5">토론방</th>
-            </tr><tr>
-                <th>비율</th>
-                <td colspan="6">0</td>
-                <td colspan="5">0</td>
-            </tr><tr>
-                <th>1회 당 점수</th>
-                <td colspan="6">0</td>
-                <td colspan="5">0</td>
-            </tr></tbody>
+                <td>${sylla.rateTestScore1 }</td>
+                <td>${sylla.rateTestScore2 }</td>
+                <td>${sylla.rateAssignment }</td>
+                <td>${sylla.rateAttendence }</td>
+            </tr>
+            </tbody>
         </table>
     </div><!-- 두번째 테이블 끝 -->
 </main>
 
+<!-- zzzzzzzzzdlstod -->
 
 <script src="${pageContext.request.contextPath}/js/index.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>

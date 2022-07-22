@@ -42,7 +42,7 @@
                         <a style="color: black" class="nav-link" href="getBoardList.do?table=notice&subjectCode=${subjectCode}">공지사항</a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: black" class="nav-link" href="#">수업계획서</a>
+                        <a style="color: black" class="nav-link" href="getSyllaList.do?subjectCode=${subjectCode }">수업계획서</a>
                     </li>
                     
 					<div class="loginInfo">"${user.name}"님</div>

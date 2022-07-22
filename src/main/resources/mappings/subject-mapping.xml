@@ -3,25 +3,26 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SubjectDAO">
 
+
+
 	<resultMap id="subjectResult" type="subject">
         <id property="subjectCode" column="subjectCode" />
-        <result property="profName" column="profName" />
         <result property="lessonName" column="lessonName" />
         <result property="grades" column="grades" />
         <result property="people" column="people" />
         <result property="location" column="location" />
-        <result property="scd" column="scd" />
         <result property="rateTestScore1" column="rateTestScore1" />
         <result property="rateTestScore2" column="rateTestScore2" />
         <result property="rateAttendence" column="rateAttendence" />
         <result property="rateAssignment" column="rateAssignment" />
         <result property="lessonContent" column="lessonContent" />
+        <collection property="professor" resultMap="userResult"/>
 	</resultMap>
 	
 	<resultMap id="userResult" type="user">
 		<id property="userId" column="userId" />
 		<result property="day" column="day" />
-		<!-- <result property="auth" column="auth" />
+		<result property="auth" column="auth" />
 		<result property="pw" column="pw" />
 		<result property="name" column="name" />
 		<result property="mobile" column="mobile" />
@@ -33,8 +34,10 @@
 		<result property="address1" column="address1" />
 		<result property="address2" column="address2" />
 		<result property="level" column="level" />
-		<result property="enroll" column="enroll" /> -->
+		<result property="enroll" column="enroll" /> 
 	</resultMap>
+	
+
 	
 	<select id="getSubject" resultType="subject">
 		<![CDATA[
@@ -61,5 +64,32 @@
         GROUP BY d.subjectCode ORDER BY c.day ASC, c.hour ASC;
 		]]>
 	</select>
+	
+	  
+	<select id="getSyllaList" parameterType="subject" resultMap="subjectResult">
+		<![CDATA[
+				SELECT professor, lessonName, grades, people, location, rateTestScore1,
+			rateTestScore2, rateAttendence, rateAssignment, lessonContent, name, email, address2, mobile
+			FROM
+			subject LEFT OUTER JOIN users
+			on professor = userId
+			where subjectCode
+			 
+		]]>
+	</select>
+
+	
+<!-- 	<select id="getSyllaList" parameterType="sylla" resultMap="syllaResult">
+		SELECT professor
+		FROM
+		SELECT subject
+		RIGHT OUTER JOIN
+		SELECT mobile
+		FROM 
+		SELECT 
+	</select>
+	-->
+	<!-- syllabus로 하나로 묶어버렸음 전부다 이게맞나? -->
+	<!-- userId, day  -->
 	
 </mapper>

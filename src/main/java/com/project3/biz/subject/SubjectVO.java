@@ -1,5 +1,7 @@
 package com.project3.biz.subject;
 
+import com.project3.biz.user.UserVO;
+
 import lombok.Data;
 
 @Data
@@ -18,4 +20,5 @@ public class SubjectVO {
 	private String lessonContent;		// 수업내용
 	private String day;					// 수업요일
 	private int hour;					// 수업시간
+	private UserVO professor;			
 }
