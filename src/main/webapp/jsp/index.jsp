@@ -17,6 +17,7 @@
     <!-- IONICONS -->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
    	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index.css">
+   	<script src="${pageContext.request.contextPath}/js/index.js"></script>
 </head>
 <body>
 

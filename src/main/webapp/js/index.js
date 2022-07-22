@@ -15,16 +15,29 @@ const showMenu = (toggleId, navbarId, bodyId) => {
 
 showMenu('nav-toggle', 'navbar', 'body-pd')
 
-/* LINK ACTIVE */
+
+
+/* ACTIVE */
+
+
+function getsStorage(value, address) {
+    sessionStorage.setItem('id', value);
+    location.href = address;
+}
+
+
+const linkColor = document.querySelectorAll('.nav__link');
+for (let i = 0; i < linkColor.length; i++) {
+    var arr = [linkColor[0].id, linkColor[1].id, linkColor[2].id, linkColor[3].id];
+}
 
 
 function colorLink() {
-	const linkColor = document.querySelectorAll('.nav__link')
-	let i
-    for(i = 0; i < linkColor.length; i++){
-	linkColor[i].addEventListener('click', function(){
-		linkColor[i].classList.toggle('active');
-	})
+    if (this.id == sessionStorage.getItem('id')) {
+        this.classList.add('active')
+    } else {
+        this.classList.remove('active')
+    }
+    console.log(this.id == sessionStorage.getItem('id'));
 }
-}
-
+linkColor.forEach(l => l.addEventListener('click', colorLink))
