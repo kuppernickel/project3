@@ -8,6 +8,8 @@
 	<resultMap id="subjectResult" type="subject">
         <id property="subjectCode" column="subjectCode" />
         <result property="lessonName" column="lessonName" />
+        <result property="profName" column="profName" />
+        <result property="scd" column="scd" />
         <result property="grades" column="grades" />
         <result property="people" column="people" />
         <result property="location" column="location" />
