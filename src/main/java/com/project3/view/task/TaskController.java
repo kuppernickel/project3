@@ -33,7 +33,7 @@ public class TaskController {
 	@RequestMapping(value = "/postTask.do", method = RequestMethod.GET)
 	public String writeTask(Model model,
 			@RequestParam(value="type",required=false) String type,
-			@RequestParam(value="seq",required=false) int seq, HttpSession session) {
+			@RequestParam(value="seq",required=false) String seq, HttpSession session) {
 		System.out.println("post.do 진입 성공");
 		
 		// 타입을 받아서 모델에 저장시켜두고 이 post가 수정을 위한것인지 작성을 위한것인지 jsp에서 판단함 
@@ -44,7 +44,7 @@ public class TaskController {
 		
 		if(type.equals("update")) {
 			TaskVO vo = new TaskVO();
-			vo.setSeq(seq);
+			vo.setSeq(Integer.parseInt(seq));
 			vo = taskService.getTask(vo);
 			model.addAttribute("task", vo);		
 		}

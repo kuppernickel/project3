@@ -187,6 +187,7 @@
         <a href="">이전</a>
         <a href="">1</a>
         <a href="">다음</a>
+        <a href="/postTask.do?subjectCode=${subjectCode}&type=insert">글 작성</a>
     </div>
 
 
