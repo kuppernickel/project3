@@ -32,7 +32,7 @@ public class BoardController {
 	@RequestMapping(value = "/post.do", method = RequestMethod.GET)
 	public String writeBoard(Model model, @RequestParam("table") String table,
 			@RequestParam(value="type",required=false) String type,
-			@RequestParam(value="seq",required=false) int seq, HttpSession session) {
+			@RequestParam(value="seq",required=false) String seq, HttpSession session) {
 		System.out.println("post.do 진입 성공");
 		
 		// 타입을 받아서 모델에 저장시켜두고 이 post가 수정을 위한것인지 작성을 위한것인지 jsp에서 판단함 
@@ -47,7 +47,7 @@ public class BoardController {
 		
 		if(type.equals("update")) {
 			BoardVO vo = new BoardVO();
-			vo.setSeq(seq);
+			vo.setSeq(Integer.parseInt(seq));
 			vo.setTable(table);
 			vo = boardService.getBoard(vo);
 			model.addAttribute("board", vo);		

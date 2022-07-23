@@ -37,27 +37,28 @@
 
             <!-- 서브메뉴  -->
             <div class="subMenu">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a style="color: black" class="nav-link" 
-                        href="getSubjectList.do">강의리스트</a>
-                    </li>		
-                    <li class="nav-item">
-                        <a style="color: black" class="nav-link" 
-                        href="gettaskstatus.do?subjectCode=${subjectCode}">과제</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="color: black" class="nav-link" 
-                        href="notice.do">공지사항</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="color: black" class="nav-link" 
-                        href="getsyllabus.do?subjectCode=${subjectCode}">수업계획서</a>
-                    </li>
-                    
-					<div class="loginInfo">"${user.name}"님</div>
-	                <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
-                </ul>
+            	<c:if test="${table ne 'commonNotice'}">
+	                <ul class="navbar-nav">
+	                    <li class="nav-item">
+	                        <a style="color: black" class="nav-link" 
+	                        href="getSubjectList.do">강의리스트</a>
+	                    </li>		
+	                    <li class="nav-item">
+	                        <a style="color: black" class="nav-link" 
+	                        href="gettaskstatus.do?subjectCode=${subjectCode}">과제</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a style="color: black" class="nav-link" 
+	                        href="notice.do">공지사항</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a style="color: black" class="nav-link" 
+	                        href="getsyllabus.do?subjectCode=${subjectCode}">수업계획서</a>
+	                    </li>
+	                </ul>
+                </c:if>
+				<div class="loginInfo">"${user.name}"님</div>
+                <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
             </div>
 
 
