@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="ko">
 
 <head>
@@ -23,9 +23,37 @@
 
 <body id="body-pd">
 
-    <!-- 사이드바-->
+    <!-- 사이드바 -->
     <jsp:include page="../commonJSP/sideBar.jsp" />
 
+    <div class="l-navbar" id="navbar">
+        <nav class="nav">
+            <div>
+                <div class="nav__brand">
+                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                    <span class="nav__logo">학사 종합 포털</span>
+                </div>
+                <div class="nav__list">
+                    <a href="javascript:getsStorage('clickHome')" id='clickHome' class="nav__link">
+                        <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">홈으로</span>
+                    </a>
+                    <a href="javascript:getsStorage('clickSubject')" id='clickSubject' class=" nav__link">
+                        <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">과목</span>
+                    </a>
+                    <a href="javascript:getsStorage('clickMyInfo')" id='clickMyInfo' class=" nav__link">
+                        <ion-icon name="ellipsis-horizontal-sharp" class="nav__icon"></ion-icon>
+                        <span class="nav_name">내 정보</span>
+                    </a>
+                    <a href="javascript:getsStorage('clickNotice')" id='clickNotice' class=" nav__link">
+                        <ion-icon name="book-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">학사공지</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div> <!-- 사이드바 끝 -->
 
     <!--  헤더 -->
     <header>
@@ -64,64 +92,127 @@
     <!-- 메인 리스트 -->
     <main>
 
-        <div>
-            <h2 class="title">강의명</h2>
+        <center>
+            <form action="" method="post">
+                <input name="seq" type="hidden" value="" />
+                <div class='title' name="title">
+                    <h1>과제명</h1>
+                </div>
+                <div class='postInfo'>
+                    <span class='text'>
+                        교수명
+                        <span class='textBar'>|</span>
+                        작성일자
+                    </span>
+                </div>
+
+                <!-- 게시글 내용 -->
+                <div class='content' name="content">
+                    내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                    내용ㅍ내용내용내용내용
+                    내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                </div>
+            </form>
+
+
+        </center>
+
+
+
+        <div class="miniFormWrap">
+            <div class="miniForm">
+                <form action="">
+                    <div class="formTitle">
+                        과제 제출
+                    </div>
+
+                    <div class="input">
+                        <input type="text" placeholder="제목">
+                    </div>
+
+                    <div class="textarea">
+                        <textarea name="" id="" placeholder="내용"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="inputFileBtn" for="flieUpLoad">
+                            첨부파일<input type="file" id="flieUpLoad" style="display: none;">
+                        </label>
+                        <button type="button" class="sendBtn">
+                            제출하기
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
 
-        <!--  테이블  -->
-        <div class="tableWrap">
-            <table class="tight">
-                <thead>
-                    <tr>
-                        <th style="width:20%;">제목</th>
-                        <th style="width:25%;">내용</th>
-                        <th style="width:5%;">작성자</th>
-                        <th style="width:10%;">제출</th>
-                        <th style="width:5%;">확인</th>
-                        <th style="width:10%;">작성일</th>
-                        <th style="width:10%;">마감일</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>스마트웹</td>
-                        <td>k-디지털</td>
-                        <td>홍길동</td>
-                        <td>
-	                        <form class='filebox' action='' method='post'>
-	                        	 <label for="upload">업로드</label>
-  									<input type="file" id="upload"> 
-	                        </form>
-						</td>
-                        <td><span class="badge bg-danger">미제출</span></td>
-                        <!-- 뱃지 색상
-                        <span class="badge bg-secondary">gray</span>
-                        <span class="badge bg-dark">Dark</span>
-                        <span class="badge bg-danger">red</span>
-                        <span class="badge bg-warning text-dark">yellow</span>
-                         -->
-                        <td>2022-07-23</td>
-                        <td>2022-07-23</td>
-                    </tr>
-                    <tr>
-                        <td>스마트웹</td>
-                        <td>k-디지털</td>
-                        <td>홍길동</td>
-                        <td>제출</td>
-                        <td><span class="badge bg-dark">제출</span></td>
-                        <td>2022-07-23</td>
-                        <td>2022-07-23</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div><!-- 테이블 끝 -->
+
     </main>
 
-    <!-- 페이징 -->
-    <div class="listNum" id="page_control">
-        <a href="">이전</a>
-        <a href="">1</a>
-        <a href="">다음</a>
+    <div class="listWrap">
+
+        <!-- 리스트 -->
+        <a href="파일 저장된 경로 지정" download="">
+            <div class='listInfo'>
+                <span class='text2'>
+                    제목
+                    <span class='textBar'>|</span>
+                    홍길동
+                    <span class='textBar'>|</span>
+                    2022-07-23
+                    <span class='textBar'>|</span>
+                    2022-07-23
+                    <span class='textBar'>|</span>
+                    제출
+                </span>
+            </div>
+        </a>
+
+        <a href="파일 저장된 경로 지정" download="">
+            <div class='listInfo'>
+                <span class='text2'>
+                    제목
+                    <span class='textBar'>|</span>
+                    홍길동
+                    <span class='textBar'>|</span>
+                    2022-07-23
+                    <span class='textBar'>|</span>
+                    2022-07-23
+                    <span class='textBar'>|</span>
+                    제출
+                </span>
+            </div>
+        </a>
+
+        <a href="파일 저장된 경로 지정" download="">
+            <div class='listInfo'>
+                <span class='text2'>
+                    제목
+                    <span class='textBar'>|</span>
+                    홍길동
+                    <span class='textBar'>|</span>
+                    2022-07-23
+                    <span class='textBar'>|</span>
+                    2022-07-23
+                    <span class='textBar'>|</span>
+                    제출
+                </span>
+            </div>
+        </a>
+
+
+
+
+
     </div>
 
 
