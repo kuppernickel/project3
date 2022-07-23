@@ -44,7 +44,6 @@ public class BoardController {
 		System.out.println("모델에 subjectCode 정보 담기 성공");
 		
 		
-		
 		if(type.equals("update")) {
 			BoardVO vo = new BoardVO();
 			vo.setSeq(Integer.parseInt(seq));

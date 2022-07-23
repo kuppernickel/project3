@@ -57,7 +57,16 @@
 	                    </li>
 	                </ul>
                 </c:if>
-				<div class="loginInfo">"${user.name}"님</div>
+				<div class="loginInfo">${user.name}
+	                <c:choose>
+		                <c:when test="${user.auth eq '학생'}">
+	                	학생
+	                	</c:when>
+	                	<c:otherwise>
+	                	교수
+	                	</c:otherwise>
+	                </c:choose>
+                </div>
                 <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
             </div>
 
@@ -168,7 +177,7 @@
       <c:forEach items="${boardList}" var="board">
       <tr>
         <td>${board.seq}</td>
-        <td><a href="getBoard.do?seq=${board.seq}&table=notice">${board.title}</a></td>
+        <td><a href="getBoard.do?seq=${board.seq}&table=commonNotice">${board.title}</a></td>
         <td>${board.writer}</td>
         <td>${board.writeDate}</td>
         

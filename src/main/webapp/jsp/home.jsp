@@ -65,9 +65,12 @@
                     <tbody>
 	                    <c:forEach items="${subjectList}" var="subject">
 		                    <tr>
-		                        <td>${subject.subjectCode}</td>
-		                        <td>${subject.lessonName}</td>
-		       					
+		                        <td>${subject.scd}</td>
+		                        <td>
+		                        	<a href="getLessonList.do?subjectCode=${subject.subjectCode}">
+		                        		${subject.lessonName}
+		                        	</a>
+		                        </td>
 		                    </tr>
 	                    </c:forEach>
 					</tbody>
@@ -90,7 +93,7 @@
 	                    <c:forEach items="${taskList}" var="task">
 		                    <tr>
 		                        <td>${task.lessonName.lessonName}</td>
-		                        <td>${task.title}</td>
+		                        <td><a href="/getTask.do?seq=${task.seq}">${task.title}</a></td>
 		                        <td>
 		                        	<c:set var="deadline" value="${task.taskDeadline}"/>
 			                        <c:choose>
@@ -109,7 +112,8 @@
                 <table class="table table-hover">
                     <thead>
                     <tr style='colspan:"4"; background: #f5f5f5'>
-                        <th>학사 공지</th>
+                        <th><a class="aTag" href="getBoardList.do?table=commonNotice&subjectCode=common">
+                        학사 공지<ion-icon name="add-circle-outline"></ion-icon></a></th>
                         <th></th>
                         <th></th>
                     </tr>

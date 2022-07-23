@@ -51,7 +51,16 @@
                         href="getsyllabus.do?subjectCode=${subjectCode}">수업계획서</a>
                     </li>
                     
-					<div class="loginInfo">"${user.name}"님</div>
+					<div class="loginInfo">${user.name}
+		                <c:choose>
+			                <c:when test="${user.auth eq '학생'}">
+		                	학생
+		                	</c:when>
+		                	<c:otherwise>
+		                	교수
+		                	</c:otherwise>
+		                </c:choose>
+                	</div>
 	                <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
                 </ul>
             </div>
@@ -137,7 +146,9 @@
         <a href="">이전</a>
         <a href="">1</a>
         <a href="">다음</a>
-        <a href="/post.do?table=notice&subjectCode=${subjectCode}&type=insert">글 작성</a>
+        <c:if test="${user.auth eq '교수'}">
+        	<a href="/post.do?table=notice&subjectCode=${subjectCode}&type=insert">글 작성</a>
+    	</c:if>
     </div>
 
 
