@@ -46,6 +46,16 @@ public class SubjectController {
 		return "/jsp/subjectList.jsp";
 	}
 	
+	@RequestMapping(path = "/getsyllabus.do", method = RequestMethod.GET)
+	public String getSyllabus() {
+		System.out.println("수업 계획서 페이지로 이동");
+		return "/jsp/syllabus.jsp";
+	}
 	
+	@RequestMapping(path = "/gettaskstatus.do", method = RequestMethod.GET)
+	public String getTaskStatus() {
+		System.out.println("과제 페이지로 이동");
+		return "/jsp/taskStatus.jsp";
+	}
 	
 }

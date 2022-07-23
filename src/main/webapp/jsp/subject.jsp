@@ -33,7 +33,7 @@
             <div class="subMenu">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a style="color: black" class="nav-link" href="#">강의리스트</a>
+                        <a style="color: black" class="nav-link" href="getSubjectList.do">강의리스트</a>
                     </li>
                     <li class="nav-item">
                         <a style="color: black" class="nav-link" href="/getTaskList.do?subjectCode=${subjectCode}">과제</a>

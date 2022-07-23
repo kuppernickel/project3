@@ -58,7 +58,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr style='colspan:"4"; background: #f5f5f5'>
-                            <th><a class="aTag" href="#">강의 목록<ion-icon name="add-circle-outline"></ion-icon></a></th>
+                            <th><a class="aTag" href="getSubjectList.do">강의 목록<ion-icon name="add-circle-outline"></ion-icon></a></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -81,7 +81,7 @@
                 <table class="table table-hover">
                     <thead>
                     <tr style='colspan:"4"; background: #f5f5f5';>
-                        <th><a class="aTag" href="#">과제 목록<ion-icon name="add-circle-outline"></ion-icon></a></th>
+                        <th><a class="aTag" href="gettaskstatus.do?subjectCode=${subjectCode}">과제 목록<ion-icon name="add-circle-outline"></ion-icon></a></th>
                         <th></th>
                         <th></th>
                     </tr>
