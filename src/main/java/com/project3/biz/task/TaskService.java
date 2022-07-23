@@ -8,6 +8,7 @@ import com.project3.biz.user.UserVO;
 public interface TaskService {
 	void insertTask(TaskVO vo);
 	TaskVO getTask(TaskVO vo);
+	TaskVO getTaskSubmit(HashMap<String, Object> map);
 	void updateTask(TaskVO vo);
 	void deleteTask(TaskVO vo);
 	List<TaskVO> getTaskList(UserVO uVO);

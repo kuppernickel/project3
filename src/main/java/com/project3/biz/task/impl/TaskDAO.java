@@ -35,6 +35,10 @@ public class TaskDAO{
 		System.out.println("===> Mybatis로 getTask() 기능 처리");
 		return (TaskVO) mybatis.selectOne("TaskDAO.getTask", vo);
 	}
+	public TaskVO getTaskSubmit(HashMap<String, Object> map) {
+		System.out.println("===> Mybatis로 getTaskSubmit() 기능 처리");
+		return (TaskVO) mybatis.selectOne("TaskDAO.getTaskSubmit", map);
+	}
 	
 	//모든 과목의 과제 리스트
 	public List<TaskVO> getTaskList(UserVO uVO) {

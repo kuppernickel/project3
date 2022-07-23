@@ -24,6 +24,10 @@ public class TaskServiceImpl implements TaskService{
 	public TaskVO getTask(TaskVO vo) {
 		return taskDAO.getTask(vo);
 	}
+	@Override
+	public TaskVO getTaskSubmit(HashMap<String, Object> map) {
+		return taskDAO.getTaskSubmit(map);
+	}
 
 	@Override
 	public void updateTask(TaskVO vo) {

@@ -141,8 +141,13 @@ public class TaskController {
 
 	// 글 상세 조회
 	@RequestMapping("/getTask.do")
-	public String getTask(TaskVO vo, Model model) {
-		model.addAttribute("task", taskService.getTask(vo)); // Model 정보 저장
+	public String getTask(TaskVO vo, Model model, HttpSession session) {
+		UserVO user = (UserVO)session.getAttribute("user");
+		model.addAttribute("task", taskService.getTask(vo));
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("task", vo);
+		map.put("user", user);
+		model.addAttribute("taskSubmit", taskService.getTaskSubmit(map)); // Model 정보 저장
 		return "/jsp/taskDetail.jsp"; // View 이름 리턴
 	}
 	

@@ -10,6 +10,7 @@
 		<typeAlias alias="subject" type="com.project3.biz.subject.SubjectVO" />
 		<typeAlias alias="lesson" type="com.project3.biz.lesson.LessonVO" />
 		<typeAlias alias="task" type="com.project3.biz.task.TaskVO" />
+		<typeAlias alias="taskSubmit" type="com.project3.biz.task.TaskSubmitVO" />
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
