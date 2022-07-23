@@ -112,7 +112,8 @@
                 <table class="table table-hover">
                     <thead>
                     <tr style='colspan:"4"; background: #f5f5f5'>
-                        <th>학사 공지</th>
+                        <th><a class="aTag" href="getBoardList.do?table=commonNotice&subjectCode=common">
+                        학사 공지<ion-icon name="add-circle-outline"></ion-icon></a></th>
                         <th></th>
                         <th></th>
                     </tr>
