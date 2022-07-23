@@ -137,7 +137,7 @@
         <a href="">이전</a>
         <a href="">1</a>
         <a href="">다음</a>
-        <a href="/post.do?table=${table}&subjectCode=${subjectCode}&type=insert">글 작성</a>
+        <a href="/post.do?table=notice&subjectCode=${subjectCode}&type=insert">글 작성</a>
     </div>
 
 

@@ -1,11 +1,12 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${board.title}</title>
 <!--  부트스트랩 CDN  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,30 +31,31 @@
     <form>
         <nav class="navbar sticky-top navbar-dark bg-light">
 
-
+		
             <!-- 서브메뉴  -->
             <div class="subMenu">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a style="color: black" class="nav-link" 
-                        href="getSubjectList.do">강의리스트</a>
-                    </li>		
-                    <li class="nav-item">
-                        <a style="color: black" class="nav-link" 
-                        href="gettaskstatus.do?subjectCode=${subjectCode}">과제</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="color: black" class="nav-link" 
-                        href="notice.do">공지사항</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="color: black" class="nav-link" 
-                        href="getsyllabus.do?subjectCode=${subjectCode}">수업계획서</a>
-                    </li>
-                    
-					<div class="loginInfo">"${user.name}"님</div>
-	                <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
-                </ul>
+                <c:if test="${table ne 'commonNotice'}">
+	                <ul class="navbar-nav">
+	                    <li class="nav-item">
+	                        <a style="color: black" class="nav-link" 
+	                        href="getSubjectList.do">강의리스트</a>
+	                    </li>		
+	                    <li class="nav-item">
+	                        <a style="color: black" class="nav-link" 
+	                        href="gettaskstatus.do?subjectCode=${subjectCode}">과제</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a style="color: black" class="nav-link" 
+	                        href="notice.do">공지사항</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a style="color: black" class="nav-link" 
+	                        href="getsyllabus.do?subjectCode=${subjectCode}">수업계획서</a>
+	                    </li>
+    	            </ul>
+                </c:if>
+				<div class="loginInfo">"${user.name}"님</div>
+               	<!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
             </div>
 
 
