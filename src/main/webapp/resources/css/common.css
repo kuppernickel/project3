@@ -15,7 +15,7 @@
 body {
     position: relative;
     margin: 0;
-    padding: 0 0 0 5.8rem;
+    padding: 0 0 0 5.8rem !important;
     transition: .5s;
     font-family: 'Nanum Gothic', sans-serif;
 }
@@ -130,7 +130,7 @@ ion-icon {
 
 /* Add padding body*/
 .body-pd {
-    padding: 0 0 0 15rem;
+    padding: 0 0 0 15rem !important;
 }
 
 /* Active links menu */
