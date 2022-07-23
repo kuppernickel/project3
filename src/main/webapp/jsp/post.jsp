@@ -125,7 +125,7 @@
         <c:if test="${empty table}">
 	        <div>
 	        	<h3>과제 마감날짜 입력</h3>
-		        <input type="datetime-local" name="taskDeadLine">
+		        <input type="datetime-local" name="taskDeadline">
 	        </div>
         </c:if>
         <div class="btns">

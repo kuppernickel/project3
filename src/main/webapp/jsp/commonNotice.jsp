@@ -57,7 +57,16 @@
 	                    </li>
 	                </ul>
                 </c:if>
-				<div class="loginInfo">"${user.name}"님</div>
+				<div class="loginInfo">${user.name}
+	                <c:choose>
+		                <c:when test="${user.auth eq '학생'}">
+	                	학생
+	                	</c:when>
+	                	<c:otherwise>
+	                	교수
+	                	</c:otherwise>
+	                </c:choose>
+                </div>
                 <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
             </div>
 
