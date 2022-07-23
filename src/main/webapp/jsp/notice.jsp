@@ -110,7 +110,7 @@
 
 
 
-    <!--  검색필터  -->
+    <!--  테이블  -->
     <div class="tableWrap">
         <table class="tight">
             <thead><tr>

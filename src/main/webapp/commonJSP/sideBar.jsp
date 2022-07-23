@@ -12,7 +12,7 @@
                     <span class="nav__logo">학사 종합 포털</span>
                 </div>
                     <div class="nav__list">
-                        <a href="javascript:getsStorage('clickHome', 'home.do')" id='clickHome' name='clickHome' class="nav__link active">
+                        <a href="javascript:getsStorage('clickHome', 'home.do')" id='clickHome' name='clickHome' class="nav__link">
                             <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">홈으로</span>
                         </a>

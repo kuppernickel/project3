@@ -1,0 +1,71 @@
+.title{
+    width: 70rem;
+    margin: 2rem auto;
+    text-align: left;
+}
+
+
+.tableWrap {
+    width: 80rem;
+    height: 38rem;
+    padding: 10px;
+    table-layout: fixed;
+    word-break: break-all;
+    text-align: center;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+
+table{
+    table-layout: fixed;
+    word-break: break-all;
+    text-align: center;
+    width: 75rem;
+    margin: 0 auto;
+}
+
+tr td:nth-child(1),
+tr td:nth-child(2){
+    text-align: left;
+    overflow-x: hidden;
+}
+
+td > a{
+    color: black;
+}
+
+
+tr{
+    padding: 30px;
+}
+
+td{
+    padding: 10px;
+}
+
+th, td{
+    padding: 10px;
+    border: 1px solid lightgray;
+}
+
+.filebox label {
+  padding: .5em .75em;
+  color: #000;
+  line-height: normal;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+  border-radius: .25em;
+}
+
+input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+  display: none;
+}
