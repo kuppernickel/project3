@@ -37,7 +37,7 @@
                     </li>		
                     <li class="nav-item">
                         <a style="color: black" class="nav-link" 
-                        href="getTaskstatus.do?subjectCode=${subjectCode}">과제</a>
+                        href="gettaskstatus.do?subjectCode=${subjectCode}">과제</a>
                     </li>
                     <li class="nav-item">
                         <a style="color: black" class="nav-link" 

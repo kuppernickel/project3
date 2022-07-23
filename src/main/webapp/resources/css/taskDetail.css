@@ -1,71 +1,147 @@
+main{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 .title{
-    width: 70rem;
+    width: 50rem;
     margin: 2rem auto;
+    text-align: initial;
+}
+
+center{
+	width: 50rem;
+}
+
+.postInfo{
     text-align: left;
+    padding-bottom: 1rem;
+    margin-bottom:3rem;
+    border-bottom: 1px solid lightgray;
+}
+
+img{
+	max-width: 40rem;
+	}
+
+
+.text,
+.text a{
+	color: #bdbdbd;
+}
+
+.textBar{
+	margin: 0 9px 0 5px;
+	display: inline-block;
+    width: 1px;
+    height: 9px;
+    margin: 0 9px;
+}
+
+.miniForm{
+    margin-top: 5rem;
+    text-align: center;
+    width: 25rem;
+    height: 25rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.formTitle{
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.input input,
+.textarea textarea{
+    width: 15rem;
+    border: 1px solid lightgray;
+}
+.input input{
+    margin-bottom: 1rem;
+}
+.textarea textarea{
+    height: 10rem;
+    margin-bottom: 1rem;
+}
+
+.input input:focus,
+.textarea textarea:focus{
+    box-shadow: 0 0 5px #86b7fe;
+    border: 1px solid #86b7fe;
+}
+
+.input input:focus-visible,
+.textarea textarea:focus-visible{
+    outline: 1px solid #86b7fe;
 }
 
 
-.tableWrap {
-    width: 80rem;
-    height: 38rem;
-    padding: 10px;
-    table-layout: fixed;
-    word-break: break-all;
-    text-align: center;
-    margin: 0 auto;
+.inputFileBtn{
+    padding: 6px 15px;
+    background-color:#12192c;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.sendBtn{
+    padding: 4px 15px;
+    background-color:#12192c;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.listWrap{
+	width: 50rem;
+    margin: 8rem auto;
+    height: 18rem;
     overflow-y: auto;
 }
 
-table{
-    table-layout: fixed;
-    word-break: break-all;
-    text-align: center;
-    width: 75rem;
-    margin: 0 auto;
-}
-
-tr td:nth-child(1),
-tr td:nth-child(2){
+.listInfo{
     text-align: left;
-    overflow-x: hidden;
-}
-
-td > a{
-    color: black;
-}
-
-
-tr{
-    padding: 30px;
-}
-
-td{
-    padding: 10px;
-}
-
-th, td{
-    padding: 10px;
+    padding: 1rem;
     border: 1px solid lightgray;
 }
 
-.filebox label {
-  padding: .5em .75em;
-  color: #000;
-  line-height: normal;
-  background-color: #e0e0e0;
-  cursor: pointer;
-  border: 1px solid #e0e0e0;
-  border-radius: .25em;
+body::-webkit-scrollbar{
+    width: 10px;
 }
 
-input[type="file"] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip:rect(0,0,0,0);
-  border: 0;
-  display: none;
+
+body::-webkit-scrollbar-thumb{
+    background-color: black;
+    border-radius: 10px;    
+}
+
+body::-webkit-scrollbar-track{
+    background-color: white;
+} 
+
+
+.listWrap::-webkit-scrollbar{
+    width: 10px;
+}
+
+
+.listWrap::-webkit-scrollbar-thumb{
+    background-color: black;
+    border-radius: 10px;    
+}
+
+.listWrap::-webkit-scrollbar-track{
+    background-color: white;
+} 
+
+
+
+@media screen and (max-width: 1024px){
+	center{
+	width: 40rem
+	}
+	img{
+	max-width: 30rem;
+	}
 }
