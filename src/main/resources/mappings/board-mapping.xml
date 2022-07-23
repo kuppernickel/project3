@@ -59,7 +59,7 @@
 		<![CDATA[
 		SELECT *
 		FROM ${table}
-		where subjectCode = #{subjectCode} ORDER BY SEQ DESC
+		where subjectCode = #{subjectCode} ORDER BY writeDate DESC
 		]]>
 	</select>
 
