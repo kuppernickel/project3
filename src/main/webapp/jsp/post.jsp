@@ -74,11 +74,23 @@
     <form action=
      <c:set var="type" value="${type}"/>
     	<c:choose>
-			<c:when test="${type eq 'insert'}">
-	    		"/insertBoard.do" 
+    		
+			<c:when test="${empty table}">
+    			<c:if test="${type eq 'insert'}">
+	    			"/insertTask.do"    				
+    			</c:if>
+    			<c:if test="${type eq 'update'}">
+    				"/updateTask.do"
+    			</c:if>
     		</c:when>
-    		<c:otherwise>
-    			"/updateBoard.do"
+    		
+			<c:otherwise>
+				<c:if test="${type eq 'insert'}">
+		    		"/insertBoard.do"
+	    		</c:if>
+	    		<c:if test="${type eq 'update'}">
+	    			"/updateBoard.do"
+	    		</c:if>	
     		</c:otherwise>
     	</c:choose>
     	method="post" enctype="multipart/form-data">
@@ -110,6 +122,12 @@
        --%>  
         <!-- 사진 이외의 업로드 파일 -->
         <input type="file" name="uploadFile">
+        <c:if test="${empty table}">
+	        <div>
+	        	<h3>과제 마감날짜 입력</h3>
+		        <input type="datetime-local" name="taskDeadLine">
+	        </div>
+        </c:if>
         <div class="btns">
             <button type="submit" class="btn btn-dark sendBtn">저장</button>
             <button type="button" class="btn btn-dark listBtn" onclick="moveToList()">목록</button>

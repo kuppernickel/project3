@@ -65,9 +65,12 @@
                     <tbody>
 	                    <c:forEach items="${subjectList}" var="subject">
 		                    <tr>
-		                        <td>${subject.subjectCode}</td>
-		                        <td>${subject.lessonName}</td>
-		       					
+		                        <td>${subject.scd}</td>
+		                        <td>
+		                        	<a href="getLessonList.do?subjectCode=${subject.subjectCode}">
+		                        		${subject.lessonName}
+		                        	</a>
+		                        </td>
 		                    </tr>
 	                    </c:forEach>
 					</tbody>
@@ -90,7 +93,7 @@
 	                    <c:forEach items="${taskList}" var="task">
 		                    <tr>
 		                        <td>${task.lessonName.lessonName}</td>
-		                        <td>${task.title}</td>
+		                        <td><a href="/getTask.do?seq=${task.seq}">${task.title}</a></td>
 		                        <td>
 		                        	<c:set var="deadline" value="${task.taskDeadline}"/>
 			                        <c:choose>

@@ -168,7 +168,7 @@
       <c:forEach items="${boardList}" var="board">
       <tr>
         <td>${board.seq}</td>
-        <td><a href="getBoard.do?seq=${board.seq}&table=notice">${board.title}</a></td>
+        <td><a href="getBoard.do?seq=${board.seq}&table=commonNotice">${board.title}</a></td>
         <td>${board.writer}</td>
         <td>${board.writeDate}</td>
         

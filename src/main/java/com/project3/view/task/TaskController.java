@@ -143,7 +143,7 @@ public class TaskController {
 	@RequestMapping("/getTask.do")
 	public String getTask(TaskVO vo, Model model) {
 		model.addAttribute("task", taskService.getTask(vo)); // Model 정보 저장
-		return "/jsp/getTask.jsp"; // View 이름 리턴
+		return "/jsp/taskDetail.jsp"; // View 이름 리턴
 	}
 	
 	// 게시글 리스트로 이동
