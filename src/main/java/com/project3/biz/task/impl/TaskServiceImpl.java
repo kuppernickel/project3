@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project3.biz.task.TaskService;
+import com.project3.biz.task.TaskSubmitVO;
 import com.project3.biz.task.TaskVO;
 import com.project3.biz.user.UserVO;
 
@@ -18,6 +19,10 @@ public class TaskServiceImpl implements TaskService{
 	@Override
 	public void insertTask(TaskVO vo) {
 		taskDAO.insertTask(vo);
+	}
+	@Override
+	public void insertTaskSubmit(HashMap<String, Object> map) {
+		taskDAO.insertTaskSubmit(map);
 	}
 
 	@Override
@@ -32,6 +37,10 @@ public class TaskServiceImpl implements TaskService{
 	@Override
 	public void updateTask(TaskVO vo) {
 		taskDAO.updateTask(vo);
+	}
+	@Override
+	public void updateTaskSubmit(TaskSubmitVO vo) {
+		taskDAO.updateTaskSubmit(vo);
 	}
 
 	@Override

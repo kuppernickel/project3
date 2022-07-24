@@ -25,7 +25,7 @@
         <result property="totalStudent" column="totalStudent" />
         <result property="scored" column="scored" />
         <collection property="lessonName" resultMap="subjectResult"/>
-        <collection property="taskSubmit" resultMap="taskSubmit"/>
+        <collection property="taskSubmit" resultMap="taskSubmitResult"/>
 	</resultMap>
 	
 	<resultMap id="taskSubmitResult" type="taskSubmit">
@@ -56,10 +56,10 @@
 		]]>
 	</insert>
 	
-	<insert id="insertTaskSubmit" parameterType="taskSubmit">
+	<insert id="insertTaskSubmit" parameterType="hashmap">
 		<![CDATA[
 		INSERT task_submit(parent,writer,fileName,originalFileName,fileSize) 
-		VALUES(#{parent},#{writer},#{fileName},#{originalFileName},#{fileSize})
+		VALUES(#{taskSubmit.parent},#{user.userId},#{taskSubmit.fileName},#{taskSubmit.originalFileName},#{taskSubmit.fileSize})
 		]]>
 	</insert>
 	
@@ -131,7 +131,7 @@
 		LEFT OUTER JOIN
 		(SELECT parent FROM task_submit WHERE writer=#{userId}) f 
 		ON e.seq=f.parent
-	    GROUP BY e.seq HAVING submit=0 ORDER BY submit,e.taskDeadline IS NULL ASC;
+	    GROUP BY e.seq HAVING submit=0 ORDER BY e.taskDeadline IS NULL ASC;
 		]]>
 	</select>
 	<!-- 특정 과목의 과제 리스트(학생) -->

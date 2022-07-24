@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.project3.biz.task.TaskSubmitVO;
 import com.project3.biz.task.TaskVO;
 import com.project3.biz.user.UserVO;
 
@@ -20,10 +21,18 @@ public class TaskDAO{
 		System.out.println("===> Mybatis로 insertTask() 기능 처리");
 		mybatis.insert("TaskDAO.insertTask", vo);
 	}
+	public void insertTaskSubmit(HashMap<String, Object> map) {
+		System.out.println("===> Mybatis로 insertTaskSubmit() 기능 처리");
+		mybatis.insert("TaskDAO.insertTaskSubmit", map);
+	}
 	
 	public void updateTask(TaskVO vo) {
 		System.out.println("===> Mybatis로 updateTask() 기능 처리");
 		mybatis.update("TaskDAO.updateTask", vo);
+	}
+	public void updateTaskSubmit(TaskSubmitVO vo) {
+		System.out.println("===> Mybatis로 updateTaskSubmit() 기능 처리");
+		mybatis.update("TaskDAO.updateTaskSubmit", vo);
 	}
 	
 	public void deleteTask(TaskVO vo) {
