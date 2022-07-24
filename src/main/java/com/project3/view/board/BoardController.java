@@ -75,7 +75,7 @@ public class BoardController {
 //		final String SAVEFOLDER = path + "/src/main/webapp/upload/";
 		final String SAVEFOLDER = "C://upload/";
 //		final String SAVEFOLDER = "/upload";
-//		final String SAVEFOLDER = "/var/lib/tomcat9/webapps/ROOT/upload";
+//		final String SAVEFOLDER = "/var/lib/tomcat9/webapps/ROOT/upload/";
 		
 		
 		// 파일 업로드 처리
@@ -113,7 +113,8 @@ public class BoardController {
 			@RequestParam MultipartFile uploadFile, @RequestParam("file") String beforefile) throws IOException{
 		System.out.println("update 진입 성공");
 		final String SAVEFOLDER = "C://upload/";
-//		final String SAVEFOLDER = "/var/lib/tomcat9/webapps/ROOT/upload";
+//		final String SAVEFOLDER = "/upload";
+//		final String SAVEFOLDER = "/var/lib/tomcat9/webapps/ROOT/upload/";
 		// 파일 업로드 처리
 		if (!uploadFile.isEmpty()) {
 			

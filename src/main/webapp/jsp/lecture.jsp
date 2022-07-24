@@ -34,32 +34,28 @@
             <div class="subMenu">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a style="color: black" class="nav-link" 
-                        href="getSubjectList.do">강의리스트</a>
+                        <a style="color: black" class="nav-link" href="getLessonList.do?subjectCode=${subjectCode}">강의리스트</a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: black" class="nav-link" 
-                        href="gettaskstatus.do?subjectCode=${subjectCode}">과제</a>
+                        <a style="color: black" class="nav-link" href="/getTaskList.do?subjectCode=${subjectCode}">과제</a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: black" class="nav-link" 
-                        href="notice.do">공지사항</a>
+                        <a style="color: black" class="nav-link" href="getBoardList.do?table=notice&subjectCode=${subjectCode}">공지사항</a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: black" class="nav-link" 
-                        href="getsyllabus.do?subjectCode=${subjectCode}">수업계획서</a>
+                        <a style="color: black" class="nav-link" href="getsyllabus.do?subjectCode=${subjectCode }">수업계획서</a>
                     </li>
                     
 					<div class="loginInfo">${user.name}
-	                <c:choose>
-		                <c:when test="${user.auth eq '학생'}">
-	                	학생
-	                	</c:when>
-	                	<c:otherwise>
-	                	교수
-	                	</c:otherwise>
-	                </c:choose>
-                </div>
+		                <c:choose>
+			                <c:when test="${user.auth eq '학생'}">
+		                	학생
+		                	</c:when>
+		                	<c:otherwise>
+		                	교수
+		                	</c:otherwise>
+		                </c:choose>
+	                </div>
 	                <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
                 </ul>
             </div>

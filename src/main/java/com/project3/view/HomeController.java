@@ -55,7 +55,7 @@ public class HomeController {
 		
 		// 학사 공지
 		bvo.setSubjectCode("common");
-		bvo.setTable("commonNotice");
+		bvo.setTable("commonnotice");
 		model.addAttribute("noticeList", boardService.getBoardList(bvo));
 		return "/jsp/home.jsp";
 	}

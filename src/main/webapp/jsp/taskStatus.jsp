@@ -33,7 +33,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a style="color: black" class="nav-link" 
-                        href="getSubjectList.do">강의리스트</a>
+                        href="getLessonList.do?subjectCode=${subjectCode}">강의리스트</a>
                     </li>		
                     <li class="nav-item">
                         <a style="color: black" class="nav-link" 
@@ -41,7 +41,7 @@
                     </li>
                     <li class="nav-item">
                         <a style="color: black" class="nav-link" 
-                        href="notice.do">공지사항</a>
+                        href="getBoardList.do?table=notice&subjectCode=${subjectCode}">공지사항</a>
                     </li>
                     <li class="nav-item">
                         <a style="color: black" class="nav-link" 
