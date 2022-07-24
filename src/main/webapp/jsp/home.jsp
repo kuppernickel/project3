@@ -115,14 +115,12 @@
                         <th><a class="aTag" href="getBoardList.do?table=commonNotice&subjectCode=common">
                         학사 공지<ion-icon name="add-circle-outline"></ion-icon></a></th>
                         <th></th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
 	                   	<c:forEach items="${noticeList}" var="notice">
 		                    <tr>
 		                     <td><a href="getBoard.do?seq=${notice.seq }&table=commonNotice">${notice.title }</a></td>
-		                     <td>${notice.content }</td>
 		                     <td>${notice.writeDate }</td>
 		                    </tr>
 	                    </c:forEach>

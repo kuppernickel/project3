@@ -74,6 +74,9 @@ public class BoardController {
 //		String path = (System.getProperty("user.dir")).replace("\\", "/");
 //		final String SAVEFOLDER = path + "/src/main/webapp/upload/";
 		final String SAVEFOLDER = "C://upload/";
+//		final String SAVEFOLDER = "/upload";
+//		final String SAVEFOLDER = "/var/lib/tomcat9/webapps/ROOT/upload";
+		
 		
 		// 파일 업로드 처리
 		if (!uploadFile.isEmpty()) {
@@ -110,7 +113,7 @@ public class BoardController {
 			@RequestParam MultipartFile uploadFile, @RequestParam("file") String beforefile) throws IOException{
 		System.out.println("update 진입 성공");
 		final String SAVEFOLDER = "C://upload/";
-		
+//		final String SAVEFOLDER = "/var/lib/tomcat9/webapps/ROOT/upload";
 		// 파일 업로드 처리
 		if (!uploadFile.isEmpty()) {
 			
@@ -156,8 +159,6 @@ public class BoardController {
 		model.addAttribute("table", table);
 		return "/jsp/getBoard.jsp"; // View 이름 리턴
 	}
-	
-	//table = commonnotice	
 	
 	// 게시글 리스트로 이동
 	@RequestMapping("/getBoardList.do")
