@@ -67,15 +67,16 @@
 		]]>
 	</select>
 	
+	
 	  
 	<select id="getSyllaList" parameterType="subject" resultMap="subjectResult">
 		<![CDATA[
-				SELECT professor, lessonName, grades, people, location, rateTestScore1,
+			SELECT professor, lessonName, grades, people, location, rateTestScore1,
 			rateTestScore2, rateAttendence, rateAssignment, lessonContent, name, email, address2, mobile
 			FROM
 			subject LEFT OUTER JOIN users
 			on professor = userId
-			where subjectCode
+			where subjectCode = #{subjectCode}
 			 
 		]]>
 	</select>

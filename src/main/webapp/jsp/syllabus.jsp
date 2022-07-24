@@ -3,6 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
+
+
+
 <head>
     <meta charset="UTF-8">
     <title>강의 계획서</title>
@@ -18,8 +21,11 @@
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/syllabus.css">
+    
 </head>
 <body  id="body-pd">
+
+
 
 <!--  헤더 -->
 <header>
@@ -79,43 +85,44 @@
 
     <div class="tableWrap">
         <table class="tight">
+        
             <thead><tr>
                 <th style="width:15%;">교과목명</th>
-                <td style="width:35%;">${subject.lessonName }</td>
+                <td style="width:35%;">${syllaList.lessonName }</td>
              
             </tr></thead>
             <tbody><tr>
             
-          
+<form method="get" action="/getsyllaList.do">
  
-                <th>학점/시간</th>
-               	<td>${sylla.grades}</td>
-               
-                
-            </tr><tr>
+ 	
+ 		
+ 			      <th>학점/시간</th>
+               	<td>${syllaList.grades}</td>
+               	
+			</tr>
+		
+            <tr>
                 <th>대상학년</th>
-                <td>${sylla.level }</td>
+                <td>${syllaList.professor.level }</td>
                 
-            </tr><tr>
-                <th>교수명</th>
-                <td>${sylla.professor}</td>
-                <th>연락처/이메일</th>
-                <td>${sylla.mobile }</td>
             </tr>
             <tr>
                 <th>교수명</th>
-                <td colspan="3"></td>
-                <th>${sylla.professor}</th>
-                <td></td>
+                <td>${syllaList.professor.name}</td>
+                <th>연락처/이메일</th>
+                <td>${syllaList.professor.mobile }</td>
+            </tr>
+
+          
+            <tr>
+                <th>교수명</th>
+                <td colspan="3">${syllaList.professor.name}</td>
+                
             </tr><tr>
                 <th>강의실</th>
-                <td colspan="3"></td>
-                <th>${sylla.location }</th>
-                <td></td>
-            
-              
-            
-        
+                <td colspan="3">${syllaList.location }</td>
+               
             
             </tr></tbody>
         </table>
@@ -135,16 +142,22 @@
                 <th>과제</th>
                 <th>출석</th>
             
-            </tr></thead>
-            <tbody><tr>
-                <th>비율</th>
-                <td>${sylla.rateTestScore1 }</td>
-                <td>${sylla.rateTestScore2 }</td>
-                <td>${sylla.rateAssignment }</td>
-                <td>${sylla.rateAttendence }</td>
-            </tr>
-            </tbody>
-        </table>
+            
+            
+	            </tr></thead>
+	      
+	            <tbody><tr>
+	                <th>비율</th>
+	                <td>${syllaList.rateTestScore1 }</td>
+	                <td>${syllaList.rateTestScore2 }</td>
+	                <td>${syllaList.rateAssignment }</td>
+	                <td>${syllaList.rateAttendence }</td>
+	            </tr>
+	            </tbody>
+	       
+	            </table>
+        	
+</form>
     </div><!-- 두번째 테이블 끝 -->
 </main>
 

@@ -27,4 +27,8 @@ public class SubjectDAO {
 		return mybatis.selectList("SubjectDAO.getSubjectList", uVO);
 	}
 	
+	public SubjectVO getSyllaList(SubjectVO uvo) {
+		return mybatis.selectOne("SubjectDAO.getSyllaList", uvo);
+	}
+	
 }

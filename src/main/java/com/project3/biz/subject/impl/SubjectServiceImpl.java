@@ -25,5 +25,9 @@ public class SubjectServiceImpl implements SubjectService{
 		return subjectDAO.getSubjectList(uVO);
 	}
 	
+	@Override
+	public SubjectVO getSyllaList(SubjectVO uvo) {
+		return subjectDAO.getSyllaList(uvo);
+	}
 	
 }

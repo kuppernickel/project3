@@ -47,8 +47,13 @@ public class SubjectController {
 	}
 	
 	@RequestMapping(path = "/getsyllabus.do", method = RequestMethod.GET)
-	public String getSyllabus() {
+	public String getSyllabus(HttpSession session, @RequestParam(value="user", required=false)
+	String user, UserVO vo, Model model, SubjectVO uvo) {		
+		vo = (UserVO) session.getAttribute("user");
+		
+		if(user != null) vo.setUserId(user);
 		System.out.println("수업 계획서 페이지로 이동");
+		model.addAttribute("syllaList", subjectService.getSyllaList(uvo));
 		return "/jsp/syllabus.jsp";
 	}
 	
