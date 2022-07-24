@@ -58,26 +58,18 @@
                 </ul>
             </div>
 
-
         </nav>
     </form>
 </header> <!--  헤더 끝 -->
 
-
-
 <!-- 사이드바 -->
 <jsp:include page="../commonJSP/sideBar.jsp"/>
 
-
-
 <main>
-
 
     <div>
         <h2 class="lectureTitle">선택한 강의</h2>
     </div>
-
-
 
     <!-- 테이블 -->
     <div class="lessonPlan"><ion-icon name="book-outline"></ion-icon>수업계획</div>
@@ -92,12 +84,8 @@
              
             </tr></thead>
             <tbody><tr>
-            
-<form method="get" action="/getsyllaList.do">
- 
- 	
  		
- 			      <th>학점/시간</th>
+ 			    <th>학점/시간</th>
                	<td>${syllaList.grades}</td>
                	
 			</tr>
@@ -110,11 +98,13 @@
             <tr>
                 <th>교수명</th>
                 <td>${syllaList.professor.name}</td>
-                <th>연락처/이메일</th>
-                <td>${syllaList.professor.mobile }</td>
+             
             </tr>
 
-          
+          	<tr>
+          		   <th>연락처/이메일</th>
+                <td>${syllaList.professor.mobile }</td>
+          	</tr>
             <tr>
                 <th>교수명</th>
                 <td colspan="3">${syllaList.professor.name}</td>
@@ -157,11 +147,11 @@
 	       
 	            </table>
         	
-</form>
+
     </div><!-- 두번째 테이블 끝 -->
 </main>
 
-<!-- zzzzzzzzzdlstod -->
+
 
 <script src="${pageContext.request.contextPath}/js/index.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
