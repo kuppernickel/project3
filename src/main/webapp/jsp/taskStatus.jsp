@@ -143,7 +143,6 @@
 	                    "/>
 		            </c:otherwise>
                 </c:choose>
-                <th class="hide" style="width:15%;">마감 여부</th>
             </tr></thead>
             <tbody>
 	            <c:forEach items="${taskList}" var="task">
@@ -169,22 +168,6 @@
 			                    "/>
 				            </c:otherwise>
 		                </c:choose>
-		                <td class="hide">
-			                <%-- <c:set var="deadline" value="${task.taskDeadline}"/>
-			                <c:choose>
-				            	<c:when test="${deadline eq '교수'}">
-				            		<c:out escapeXml="false" value="
-				                        <td class='hide'>7</td>
-			                			<td class='hide'>0/8</td>
-			                        "/>
-					            </c:when>
-					            <c:otherwise>
-					            	<c:out escapeXml="false" value="
-						            	<td class='hide'>미제출</td>
-				                    "/>
-					            </c:otherwise>
-			                </c:choose> --%>
-		                </td>
 		            </tr>
 	            </c:forEach>
             </tbody>

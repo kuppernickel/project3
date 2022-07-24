@@ -224,10 +224,14 @@ public class TaskController {
 	public String getTask(TaskVO vo, Model model, HttpSession session) {
 		UserVO user = (UserVO)session.getAttribute("user");
 		model.addAttribute("task", taskService.getTask(vo));
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("task", vo);
-		map.put("user", user);
-		model.addAttribute("taskSubmit", taskService.getTaskSubmit(map)); // Model 정보 저장
+		if(user.getAuth().equals("교수")) {
+			model.addAttribute("taskSubmitList", taskService.getTaskSubmit(vo)); // Model 정보 저장
+		}else {
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("task", vo);
+			map.put("user", user);
+			model.addAttribute("taskSubmit", taskService.getTaskSubmit(map));
+		}
 		return "/jsp/taskDetail.jsp"; // View 이름 리턴
 	}
 	

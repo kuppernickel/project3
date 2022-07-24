@@ -30,7 +30,11 @@ public class TaskServiceImpl implements TaskService{
 		return taskDAO.getTask(vo);
 	}
 	@Override
-	public TaskVO getTaskSubmit(HashMap<String, Object> map) {
+	public List<TaskSubmitVO> getTaskSubmit(TaskVO vo) {
+		return taskDAO.getTaskSubmit(vo);
+	}
+	@Override
+	public TaskSubmitVO getTaskSubmit(HashMap<String, Object> map) {
 		return taskDAO.getTaskSubmit(map);
 	}
 

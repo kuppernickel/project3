@@ -107,7 +107,7 @@
         
         <!-- 게시물 작성 및 수정에 필요한 추가 정보들 -->
         <input type="hidden" name="table" value="${table}">
-        <input type="hidden" name="writer" value="${user.name}">
+        <input type="hidden" name="writer" value="${user.userId}">
         <input type="hidden" name="subjectCode" value="${subjectCode}">
         
         <!-- 수정인 경우에만 들어가는 추가 정보들 -->

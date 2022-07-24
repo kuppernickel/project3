@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-    <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 <html lang="ko">
 
 <head>
@@ -101,128 +102,104 @@
     <!-- 메인 리스트 -->
     <main>
 
-        <center>
+
             <form action="" method="post">
-                <input name="seq" type="hidden" value="" />
                 <div class='title' name="title">
-                    <h1>과제명</h1>
+                    <h1>${task.title}</h1>
                 </div>
                 <div class='postInfo'>
                     <span class='text'>
-                        교수명
-                        <span class='textBar'>|</span>
-                        작성일자
+                        <c:set var="deadline" value="${task.taskDeadline}"/>
+                        <c:choose>
+                        	<c:when test="${empty deadline}">기한없음</c:when>
+                        	<c:otherwise>${task.taskDeadline} 까지</c:otherwise>
+                        </c:choose>
+                        <c:if test="${not empty task.fileName}">
+                        	<c:out escapeXml="false" value="
+                        		 | 첨부파일: 
+                        		 <a href='fileDownload.do?file=${task.fileName}&beforeName=${task.originalFileName}' 
+                        		 	style='text-decoration:underline;'>${task.originalFileName}</a>
+                        	 "/>
+                        </c:if>
                     </span>
                 </div>
 
                 <!-- 게시글 내용 -->
                 <div class='content' name="content">
-                    내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                    내용ㅍ내용내용내용내용
-                    내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                    내용ㅍ내용내용내용내용 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                    ${task.content}
                 </div>
             </form>
 
 
-        </center>
 
 
 
-        <div class="miniFormWrap">
-            <div class="miniForm">
-                <form action="">
-                    <div class="formTitle">
-                        과제 제출
-                    </div>
-
-                    <div class="input">
-                        <input type="text" placeholder="제목">
-                    </div>
-
-                    <div class="textarea">
-                        <textarea name="" id="" placeholder="내용"></textarea>
-                    </div>
-
-                    <div>
-                        <label class="inputFileBtn" for="flieUpLoad">
-                            첨부파일<input type="file" id="flieUpLoad" style="display: none;">
-                        </label>
-                        <button type="button" class="sendBtn">
-                            제출하기
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-
-    </main>
-
-    <div class="listWrap">
-
-        <!-- 리스트 -->
-        <a href="파일 저장된 경로 지정" download="">
-            <div class='listInfo'>
-                <span class='text2'>
-                    제목
-                    <span class='textBar'>|</span>
-                    홍길동
-                    <span class='textBar'>|</span>
-                    2022-07-23
-                    <span class='textBar'>|</span>
-                    2022-07-23
-                    <span class='textBar'>|</span>
-                    제출
-                </span>
-            </div>
-        </a>
-
-        <a href="파일 저장된 경로 지정" download="">
-            <div class='listInfo'>
-                <span class='text2'>
-                    제목
-                    <span class='textBar'>|</span>
-                    홍길동
-                    <span class='textBar'>|</span>
-                    2022-07-23
-                    <span class='textBar'>|</span>
-                    2022-07-23
-                    <span class='textBar'>|</span>
-                    제출
-                </span>
-            </div>
-        </a>
-
-        <a href="파일 저장된 경로 지정" download="">
-            <div class='listInfo'>
-                <span class='text2'>
-                    제목
-                    <span class='textBar'>|</span>
-                    홍길동
-                    <span class='textBar'>|</span>
-                    2022-07-23
-                    <span class='textBar'>|</span>
-                    2022-07-23
-                    <span class='textBar'>|</span>
-                    제출
-                </span>
-            </div>
-        </a>
-
-
-
-
-
-    </div>
+		<c:set var="userAuth" value="${user.auth}"/>
+       	<c:choose>
+       	<c:when test="${userAuth eq '교수'}">
+       		<c:out escapeXml="false" value="
+      		    </main>
+            	<div class='listWrap'>
+            	<h3>제출된 과제</h3>
+           	"/>
+       		<c:forEach items="${taskSubmitList}" var="taskSubmit">
+	       		<c:out escapeXml="false" value="
+				        <a href='fileDownload.do?file=${taskSubmit.fileName}&beforeName=${taskSubmit.originalFileName}'
+				         	style='text-decoration:underline;display:block;' download='' class='listInfo'>
+			                <span class='text2'>
+			                    ${taskSubmit.writer}
+			                    <span class='textBar'>|</span>
+			                    ${taskSubmit.writeDate}
+			                    <span class='textBar'>|</span>
+                        		${taskSubmit.originalFileName}
+			                </span>
+				        </a>
+	        	"/>
+        	</c:forEach>
+        	<c:out escapeXml="false" value="
+			    </div>
+		    "/>
+        </c:when>
+        <c:otherwise>
+        	<c:out escapeXml="false" value="
+        		<div class='miniFormWrap'>
+		           <div class='miniForm'>"/>
+		               <c:if test='${empty taskSubmit.seq}'><c:out escapeXml="false" value="
+		               		<form action='/insertTaskSubmit.do' method='post' enctype='multipart/form-data'>"/>
+		               </c:if>
+		               <c:if test='${not empty taskSubmit.seq}'><c:out escapeXml="false" value="
+		               		<form action='/updateTaskSubmit.do' method='post' enctype='multipart/form-data'>"/>
+		               </c:if>
+		               		<c:if test='${not empty taskSubmit.seq}'><c:out escapeXml="false" value="
+			               		<input type='hidden' name='seq' value='${taskSubmit.seq}'>
+			               		<input type='hidden' name='file' value='${taskSubmit.fileName}'>"/>
+		               		</c:if><c:out escapeXml="false" value="
+		               		<input type='hidden' name='writer' value='${user.userId}'>
+		               		<input type='hidden' name='parent' value='${task.seq}'>
+		                   <div class='formTitle'>
+		                       과제 제출
+		                   </div>
+		                   <div>"/>
+		                   		<c:if test='${not empty taskSubmit.seq}'><c:out escapeXml="false" value="
+		                   			제출한 파일: ${taskSubmit.fileName}"/>
+		                   		</c:if><c:out escapeXml="false" value="
+		                       <input type='file' id='flieUpLoad' name='uploadFile'>
+		                       <button type='submit' class='sendBtn'>"/>
+		                           <c:if test='${empty taskSubmit.seq}'><c:out escapeXml="false" value="
+		                           제출하기"/>
+		                           </c:if>
+		                           <c:if test='${not empty taskSubmit.seq}'><c:out escapeXml="false" value="
+		                           다시 제출하기"/>
+		                           </c:if><c:out escapeXml="false" value="
+		                       </button>
+		                   </div>
+		               </form>
+		           </div>
+		       </div>
+		           </main>
+           "/>
+        </c:otherwise>
+      </c:choose>
 
 
     <script src="${pageContext.request.contextPath}/js/index.js"></script>

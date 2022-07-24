@@ -9,7 +9,8 @@ public interface TaskService {
 	void insertTask(TaskVO vo);
 	void insertTaskSubmit(HashMap<String, Object> map);
 	TaskVO getTask(TaskVO vo);
-	TaskVO getTaskSubmit(HashMap<String, Object> map);
+	List<TaskSubmitVO> getTaskSubmit(TaskVO vo);
+	TaskSubmitVO getTaskSubmit(HashMap<String, Object> map);
 	void updateTask(TaskVO vo);
 	void updateTaskSubmit(TaskSubmitVO vo);
 	void deleteTask(TaskVO vo);

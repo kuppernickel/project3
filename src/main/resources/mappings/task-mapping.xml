@@ -84,7 +84,8 @@
 		SET 
 		fileName=#{fileName},
 		originalFileName=#{originalFileName},
-		fileSize=#{fileSize}
+		fileSize=#{fileSize},
+		writeDate=current_timestamp
 		WHERE seq = #{seq}
 		]]>
 	</update>
@@ -96,15 +97,14 @@
 		]]>
 	</delete>
 
-	<select id="getTaskSubmit_p" parameterType="hashmap" resultMap="taskSubmitResult">
+	<select id="getTaskSubmit_p" parameterType="task" resultMap="taskSubmitResult">
 		<![CDATA[
 		SELECT * FROM task_submit 
-		WHERE parent=#{task.seq} 
-		AND IF(#{user.auth}='교수' OR #{user.auth} IS NULL,writer LIKE '%%',writer=#{user.userId})
+		WHERE parent=#{seq}
 		]]>
 	</select>
 	
-	<select id="getTaskSubmit_s" resultType="taskSubmit">
+	<select id="getTaskSubmit_s" parameterType="hashmap" resultType="taskSubmit">
 		<![CDATA[
 		SELECT * FROM task_submit 
 		WHERE parent=#{task.seq} 
