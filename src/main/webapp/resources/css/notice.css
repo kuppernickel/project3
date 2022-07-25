@@ -70,6 +70,10 @@
     margin: 0 auto;
 }
 
+.loginInfo{
+    text-align: right;
+}
+
 table{
     table-layout: fixed;
     word-break: break-all;

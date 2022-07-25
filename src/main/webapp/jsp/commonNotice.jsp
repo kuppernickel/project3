@@ -89,46 +89,6 @@
     <h2 class="Title">학사 공지</h2>
   </div>
 
-  <!-- 과목 필터  -->
-  <div class="filter">
-    <form>
-      <div class="filterWrap">
-        <div class="filterList">
-          <ul>
-            <li>
-              <select>
-                <option selected>학기 선택</option>
-                <option>1학년1학기</option>
-                <option>1학년2학기</option>
-                <option>2학년1학기</option>
-                <option>2학년2학기</option>
-                <option>3학년1학기</option>
-                <option>3학년2학기</option>
-                <option>1학년1학기</option>
-              </select>
-            </li>
-          </ul>
-          <div class="filterList">
-            <ul>
-              <li>
-                <select>
-                  <option selected>과목을 선택하세요</option>
-                  <option>스마트 웹</option>
-                  <option>콘텐츠 개발자</option>
-                  <option></option>
-                  <option></option>
-                  <option></option>
-                  <option></option>
-                  <option></option>
-                </select>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div><!--  과목 필터 끝  -->
-
 
   <!-- 검색 필터  -->
   <div class="searchFilterWrap">

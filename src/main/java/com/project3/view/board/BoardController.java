@@ -148,9 +148,11 @@ public class BoardController {
 	
 	// 글 삭제
 	@RequestMapping("/deleteBoard.do")
-	public String deleteBoard(BoardVO vo) {
+	public String deleteBoard(BoardVO vo, HttpSession session) {
 		boardService.deleteBoard(vo);
-		return "getBoardList.do";
+		String subjectCode = (String)session.getAttribute("subjectCode");
+		System.out.println("delete에서 vo.getTable : " + vo.getTable());
+		return "getBoardList.do?subjectCode=" + subjectCode;
 	}
 
 	// 글 상세 조회
@@ -166,6 +168,7 @@ public class BoardController {
 	public String getBoardList(BoardVO vo, Model model, 
 			@RequestParam(value="table",required=false) String table) {
 		System.out.println(table);
+		System.out.println(vo.getSubjectCode());
 		model.addAttribute("boardList", boardService.getBoardList(vo));
 		model.addAttribute("table", table);
 		return "/" + table + ".do";

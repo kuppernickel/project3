@@ -98,8 +98,8 @@
         	<c:if test="${type eq 'update'}">
         		value="<c:out value="${board.title}" />"
         	</c:if>
-        > <!-- // 제목 input -->
-        <textarea id="summernote" name="content">
+         	required> <!-- // 제목 input -->
+        <textarea id="summernote" name="content" required>
         	<c:if test="${type eq 'update'}">
         		<c:out value="${board.content}" />
         	</c:if>

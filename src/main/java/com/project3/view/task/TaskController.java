@@ -222,12 +222,13 @@ public class TaskController {
 
 	// 글 상세 조회
 	@RequestMapping(value="/getTask.do",method = {RequestMethod.GET, RequestMethod.POST})
-	public String getTask(TaskVO vo, Model model, HttpSession session,
+	public String getTask(TaskVO vo, Model model, HttpSession session, @RequestParam(value="subjectCode",required=false) String subjectCode,
 			@RequestParam(value="taskseq",required = false) String seq) {
 		UserVO user = (UserVO)session.getAttribute("user");
 		if(seq!=null)vo.setSeq(Integer.parseInt(seq));
 		System.out.println(vo.getSeq());
 		model.addAttribute("task", taskService.getTask(vo));
+		
 		if(user.getAuth().equals("교수")) {
 			model.addAttribute("taskSubmitList", taskService.getTaskSubmit(vo)); // Model 정보 저장
 		}else {
@@ -236,6 +237,7 @@ public class TaskController {
 			map.put("user", user);
 			model.addAttribute("taskSubmit", taskService.getTaskSubmit(map));
 		}
+		session.setAttribute("subjectCode", subjectCode);
 		return "/jsp/taskDetail.jsp"; // View 이름 리턴
 	}
 	
