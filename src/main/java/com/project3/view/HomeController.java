@@ -62,7 +62,7 @@ public class HomeController {
 	
 	
 	// 학사 공지 페이지로 이동
-	@RequestMapping(value = "commonNotice.do", method = RequestMethod.GET)
+	@RequestMapping(value = "commonnotice.do", method = RequestMethod.GET)
 	public String moveCommonNotice() {
 		System.out.println("학사공지 페이지로 이동");
 		return "/jsp/commonNotice.jsp";

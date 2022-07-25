@@ -63,16 +63,15 @@
         </label>
         <div class="card-body">
             <h5 class="card-title"><span>${userInfo.name}</span></h5>
-            <p class="card-text">자기 소개Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">구분 학생 / 교수<span>${userInfo.auth}</span></li>
-            <li class="list-group-item">학번 or 직원번호<span>${userInfo.userId}</span></li>
-            <li class="list-group-item">전공<span>${userInfo.major}</span></li>
-            <li class="list-group-item">복수전공<span>${userInfo.major2}</span></li>
-            <li class="list-group-item">부전공<span>${userInfo.subMajor}</span></li>
-            <li class="list-group-item">학년<span>${userInfo.level}</span></li>
-            <li class="list-group-item">재적<span>${userInfo.enroll}</span></li>
+            <li class="list-group-item">구분 | <span>${userInfo.auth}</span></li>
+            <li class="list-group-item">학번 or 직원번호 | <span>${userInfo.userId}</span></li>
+            <li class="list-group-item">전공 | <span>${userInfo.major}</span></li>
+            <li class="list-group-item">복수전공 | <span>${userInfo.major2}</span></li>
+            <li class="list-group-item">부전공 | <span>${userInfo.subMajor}</span></li>
+            <li class="list-group-item">학년 | <span>${userInfo.level}</span></li>
+            <li class="list-group-item">재적 | <span>${userInfo.enroll}</span></li>
         </ul>
     </div>
 

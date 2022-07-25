@@ -120,7 +120,7 @@
                 <table class="table table-hover">
                     <thead>
                     <tr style='colspan:"4"; background: #f5f5f5'>
-                        <th><a class="aTag" href="getBoardList.do?table=commonNotice&subjectCode=common">
+                        <th><a class="aTag" href="getBoardList.do?table=commonnotice&subjectCode=common">
                         학사 공지<ion-icon name="add-circle-outline"></ion-icon></a></th>
                         <th></th>
                     </tr>
@@ -128,7 +128,7 @@
                     <tbody>
 	                   	<c:forEach items="${noticeList}" var="notice">
 		                    <tr>
-		                     <td><a href="getBoard.do?seq=${notice.seq }&table=commonNotice">${notice.title }</a></td>
+		                     <td><a href="getBoard.do?seq=${notice.seq }&table=commonnotice">${notice.title }</a></td>
 		                     <td>${notice.writeDate }</td>
 		                    </tr>
 	                    </c:forEach>

@@ -24,9 +24,13 @@
                             <ion-icon name="ellipsis-horizontal-sharp" class="nav__icon"></ion-icon>
                             <span class="nav_name">내 정보</span>
                         </a>
-                        <a href="javascript:getsStorage('clickNotice', 'getBoardList.do?table=commonNotice&subjectCode=common')" id='clickNotice' name='clickNotice' class="nav__link">
+                        <a href="javascript:getsStorage('clickNotice', 'getBoardList.do?table=commonnotice&subjectCode=common')" id='clickNotice' name='clickNotice' class="nav__link">
                             <ion-icon name="book-outline" class="nav__icon"></ion-icon>
                             <span class="nav_name">학사공지</span>
+                        </a>
+                        <a href="javascript:getsStorage('clickexam', '/jsp/exam.jsp')" id='clickexam' name='clickexam' class="nav__link">
+                            <ion-icon name="book-outline" class="nav__icon"></ion-icon>
+                            <span class="nav_name">시험</span>
                         </a>
                         <a href="/logout.do" class="nav__link">
                             <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>

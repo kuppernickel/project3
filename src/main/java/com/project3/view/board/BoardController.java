@@ -73,9 +73,9 @@ public class BoardController {
 		System.out.println("insertBoard 컨트롤러 진입 성공");
 //		String path = (System.getProperty("user.dir")).replace("\\", "/");
 //		final String SAVEFOLDER = path + "/src/main/webapp/upload/";
-		final String SAVEFOLDER = "C://upload/";
+//		final String SAVEFOLDER = "C://upload/";
 //		final String SAVEFOLDER = "/upload";
-//		final String SAVEFOLDER = "/var/lib/tomcat9/webapps/ROOT/upload/";
+		final String SAVEFOLDER = "/var/lib/tomcat9/webapps/ROOT/upload/";
 		
 		
 		// 파일 업로드 처리
@@ -112,9 +112,9 @@ public class BoardController {
 	public String updateBoard(BoardVO vo, @RequestParam("table") String table,
 			@RequestParam MultipartFile uploadFile, @RequestParam("file") String beforefile) throws IOException{
 		System.out.println("update 진입 성공");
-		final String SAVEFOLDER = "C://upload/";
+//		final String SAVEFOLDER = "C://upload/";
 //		final String SAVEFOLDER = "/upload";
-//		final String SAVEFOLDER = "/var/lib/tomcat9/webapps/ROOT/upload/";
+		final String SAVEFOLDER = "/var/lib/tomcat9/webapps/ROOT/upload/";
 		// 파일 업로드 처리
 		if (!uploadFile.isEmpty()) {
 			

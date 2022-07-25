@@ -33,7 +33,8 @@
             <nav class="navbar sticky-top navbar-dark bg-light">
 
 
-                <div class="subMenu">
+                <!-- 서브메뉴  -->
+            <div class="subMenu">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a style="color: black" class="nav-link" href="getLessonList.do?subjectCode=${subjectCode}">강의리스트</a>

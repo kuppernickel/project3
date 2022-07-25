@@ -153,8 +153,8 @@
 		SELECT c.seq,c.title,c.taskDeadline,c.totalSubmit,c.scored,d.totalStudent FROM
 		(SELECT b.seq,b.title,b.taskDeadline,
 			IFNULL(a.totalSubmit,0) totalSubmit,IFNULL(a.scored,0) scored, b.subjectCode FROM 
-		v_totalSubmit a RIGHT OUTER JOIN task b ON a.seq=b.seq) c 
-		LEFT OUTER JOIN v_totalStudent d 
+		v_totalsubmit a RIGHT OUTER JOIN task b ON a.seq=b.seq) c 
+		LEFT OUTER JOIN v_totalstudent d 
 		ON c.subjectCode=d.subjectCode 
 		WHERE c.subjectCode=#{subjectCode} AND
 		IF(#{submit}='all' OR #{submit} IS NULL,c.totalSubmit LIKE "%%",

@@ -147,7 +147,7 @@
             <tbody>
 	            <c:forEach items="${taskList}" var="task">
 		            <tr>
-		                <td><a class="lectureLink" href="/getTask.do?seq=${task.seq}">${task.title}</a></td>
+		                <td><a class="lectureLink" href="/getTask.do?seq=${task.seq}&subjectCode=${task.subjectCode}">${task.title}</a></td>
 		                <td>
 			                <c:set var="deadline" value="${task.taskDeadline}"/>
 	                        <c:choose>
