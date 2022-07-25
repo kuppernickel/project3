@@ -27,35 +27,6 @@
     <!-- 사이드바 -->
     <jsp:include page="../commonJSP/sideBar.jsp" />
 
-    <div class="l-navbar" id="navbar">
-        <nav class="nav">
-            <div>
-                <div class="nav__brand">
-                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                    <span class="nav__logo">학사 종합 포털</span>
-                </div>
-                <div class="nav__list">
-                    <a href="javascript:getsStorage('clickHome')" id='clickHome' class="nav__link">
-                        <ion-icon name="home-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">홈으로</span>
-                    </a>
-                    <a href="javascript:getsStorage('clickSubject')" id='clickSubject' class=" nav__link">
-                        <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">과목</span>
-                    </a>
-                    <a href="javascript:getsStorage('clickMyInfo')" id='clickMyInfo' class=" nav__link">
-                        <ion-icon name="ellipsis-horizontal-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">내 정보</span>
-                    </a>
-                    <a href="javascript:getsStorage('clickNotice')" id='clickNotice' class=" nav__link">
-                        <ion-icon name="book-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">학사공지</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </div> <!-- 사이드바 끝 -->
-
     <!--  헤더 -->
     <header>
         <form>
@@ -181,9 +152,9 @@
 		                   </div>
 		                   <div>"/>
 		                   		<c:if test='${not empty taskSubmit.seq}'><c:out escapeXml="false" value="
-		                   			제출한 파일: ${taskSubmit.fileName}"/>
+		                   			제출한 파일: ${taskSubmit.originalFileName}"/>
 		                   		</c:if><c:out escapeXml="false" value="
-		                       <input type='file' id='flieUpLoad' name='uploadFile'>
+		                       <input type='file' id='flieUpLoad' name='uploadFile' required>
 		                       <button type='submit' class='sendBtn'>"/>
 		                           <c:if test='${empty taskSubmit.seq}'><c:out escapeXml="false" value="
 		                           제출하기"/>

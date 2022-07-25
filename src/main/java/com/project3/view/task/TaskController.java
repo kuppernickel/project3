@@ -131,7 +131,7 @@ public class TaskController {
 		map.put("user", user);
 		taskService.insertTaskSubmit(map);
 		
-		return "/getTaskList.do";
+		return "/getTask.do?taskseq="+vo.getParent();
 	}
 	
 	// 글 수정
@@ -209,7 +209,8 @@ public class TaskController {
 		filecon.removeFile(beforefile);
 		
 		taskService.updateTaskSubmit(vo);
-		return "getTask.do?seq=" + vo.getParent();
+		System.out.println(vo.getParent());
+		return "getTask.do?taskseq=" + vo.getParent();
 	}
 	
 	// 글 삭제
@@ -220,9 +221,12 @@ public class TaskController {
 	}
 
 	// 글 상세 조회
-	@RequestMapping("/getTask.do")
-	public String getTask(TaskVO vo, Model model, HttpSession session) {
+	@RequestMapping(value="/getTask.do",method = {RequestMethod.GET, RequestMethod.POST})
+	public String getTask(TaskVO vo, Model model, HttpSession session,
+			@RequestParam(value="taskseq",required = false) String seq) {
 		UserVO user = (UserVO)session.getAttribute("user");
+		if(seq!=null)vo.setSeq(Integer.parseInt(seq));
+		System.out.println(vo.getSeq());
 		model.addAttribute("task", taskService.getTask(vo));
 		if(user.getAuth().equals("교수")) {
 			model.addAttribute("taskSubmitList", taskService.getTaskSubmit(vo)); // Model 정보 저장
