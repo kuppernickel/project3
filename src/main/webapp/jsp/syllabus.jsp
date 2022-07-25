@@ -53,7 +53,16 @@
                         href="getsyllabus.do?subjectCode=${subjectCode}">수업계획서</a>
                     </li>
                     
-					<div class="loginInfo">"${user.name}"님</div>
+					<div class="loginInfo">${user.name}
+		                <c:choose>
+			                <c:when test="${user.auth eq '학생'}">
+		                	학생
+		                	</c:when>
+		                	<c:otherwise>
+		                	교수
+		                	</c:otherwise>
+		                </c:choose>
+	                </div>
 	                <!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
                 </ul>
             </div>
@@ -80,30 +89,26 @@
         
             <thead><tr>
                 <th style="width:15%;">교과목명</th>
-                <td style="width:35%;">${syllaList.lessonName }</td>
-             
+                <td style="width:35%;" colspan="3">${syllaList.lessonName }</td>
             </tr></thead>
             <tbody><tr>
  		
  			    <th>학점/시간</th>
-               	<td>${syllaList.grades}</td>
-               	
+               	<td colspan="3">${syllaList.grades}</td>
 			</tr>
 		
             <tr>
                 <th>대상학년</th>
-                <td>${syllaList.professor.level }</td>
-                
+                <td colspan="3">${syllaList.professor.level }</td>             
             </tr>
             <tr>
                 <th>교수명</th>
-                <td>${syllaList.professor.name}</td>
-             
+                <td colspan="3">${syllaList.professor.name}</td>
             </tr>
 
           	<tr>
           		   <th>연락처/이메일</th>
-                <td>${syllaList.professor.mobile }</td>
+                <td colspan="3">${syllaList.professor.mobile }</td>
           	</tr>
             <tr>
                 <th>교수명</th>

@@ -9,6 +9,10 @@ center{
     text-align: left;
 }
 
+.loginInfo{
+	text-align: right;
+}
+
 .postInfo{
     text-align: left;
     padding-bottom: 1rem;
@@ -32,6 +36,17 @@ img{
     width: 1px;
     height: 9px;
     margin: 0 9px;
+}
+
+.download{
+	display:flex;
+	margin-top: 2rem;
+	position:relative;
+	align-items: baseline;
+}
+.downloadText{
+	font-size:2rem;
+	margin-right:1rem;
 }
 
 @media screen and (max-width: 1024px){

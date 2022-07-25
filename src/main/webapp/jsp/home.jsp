@@ -92,7 +92,7 @@
                 <table class="table table-hover">
                     <thead>
                     <tr style='colspan:"4"; background: #f5f5f5';>
-                        <th><a class="aTag" href="gettaskstatus.do?subjectCode=${subjectCode}">과제 목록<ion-icon name="add-circle-outline"></ion-icon></a></th>
+                        <th>과제 목록</th>
                         <th></th>
                         <th></th>
                     </tr>

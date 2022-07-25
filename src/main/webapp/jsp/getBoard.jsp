@@ -52,9 +52,10 @@
 	                        <a style="color: black" class="nav-link" 
 	                        href="getsyllabus.do?subjectCode=${subjectCode}">수업계획서</a>
 	                    </li>
+	                    				<div class="loginInfo">"${user.name}"님</div>
     	            </ul>
                 </c:if>
-				<div class="loginInfo">"${user.name}"님</div>
+
                	<!-- 로그아웃 버튼 사이드바와 중복되어 제외 -->
             </div>
 
@@ -89,18 +90,21 @@
 				</span>
 			</div>
 
-			<!-- 업로드 파일 다운링크 -->
-			<div>
+				
+			<!-- 게시글 내용 -->
+			<div class='content' name="content">
+				${board.content}
+			</div>
+			
+			
+						<!-- 업로드 파일 다운링크 -->
+			<div class='download'>
+				<span class='downloadText'> 다운로드 : </span>
 				<h2>
 					<a href="fileDownload.do?file=${board.fileName}&beforeName=${board.originalFileName}">
 						${board.originalFileName}
 					</a>
 				</h2>
-			</div>
-				
-			<!-- 게시글 내용 -->
-			<div class='content' name="content">
-				${board.content}
 			</div>
 			
 
