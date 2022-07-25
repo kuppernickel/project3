@@ -172,7 +172,7 @@ ion-icon {
 /* paging number */
 
 .listNum{
-    height: 100px;
+    padding:20px;
     text-align: center;
     position: relative;
 }

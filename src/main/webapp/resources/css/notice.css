@@ -62,7 +62,6 @@
 
 .tableWrap {
     width: 80rem;
-    height: 38rem;
     padding: 10px;
     table-layout: fixed;
     word-break: break-all;
@@ -78,7 +77,7 @@ table{
     table-layout: fixed;
     word-break: break-all;
     text-align: center;
-    width: 80rem;
+    width: 75rem;
 }
 
 tr td:nth-child(2){

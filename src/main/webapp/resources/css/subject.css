@@ -9,17 +9,19 @@ main{
 }
 
 .tableWrap{
-    padding: 30px;
-    height: 40rem;
-}
-
-table{
-    margin-left: 100px;
+    width: 80rem;
+    padding: 10px;
     table-layout: fixed;
     word-break: break-all;
     text-align: center;
-    width: 80rem;
-    overflow: auto;
+    margin: 0 auto;
+}
+
+table{
+    table-layout: fixed;
+    word-break: break-all;
+    text-align: center;
+    width: 75rem;
 }
 
 tr{
